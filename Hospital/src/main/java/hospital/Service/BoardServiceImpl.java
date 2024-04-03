@@ -1,9 +1,9 @@
-package shop.Service;
+package hospital.Service;
 
 import java.util.List;
 
-import shop.DAO.BoardDAO;
-import shop.DTO.Board;
+import hospital.DAO.BoardDAO;
+import hospital.DTO.Board;
 
 
 //비즈니스 로직 계층

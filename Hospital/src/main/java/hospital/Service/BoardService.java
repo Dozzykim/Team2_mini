@@ -2,7 +2,7 @@ package hospital.Service;
 
 import java.util.List;
 
-import shop.DTO.Board;
+import hospital.DTO.Board;
 
 
 /*

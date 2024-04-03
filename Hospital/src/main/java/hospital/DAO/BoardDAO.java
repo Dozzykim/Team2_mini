@@ -1,10 +1,10 @@
-package shop.DAO;
+package hospital.DAO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import shop.DTO.Board;
+import hospital.DTO.Board;
 
 /**
  *  데이터 접근 객체
@@ -39,8 +39,8 @@ public class BoardDAO extends JDBConnection {
 			  board.setTitle( rs.getString("title") );
 			  board.setUser_id(rs.getString("user_id"));
 			  board.setContent( rs.getString("content") );
-			  board.setRegDate( rs.getTimestamp("reg_date") );
-			  board.setUpdDate( rs.getTimestamp("upd_date") );
+			  board.setReg_date( rs.getTimestamp("reg_date") );
+			  board.setUpd_date( rs.getTimestamp("upd_date") );
 			  // 게시글 목록에 추가
 			  boardList.add(board);
 		   }
@@ -82,8 +82,8 @@ public class BoardDAO extends JDBConnection {
 					board.setTitle( rs.getString("title") );
 					board.setUser_id(rs.getString("user_id"));
 					board.setContent( rs.getString("content") );
-					board.setRegDate( rs.getTimestamp("reg_date") );
-					board.setUpdDate( rs.getTimestamp("upd_date") );
+					board.setReg_date( rs.getTimestamp("reg_date") );
+					board.setUpd_date( rs.getTimestamp("upd_date") );
 					
 				 }
 			  } catch(SQLException e) {
