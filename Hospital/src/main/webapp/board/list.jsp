@@ -11,6 +11,6 @@
 <title>게시글 목록</title>
 </head>
 <body>
-
+	
 </body>
 </html>
