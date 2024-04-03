@@ -62,4 +62,12 @@ public class BoardServiceImpl implements BoardService {
 		//			    1 --> 데이터 삭제 성공
 		return result;
 	}
+	
+	@Override
+	public int lastNo() {
+		// DB에 존재하는 게시글 번호중 제일 큰번호 가져오기
+		int no = boardDAO.lastNo();
+		
+		return no;
+	}
 }

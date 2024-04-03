@@ -30,7 +30,7 @@
 	<!-- 세션 따라오는지 체크  -->
 	<h3>${sessionScope.loginId} 님 환영합니다!</h3>
 	<h1>게시글 목록</h1>
-	<a href="<%= request.getContextPath() %>/board/insert.jsp">글쓰기</a>
+	<a href="<%= request.getContextPath() %>/board/list_pro.jsp">글쓰기</a>
 	<table border="1">
 		<tr>
 			<th>번호</th>

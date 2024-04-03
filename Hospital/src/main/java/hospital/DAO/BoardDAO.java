@@ -171,5 +171,26 @@ public class BoardDAO extends JDBConnection {
 		}
 		return result;
 	}
-
+	
+	public int lastNo() {
+		int lastNo = 0;
+		
+		String sql = " SELECT MAX(NO) "
+				   + " FROM BOARD ";
+		
+		try {
+			stmt = con.createStatement();	// 쿼리 실행 객체 생성
+			
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				lastNo = rs.getInt("MAX(NO)");
+			} 
+		} catch (SQLException e) {
+			System.err.println("게시글 삭제 시, 예외 발생");
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 }
