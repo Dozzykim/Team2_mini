@@ -1,5 +1,5 @@
 package hospital.DTO;
 
-public class User {
+public class Users {
 
 }
