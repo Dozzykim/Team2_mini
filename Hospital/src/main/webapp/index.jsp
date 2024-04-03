@@ -14,18 +14,19 @@
 	<h1>병원안내, 이용안내, 게시판, 진료예약</h1>
 	<c:if test="${sessionScope.loginId != null }">
 			<h5>${sessionScope.loginId }님 환영합니다.</h5>
-			<a href="logout.jsp">로그아웃</a>
+			<a href="<%= request.getContextPath() %>/user/logout.jsp">로그아웃</a>
 			<ul>
 				<li>
 					<a href="<%= request.getContextPath() %>/board/list.jsp">게시판으로 이동</a>
+					<a href="<%= request.getContextPath() %>/user/mypage.jsp">마이페이지로 이동</a>
 				</li>
 			</ul>
 		</c:if>
 		
 		<!-- 비로그인 시 -->
 		<c:if test="${sessionScope.loginId == null }">
-			<a href="join.jsp">회원 가입</a>
-			<a href="login.jsp">로그인</a>
+			<a href="<%= request.getContextPath() %>/user/join.jsp">회원 가입</a>
+			<a href="<%= request.getContextPath() %>/user/login.jsp">로그인</a>
 		</c:if>
 </body>
 </html>
