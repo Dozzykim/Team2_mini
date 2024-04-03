@@ -19,7 +19,6 @@ commit;
 
 -- 테이블 세팅
 
-
 CREATE TABLE Users (
 	user_id	VARCHAR2(40)		NOT NULL,
 	user_pw	VARCHAR2(40)		NOT NULL,
@@ -29,27 +28,25 @@ CREATE TABLE Users (
 	user_address	VARCHAR2(100)		NOT NULL
 );
 
+
+
 CREATE TABLE Board (
 	no	NUMBER		NOT NULL,
 	user_id	VARCHAR2(40)		NOT NULL,
-	admin_id	VARCHAR2(40)		NOT NULL,
 	category	VARCHAR2(40)		NULL,
 	title	VARCHAR2(40)		NOT NULL,
-	writer	VARCHAR2(40)		NOT NULL,
 	content	VARCHAR2(2000)		NOT NULL,
-	reg_date	DATE		NULL,
-	upd_date	DATE		NULL
+	reg_date	DATE		DEFAULT sysdate NOT NULL,
+	upd_date	DATE		DEFAULT sysdate NOT NULL
 );
 
 CREATE TABLE comments (
 	c_no	NUMBER		NOT NULL,
 	user_id	VARCHAR2(40)		NOT NULL,
-	admin_id	VARCHAR2(40)		NOT NULL,
 	c_Content	VARCHAR2(2000)		NOT NULL,
-	c_reg_date	DATE		NULL,
-	c_upd_date	DATE		NULL
+	c_reg_date	DATE		DEFAULT sysdate NOT NULL,
+	c_upd_date	DATE		DEFAULT sysdate NOT NULL
 );
-
 
 CREATE TABLE Reservation (
 	r_no	NUMBER		NOT NULL,
@@ -59,13 +56,12 @@ CREATE TABLE Reservation (
 	r_time	VARCHAR2(40)		NOT NULL
 );
 
-
 CREATE TABLE Admin (
 	admin_id	VARCHAR2(40)		NOT NULL,
 	admin_pw	VARCHAR2(40)		NOT NULL,
 	admin_name	VARCHAR2(40)		NOT NULL,
 	admin_age	VARCHAR2(40)		NOT NULL,
-	emp_date	DATE		NULL
+	emp_date	DATE		NOT NULL
 );
 
 ALTER TABLE Users ADD CONSTRAINT PK_USERS PRIMARY KEY (
@@ -95,25 +91,11 @@ REFERENCES Users (
 	user_id
 );
 
-ALTER TABLE Board ADD CONSTRAINT FK_Admin_TO_Board_1 FOREIGN KEY (
-	admin_id
-)
-REFERENCES Admin (
-	admin_id
-);
-
 ALTER TABLE comments ADD CONSTRAINT FK_Users_TO_comments_1 FOREIGN KEY (
 	user_id
 )
 REFERENCES Users (
 	user_id
-);
-
-ALTER TABLE comments ADD CONSTRAINT FK_Admin_TO_comments_1 FOREIGN KEY (
-	admin_id
-)
-REFERENCES Admin (
-	admin_id
 );
 
 ALTER TABLE Reservation ADD CONSTRAINT FK_Users_TO_Reservation_1 FOREIGN KEY (
@@ -123,7 +105,43 @@ REFERENCES Users (
 	user_id
 );
 
+
+--샘플 데이터 생성
+--유저
+INSERT INTO USERS (USER_ID, USER_PW, 
+
+
 commit;
+
+-- 시퀀스 생성
+--글번호
+CREATE SEQUENCE SEQ_BOARD_NO INCREMENT BY 1 START WITH 1 MINVALUE 1;
+--예약번호
+CREATE SEQUENCE SEQ_RES_NO INCREMENT BY 1 START WITH 1 MINVALUE 1;
+--댓글번호
+CREATE SEQUENCE SEQ_CMNT_NO INCREMENT BY 1 START WITH 1 MINVALUE 1;
+
+
+
+-- 샘플 데이터
+--유저 샘플
+INSERT INTO USERS (USER_ID, USER_PW, USER_NAME, USER_AGE,USER_PNO, USER_ADDRESS)
+VALUES('joeun', '123', '김조은', '990909','010-0000-0000', '한강자이');
+
+--게시글 샘플
+INSERT INTO BOARD(NO, TITLE, user_id, CONTENT)
+VALUES(SEQ_BOARD_NO.NEXTVAL, '행운의 편지', 'joeun', '이 편지는...');
+
+-- 예약 샘플
+INSERT INTO RESERVATION( R_NO, USER_ID, R_CATEGORY, R_DATE, R_TIME)
+VALUES(SEQ_RES_NO.NEXTVAL, 'joeun', '피부과', '2024/12/25', '9:00');
+
+--어드민 샘플
+INSERT INTO Admin (admin_id, admin_pw, admin_name, admin_age, emp_date)
+VALUES ('admin', '123456', '이병원', 27, '2024-01-31');
+
+
+
 
 -- 테이블 삭제
 drop table USERS cascade constraints PURGE;
@@ -133,3 +151,4 @@ DROP TABLE Reservation cascade constraints PURGE;
 DROP TABLE Admin cascade constraints PURGE;
 
 commit;
+
