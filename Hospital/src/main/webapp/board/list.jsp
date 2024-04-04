@@ -70,15 +70,14 @@
 			} %>
 	</table>
 	<button onclick="moveToInsert()">작성하기</button>
-	<button onclick="moveToMain()">누르면 404에러남/홈버튼만들고싶은데 경로 안먹음</button>
-	<a href="<%=request.getContextPath()%>/index.jsp">홈으로</a>	
+	<button onclick="moveToMain()">홈으로</button>
 	
 	
 	<!-- 푸터 -->
 	
 	
 	<!-- 스크립트 -->
-	<script>s
+	<script>
 		<%
 		String root = request.getContextPath();
 		%>
@@ -86,9 +85,10 @@
 	    function moveToInsert() {
 	            window.location.href="<%=root%>/board/insert.jsp";
 		}
+		
 		// 메인화면(index.jsp)으로 이동
 	    function moveToMain() {
-	            window.location.href="/index.jsp";
+	    	window.location.href="<%=root%>/index.jsp";
 		}
 	</script>
 </body>

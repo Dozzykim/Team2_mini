@@ -46,7 +46,7 @@
             alert("생년월일은 숫자로만 입력해야 합니다.");
             return false;
         }
-
+ 
         // 전화번호 유효성 검사 (숫자만 포함되어 있는지)
         var phone = document.getElementById("user_pno").value;
         var phoneRegex = /^[0-9]+$/;

@@ -22,7 +22,7 @@
 <body>
 
     <h1>예약</h1>
-
+	<h3>${sessionScope.loginId} 님 환영합니다!</h3>
     <form action="reserv_pro.jsp" method="post"> 
         <select name="r_category" id="r_category">
             <option value="외과">외과</option>

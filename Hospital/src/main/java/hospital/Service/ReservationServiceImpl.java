@@ -40,14 +40,10 @@ public class ReservationServiceImpl implements ReservationService{
 	
 	
 	public int insert(HttpServletRequest request, Reservation reservation) {
-	    HttpSession session = request.getSession();
-	    String sessionUserId = (String) session.getAttribute("user_id");
+		
+		int result = reservationDAO.insert(request, reservation);
 
-	    // 세션에서 가져온 user_id를 reservation 객체에 설정
-	    reservation.setUser_id(sessionUserId);
-
-	    // DAO에 전달
-	    return reservationDAO.insert(request, reservation);
+	    return result;
 	}
 
 

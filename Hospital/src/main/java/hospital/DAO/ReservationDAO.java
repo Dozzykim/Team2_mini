@@ -86,7 +86,7 @@ public class ReservationDAO extends JDBConnection{
 
 	    // 세션에서 user_id 가져오기
 	    HttpSession session = request.getSession();
-	    String sessionUserId = (String) session.getAttribute("user_id");
+	    String sessionUserId = (String) session.getAttribute("loginId");
 
 	    // 사용자의 세션 user_id와 예약 객체의 user_id가 일치하는 경우에만 예약을 추가합니다.
 	    if (sessionUserId != null && sessionUserId.equals(reservation.getUser_id())) {

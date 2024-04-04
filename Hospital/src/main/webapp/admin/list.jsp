@@ -11,6 +11,8 @@
 <title>게시글 목록</title>
 </head>
 <body>
-
+	<h1>아직~</h1>
+	<h1>관리자페이지</h1>
+	
 </body>
 </html>

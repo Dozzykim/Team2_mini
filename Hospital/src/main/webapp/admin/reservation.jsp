@@ -40,12 +40,6 @@
 					for(Reservation reservation : reservationList) {
 			%>
 						<tr>
-							
-							<%-- <td>
-								<a href="<%= request.getContextPath() %>/admin/list.jsp?no=<%= reservation.getR_no() %>" >
-									<%= reservation.getR_no() %>
-								</a>
-							</td> --%>
 							<td><%= reservation.getR_no() %></td>
 							<td><%= reservation.getUser_id() %></td>
 							<td><%= reservation.getR_category() %></td>
@@ -55,17 +49,13 @@
                                 <!-- 삭제 링크 -->
                                 <a href="<%= request.getContextPath() %>/reservation/reserv_del_a.jsp?no=<%= reservation.getR_no() %>"
                                 		onclick="return confirm('정말로 삭제하시겠습니까?')">예약취소</a>
-                                
+                                <button onclick="">예약취소</button>
                             </td>
-							
-							
 						</tr>
 			<%		}
 				}
 			%>
 		</table>
 	</div>
-	
-		
 </body>
 </html>
