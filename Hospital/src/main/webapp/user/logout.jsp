@@ -7,3 +7,27 @@
 
 	<!-- 로그아웃 기능만 있고, 페이지는 없음 -->
 	<!-- 로그아웃 버튼 클릭시 로그아웃 처리되면서 메인화면으로 바로 이동됨 -->
+<%
+	
+	// 자동 로그인 쿠키 삭제
+	Cookie cookieRememberMe = new Cookie("rememberId", "");
+	Cookie cookieToken = new Cookie("token", "");
+	cookieRememberMe.setPath("/");
+	cookieToken.setPath("/");
+	cookieRememberMe.setMaxAge(0);
+	cookieToken.setMaxAge(0);
+	
+
+	// 세션 무효화
+	session.invalidate();
+	
+	// 쿠키 전달
+	response.addCookie(cookieRememberMe);
+	response.addCookie(cookieToken);
+	
+	// 메인 페이지로 이동
+	// i) jsp 를 지정하여 이동
+	// response.sendRedirect("index.jsp");
+	// ii)) url 경로를 지정하여 이동
+	response.sendRedirect(request.getContextPath() + "/");
+%>

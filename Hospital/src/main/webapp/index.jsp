@@ -31,6 +31,7 @@
 		<c:if test="${sessionScope.loginId == null }">
 			<a href="<%= request.getContextPath() %>/user/join.jsp">회원 가입</a>
 			<a href="<%= request.getContextPath() %>/user/login.jsp">로그인</a>
+			<a href="<%= request.getContextPath() %>/admin/login.jsp">관리자로그인</a>
 		</c:if>
 		
 	<jsp:include page="/layout/script.jsp" />
