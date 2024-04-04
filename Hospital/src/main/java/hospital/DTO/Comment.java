@@ -10,6 +10,16 @@ public class Comment {
 	private Date reg_date;
 	private Date upd_date;
 	
+	public Comment () {
+		
+	}
+	
+	public Comment (String userId, String content) {
+		this.user_id = userId;
+		this.content = content;
+		this.reg_date = new Date();
+		this.upd_date = new Date();
+	}
 	
 	public int getNo() {
 		return no;

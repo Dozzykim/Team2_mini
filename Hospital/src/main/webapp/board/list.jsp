@@ -70,8 +70,7 @@
 				}
 			} %>
 	</table>
-	<a href="<%= request.getContextPath() %>/board/insert.jsp">작성하기</a>
-	<button onclick="doublecheck()">작성하기</button>
+	<button onclick="moveToInsert()">작성하기</button>
 	
 	
 	
@@ -84,7 +83,7 @@
 		String root = request.getContextPath();
 		%>
 		// 사용자에게 선택을 받는 함수
-	    function doublecheck() {
+	    function moveToInsert() {
 	            window.location.href= "<%= root%>/board/insert.jsp";
 		}
 	</script>
