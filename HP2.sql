@@ -46,6 +46,7 @@ CREATE TABLE comments (
 	c_Content	VARCHAR2(2000)		NOT NULL,
 	c_reg_date	DATE		DEFAULT sysdate NOT NULL,
 	c_upd_date	DATE		DEFAULT sysdate NOT NULL
+    b_no   NUMBER      NOT NULL
 );
 
 CREATE TABLE Reservation (
@@ -63,6 +64,16 @@ CREATE TABLE Admin (
 	admin_age	VARCHAR2(40)		NOT NULL,
 	emp_date	DATE		NOT NULL
 );
+
+-- 자동로그인 테이블
+CREATE TABLE persistent_logins (
+  p_no NUMBER NOT NULL PRIMARY KEY,
+  p_user_id varchar2(255) NOT NULL ,
+  p_token varchar2(255) NOT NULL ,
+  p_reg_date DATE DEFAULT SYSDATE NOT NULL,
+  p_upd_date DATE DEFAULT SYSDATE NOT NULL
+);
+
 
 ALTER TABLE Users ADD CONSTRAINT PK_USERS PRIMARY KEY (
 	user_id
@@ -105,6 +116,14 @@ REFERENCES Users (
 	user_id
 );
 
+ALTER TABLE Comments ADD CONSTRAINT FK_Board_TO_Comment_1 FOREIGN KEY (
+   b_no
+)
+REFERENCES Board (
+   no
+);
+
+
 
 --샘플 데이터 생성
 --유저
@@ -120,6 +139,9 @@ CREATE SEQUENCE SEQ_BOARD_NO INCREMENT BY 1 START WITH 1 MINVALUE 1;
 CREATE SEQUENCE SEQ_RES_NO INCREMENT BY 1 START WITH 1 MINVALUE 1;
 --댓글번호
 CREATE SEQUENCE SEQ_CMNT_NO INCREMENT BY 1 START WITH 1 MINVALUE 1;
+-- 시퀀스
+CREATE SEQUENCE SEQ_PER_LOGIN INCREMENT BY 1 MAXVALUE 1000000 MINVALUE 1;
+
 
 
 
@@ -149,6 +171,7 @@ DROP TABLE Board cascade constraints PURGE;
 DROP TABLE comments cascade constraints PURGE;
 DROP TABLE Reservation cascade constraints PURGE;
 DROP TABLE Admin cascade constraints PURGE;
+drop table persistent_logins;
 
 commit;
 
