@@ -19,6 +19,8 @@
 		BoardService boardService = new BoardServiceImpl();
 		int no = Integer.parseInt(request.getParameter("no"));
 		Board board = boardService.select(no);
+		String writer = board.getUser_id();
+		String loginId = (String)session.getAttribute("loginId");
 		
 		// 등록일자/수정일자를 yyyy-mm-dd형식으로 출력도와주는 클래스 생성
 		SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
@@ -38,7 +40,7 @@
 	<table border="1">
 		<tr>
 			<th>글번호</th>
-			<td><%= board.getNo() %></td>
+			<td><%= board.getNo() %>.</td>
 		</tr>
 		<tr>
 			<th>제목</th>
@@ -62,8 +64,10 @@
 	<% } %>
 	<div>
 		<a href="<%= request.getContextPath() %>/board/list.jsp">목록</a>
-		<a href="<%= request.getContextPath() %>/board/update.jsp?no=<%= board.getNo()%>">수정</a>
-		<a href="<%= request.getContextPath() %>/board/delete.jsp?no=<%= board.getNo()%>">삭제</a>
+		<c:if test="<%= writer.equals(loginId)%>">
+			<a href="<%= request.getContextPath() %>/board/update.jsp?no=<%= board.getNo()%>">수정</a>
+			<a href="<%= request.getContextPath() %>/board/delete.jsp?no=<%= board.getNo()%>">삭제</a>
+		</c:if>
 	</div>
 	
 	<form action="<%= request.getContextPath() %>/board/cmnt_pro.jsp" method="post">
