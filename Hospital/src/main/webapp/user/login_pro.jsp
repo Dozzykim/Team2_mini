@@ -1,13 +1,16 @@
+<%@page import="hospital.Service.UserServiceImpl"%>
+<%@page import="hospital.Service.UserService"%>
 <%@page import="hospital.DTO.Users"%>
+<%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%
 	String id = request.getParameter("id");
-	String password = request.getParameter("password");
+	String pw = request.getParameter("pw");
 	
 	Users user = new Users();
-	user.setId(id);
-	user.setPassword(password);
+	user.setUser_id(id);
+	user.setUser_pw(pw);
 	
 	// 로그인 요청
 	UserService userService = new UserServiceImpl();
@@ -78,18 +81,13 @@
 	// 자동 로그인(끝)
 	
 	
+	String root = request.getContextPath();
 	if( loginUser != null) {
 		// 로그인 성공
 		// 세션에 아이디 등록 후, 메인 페이지로 이동
-		session.setAttribute("loginId", loginUser.getId());
-		response.sendRedirect("index.jsp");
-	}
-	else {
-		// 로그인 실패
-		response.sendRedirect("login.jsp?msg=0");
+		session.setAttribute("loginId", loginUser.getUser_id() );
+		response.sendRedirect( root + "/index.jsp" );
 	}
 	
 	
-	
-	
-%>l>
+%>
