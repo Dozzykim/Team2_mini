@@ -7,10 +7,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>메인화면</title>
+	<meta charset="UTF-8">
+	<title>메인화면</title>
+	<jsp:include page="/layout/link.jsp" />
 </head>
 <body>
+	<!-- 헤더 -->
+	<jsp:include page="/layout/header.jsp" />
+	
 	<h1>병원안내, 이용안내, 게시판, 진료예약</h1>
 	<c:if test="${sessionScope.loginId != null }">
 			<h5>${sessionScope.loginId }님 환영합니다.</h5>
@@ -28,5 +32,8 @@
 			<a href="<%= request.getContextPath() %>/user/join.jsp">회원 가입</a>
 			<a href="<%= request.getContextPath() %>/user/login.jsp">로그인</a>
 		</c:if>
+		
+	<jsp:include page="/layout/script.jsp" />
+	
 </body>
 </html>

@@ -27,10 +27,11 @@ public class Board {
 	
 	// 생성자
 	public Board() {
-		this("제목없음", "글쓴이없음", "내용없음");
+		this("카테고리 없음","제목없음", "글쓴이없음", "내용없음");
 	}
 	
-	public Board(String title, String user_id, String content) {
+	public Board(String category, String title, String user_id, String content) {
+		this.category = category;
 		this.title = title;
 		this.user_id = user_id;
 		this.content = content;

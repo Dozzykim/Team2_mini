@@ -11,9 +11,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>게시글 상세조회</title>
+	<meta charset="UTF-8">
+	<title>게시글 상세조회</title>
 </head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <body>
 	<%
 		BoardService boardService = new BoardServiceImpl();
@@ -52,7 +53,7 @@
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td><%= simpleDate.format(board.getReg_date())%></td>
+			<td><%= simpleDate.format(board.getReg_date()) %></td>
 		</tr>
 		<tr>
 			<th>내용</th>
@@ -63,10 +64,10 @@
 		<h3>조회된 게시글이 없습니다.</h3>
 	<% } %>
 	<div>
-		<a href="<%= request.getContextPath() %>/board/list.jsp">목록</a>
+			<button onclick="moveToList()">목록</button>
 		<c:if test="<%= writer.equals(loginId)%>">
-			<a href="<%= request.getContextPath() %>/board/update.jsp?no=<%= board.getNo()%>">수정</a>
-			<a href="<%= request.getContextPath() %>/board/delete.jsp?no=<%= board.getNo()%>">삭제</a>
+			<button onclick="moveToUpdate()">수정</button>
+			<button onclick="doubleCheck()">삭제</button>
 		</c:if>
 	</div>
 	
@@ -80,6 +81,30 @@
 	
 	<!-- 푸터 -->
 	
+	<!-- 스크립트 -->
+	<script>
+		<%
+		String root = request.getContextPath();
+		%>
+		
+		// 선택받기
+	    function doubleCheck() {
+	        var choice = confirm("정말로 삭제하시겠습니까?");
+	        
+	        if (choice == true) {
+	            window.location.href= "<%= root%>/board/delete.jsp?no=<%= board.getNo()%>";
+	        }
+	    }
+		
+		// 수정페이지로 이동
+		function moveToUpdate() {
+			window.location.href= "<%=root%>/board/update.jsp?no=<%= board.getNo()%>";
+		}
+		// 리스트로 이동
+		function moveToList() {
+			window.location.href= "<%=root%>/board/list.jsp";
+		}
+	</script>
 	
 	
 </body>
