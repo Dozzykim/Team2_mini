@@ -5,7 +5,7 @@ import java.util.Date;
 public class Reservation {
 	private int r_no;
 	private String user_id;
-	private String r_category;;
+	private String r_category;
 	private Date r_date;
 	private String r_time;
 	

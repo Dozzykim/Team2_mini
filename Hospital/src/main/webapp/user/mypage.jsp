@@ -18,7 +18,7 @@
 
     <%
         // 세션에서 사용자 ID 가져오기
-        String sessionUserId = (String) session.getAttribute("user_id");
+        String sessionUserId = (String) session.getAttribute("loginId");
         
         // 세션에 사용자 ID가 없으면 로그인 페이지로 리다이렉트
         if (sessionUserId == null || sessionUserId.isEmpty()) {
