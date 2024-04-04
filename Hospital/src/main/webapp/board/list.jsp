@@ -1,4 +1,5 @@
 
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
 <%@page import="hospital.DTO.Board"%>
 <%@page import="hospital.Service.BoardServiceImpl"%>
@@ -20,24 +21,35 @@
 		BoardService boardService = new BoardServiceImpl();
 		List<Board> boardList = boardService.list();
 		session.setAttribute("loginId", "joeun");
+		SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
 	%>
 	
 	<!-- 헤더 -->
+	<a href="<%= request.getContextPath()%>/board/list.jsp">커뮤니티 게시판</a>
+	<a href="<%= request.getContextPath()%>/reservation/reserv.jsp">병원예약</a>
+	
+	
 	
 	
 	<!-- 컨텐츠 -->
-	
 	<!-- 세션 따라오는지 체크  -->
 	<h3>${sessionScope.loginId} 님 환영합니다!</h3>
 	<h1>게시글 목록</h1>
-	<a href="<%= request.getContextPath() %>/board/list_pro.jsp">글쓰기</a>
+	
+    <select>
+        <option value="total">전체</option>
+        <option value="1">외과</option>
+        <option value="2">피부과</option>
+        <option value="3">소아과</option>
+    </select>
+	
+	
 	<table border="1">
 		<tr>
 			<th>번호</th>
 			<th>제목</th>
 			<th>작성자</th>
 			<th>등록일자</th>
-			<th>수정일자</th>
 		</tr>
 		<% if (boardList == null || boardList.size() == 0) { %>
 		<tr>
@@ -47,18 +59,18 @@
 				for(Board board : boardList) {
 		%>
 					<tr>
-						<td><%= board.getNo() %></td>
+						<td><%= board.getNo() %>.</td>
 						<td>
-							<a href="<%= request.getContextPath()%>/board/read.jsp?no=<%=board.getNo()%>"><%= board.getTitle() %></a>
+							<a href="<%= request.getContextPath()%>/board/read.jsp?no=<%=board.getNo()%>">[<%= board.getCategory()%>] <%= board.getTitle() %></a>
 						</td>
 						<td><%= board.getUser_id() %></td>
-						<td><%= board.getReg_date() %></td>
-						<td><%= board.getUpd_date() %></td>
+						<td><%= simpleDate.format(board.getReg_date()) %></td>
 					</tr>
 		<%
 				}
 			} %>
 	</table>
+	<a href="<%= request.getContextPath() %>/board/insert.jsp">작성하기</a>
 	
 	
 	

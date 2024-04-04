@@ -17,11 +17,12 @@
 	<!-- 컨텐츠 -->
 	<!-- 세션 따라오는지 체크  -->
 	<h3>${sessionScope.loginId} 님 환영합니다!</h3>
+	<a></a>
 	<form action="<%= request.getContextPath() %>/board/insert_pro.jsp" method="post">
 		<table border="1">
 			<tr>
 				<th>글번호</th>
-				<td> <input type="text" name="boardNo" value="마지막글번호+1"/> </td>
+				<td> <input type="text" name="boardNo" value="${param.no}"/> </td>
 			</tr>
 			<tr>
 				<th>제목</th>

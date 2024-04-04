@@ -37,6 +37,7 @@ public class BoardDAO extends JDBConnection {
 			  // * "컬럼명"의 값을 특정 타입으로 변환
 			  board.setNo( rs.getInt("no") );
 			  board.setTitle( rs.getString("title") );
+			  board.setCategory(rs.getString("category"));
 			  board.setUser_id(rs.getString("user_id"));
 			  board.setContent( rs.getString("content") );
 			  board.setReg_date( rs.getTimestamp("reg_date") );
@@ -81,6 +82,7 @@ public class BoardDAO extends JDBConnection {
 					board.setNo( rs.getInt("no") );
 					board.setTitle( rs.getString("title") );
 					board.setUser_id(rs.getString("user_id"));
+					board.setCategory(rs.getString("category"));
 					board.setContent( rs.getString("content") );
 					board.setReg_date( rs.getTimestamp("reg_date") );
 					board.setUpd_date( rs.getTimestamp("upd_date") );
@@ -191,6 +193,6 @@ public class BoardDAO extends JDBConnection {
 			e.printStackTrace();
 		}
 		
-		return 0;
+		return lastNo+1;
 	}
 }
