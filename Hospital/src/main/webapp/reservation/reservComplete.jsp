@@ -7,10 +7,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>예약완료 시 진입페이지</title>
+    <meta charset="UTF-8">
+    <title>예약완료 시 진입페이지</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-
+    <h1>예약이 완료되었습니다!</h1>
+    <form action="../index.jsp" method="post"> 
+        <input type="submit" value="메인화면으로 가기"> 
+    </form>
+    
+    
 </body>
 </html>
