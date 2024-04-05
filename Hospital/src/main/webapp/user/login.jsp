@@ -52,6 +52,11 @@
                 <ul>
                     <li><input type="text" name="id" value="<%= userId %>" placeholder="아이디 입력"></li>
                     <li><input type="password"  name="pw" value="" placeholder="비밀번호 입력"></li>
+	                    <c:if test="${ param.msg==0 }">
+							<p style="color:red">
+								아이디 또는 비밀번호가 일치하지 않습니다.		
+							</p>
+						</c:if>
                     <li>
                         <div class="checkbox-container">
                             <%
@@ -85,5 +90,6 @@
 		
 	<!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp"></jsp:include>
+	
 </body>
 </html>

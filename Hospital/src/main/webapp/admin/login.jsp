@@ -10,22 +10,40 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인 화면</title>
+
+<jsp:include page="/layout/link_login_adm.jsp" />
+	
+	<!-- jQuery CDN 방식으로 포함하기 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- slick js FILE -->
+    <script src="js/slick.min.js"></script>
+    <!-- script -->
+    <script src="js/script.js"></script>
 </head>
 <body>
-<h1>로그인</h1>
 
+	<!-- 헤더 -->
+	<jsp:include page="../layout/header_adm.jsp"></jsp:include>
 	
 	<form action="login_pro.jsp" method="post">
-		<p> 아 이 디 : <input type="text" name="id" value=""> </p>
-		<p> 비밀번호 : <input type="password" name="pw" value=""> </p>
-	
-		
-		<c:if test="${ param.msg==0 }">
-		<p style="color:red">
-			아이디 또는 비밀번호가 일치하지 않습니다.		
-		</p>
-		</c:if>
-		<p><input type="submit" value="로그인"></p>
-	</form>
+	<div class="container">
+        <div class="inner">
+            <div class="main">
+                <h1>로그인</h1>
+                <ul>
+                    <li><input type="text" name="id" value="" placeholder="아이디 입력"></li>
+                    <li><input type="password"  name="pw" value="" placeholder="비밀번호 입력"></li>
+	                    <c:if test="${ param.msg==0 }">
+							<p style="color:red">
+								아이디 또는 비밀번호가 일치하지 않습니다.		
+							</p>
+						</c:if>
+                    
+                    <li><button type="submit">로그인</button></li>
+                    
+                </ul>
+            </form>
+	<!-- 푸터 -->
+	<jsp:include page="../layout/footer.jsp"></jsp:include>
 </body>
 </html>

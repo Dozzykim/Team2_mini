@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +29,8 @@
             <button onclick=moveToLogin()>확인</button>
         </div>
     </div>
+    
+     
     
 
     <footer class="footer">

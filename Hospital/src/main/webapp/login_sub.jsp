@@ -23,7 +23,8 @@
     <div class="inner">
         <ul>
             <li><a href="<%= request.getContextPath() %>/user/login.jsp"><span class="user">회원용<br>로그인</span></a></li>
-            <li><span class="admin">관리자용<br>로그인</span></li>
+            <li><a href="<%= request.getContextPath() %>/admin/login.jsp"><span class="admin">관리자용<br>로그인</span></a></li>
+            
         </ul>
     </div>
 </div>
