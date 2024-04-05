@@ -11,7 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>메인페이지</title>
 	
-	<!--  아래 css파일들 link.jsp로 연결하려했지만.. 서로 상대경로가 달라서 탈락. -->
+	<!-- link.jsp 상대경로가 달라서 구구절절 씀 -->
 	<!-- slick css FILE -->
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/slick.css">
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/slick-theme.css">
@@ -19,7 +19,6 @@
 	<!-- css -->
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/main.css">
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/reset.css">
-	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/complete_join.css">
 		
 	
 	<!-- jQuery CDN 방식으로 포함하기 -->
@@ -55,10 +54,9 @@
 			</div>
 			<div class="header_bottom">
 				<ul>
-					<li><a href="<%=request.getContextPath()%>/board/list.jsp">소통해요</a></li>
-					<li><a
-						href="<%=request.getContextPath()%>/reservation/reserv.jsp">진료예약</a></li>
-					<li><a href="#none">병원 소개</a></li>
+					<li><a href="<%=request.getContextPath()%>/board/list_test.jsp?category=total">소통해요</a></li>
+					<li><a href="<%=request.getContextPath()%>/reservation/reserv.jsp">진료예약</a></li>
+					<li><a href="<%=request.getContextPath()%>/HPinfo.jsp">병원 소개</a></li>
 				</ul>
 			</div>
 		</div>

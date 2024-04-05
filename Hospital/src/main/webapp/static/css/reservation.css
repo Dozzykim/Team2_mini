@@ -17,10 +17,19 @@
 .container .inner .board_area h1 {
     font-size: 60px;
     font-weight: bold;
-    margin: 70px 0 30px;
+
+    margin: 70px 0px 30px;
+    text-align: center;
+}
+
+.container .inner .board_area h1 img {
+    width: 35%;
+    margin-bottom: -12px;
+    margin-right: 10px;
 }
 .container .inner .board_area p {
     font-size: 18px;
+    text-align: center;
 }
 
 .container .inner .board_area .action_area {

@@ -1,0 +1,89 @@
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container .inner {
+    width: 100%;
+}
+
+.container h1 {
+    font-size: 60px;
+    font-weight: bold;
+    margin: 70px 0px 30px;
+    text-align: center;
+}
+
+.container h1 img {
+    margin-bottom: -15px;
+    margin-right: 10px;
+    height: 80px;
+    width: 80px;
+}
+
+.container p {
+    font-size: 14px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    max-width: 800px; 
+    margin: 50px auto 20px;
+
+    border-collapse: collapse;
+    border: 1px solid #ccc; 
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc; 
+}
+
+thead {
+    background-color: #D7F5D2;
+    border-bottom: 2px solid #ccc;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+input[type="text"], textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 14px;
+}
+
+textarea {
+    height: 450px;
+}
+
+.table-wrapper {
+    position: relative; /* 상대적 위치 지정 */
+    width: 100%; /* 테이블 컨테이너의 너비를 100%로 설정합니다. */
+    max-width: 800px; /* 테이블 컨테이너의 최대 너비를 800px로 설정합니다. */
+    margin: 50px auto 150px;
+}
+
+
+#insert {
+    position: absolute; /* 버튼의 위치를 절대적으로 설정합니다. */
+    bottom: -70px; /* 테이블 아래에 위치하도록 설정합니다. */
+    right: 0; /* 오른쪽 정렬 */
+}
+
+#insert button {
+    border-radius: 5px;
+    padding: 15px 30px;
+    background-color: #8AC9F5;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    border: none;
+}
