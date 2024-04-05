@@ -18,7 +18,7 @@
 	<h1>병원안내, 이용안내, 게시판, 진료예약</h1>
 	<c:if test="${sessionScope.loginId != null }">
 			<h5>${sessionScope.loginId }님 환영합니다.</h5>
-			<a href="<%= request.getContextPath() %>/user/logout.jsp">로그아웃</a>
+			<a href="<%= request.getContextPath() %>/login/logout.jsp">로그아웃</a>
 			<ul>
 				<li>
 					<a href="<%= request.getContextPath() %>/admin/boardList.jsp">게시판으로 이동</a>
@@ -29,9 +29,9 @@
 		
 		<!-- 비로그인 시 -->
 		<c:if test="${sessionScope.loginId == null }">
-			<a href="<%= request.getContextPath() %>/user/join.jsp">회원 가입</a>
-			<a href="<%= request.getContextPath() %>/user/login.jsp">로그인</a>
-			<a href="<%= request.getContextPath() %>/admin/login.jsp">관리자로그인</a>
+			
+			
+			<a href="<%= request.getContextPath() %>/admin/login.jsp">로그인</a>
 		</c:if>
 		
 	<jsp:include page="/layout/script.jsp" />
