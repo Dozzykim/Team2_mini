@@ -10,12 +10,14 @@
 .container .inner .board_area {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
 .container .inner .board_area h1 {
     font-size: 60px;
     font-weight: bold;
+
     margin: 70px 0px 30px;
     text-align: center;
 }

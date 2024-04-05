@@ -7,22 +7,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>회원가입</title>
+<meta charset="UTF-8">
+<title>회원가입</title>
 	<jsp:include page="/layout/link_join.jsp" />
-    
-
-    <!-- jQuery CDN 방식으로 포함하기 -->
+	<!-- jQuery CDN 방식으로 포함하기 -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- slick js FILE -->
-    <script src="js/slick.min.js"></script>
-    <!-- script -->
-    <script src="js/script.js"></script>
-    <script>
+    
+<script>
     function validateForm() {
         var password = document.getElementById("user_pw").value;
         var confirmPassword = document.getElementById("confirmPassword").value;
@@ -48,11 +42,11 @@
             return false;
         }
 
-        // 주민등록번호 유효성 검사 (숫자와 '-'로만 이루어져 있는지)
+        // 생년월일 유효성 검사 (숫자만 포함되어 있는지)
         var age = document.getElementById("user_age").value;
-        var ageRegex = /^\d{6}-\d{7}$/;
+        var ageRegex = /^[0-9]+$/;
         if (!ageRegex.test(age)) {
-            alert("주민등록번호는 '000000-0000000' 형식으로 입력해야 합니다.");
+            alert("생년월일은 숫자로만 입력해야 합니다.");
             return false;
         }
  
@@ -68,47 +62,51 @@
     }
     
 </script>
-</head>
 
+
+
+</head>
 <body>
 	<!-- 헤더 -->
 	<jsp:include page="../layout/header.jsp"></jsp:include>
-
-    <div class="container">
-        <div class="inner">
-            <div class="join">
-                <h1>회원가입</h1>
-                    <c:if test="${param.msg == 0}">
-       					 <p style="color: red;">이미 아이디가 존재하고 있습니다.</p>
-   					 </c:if>
-                <form action="join_pro.jsp" method="post" onsubmit="return validateForm()">
-                <ul>
-                    <li>
-                        <input type="text" name="user_name" id="user_name" placeholder="이름">
-                    </li>
-                    <li>
-                        <input type="text"  name="user_id" placeholder="아이디" id="user_id">
-                      
-                    </li>
-                    <li><input type="password" name="user_pw" placeholder="비밀번호" id="user_pw"></li>
-                    <li><input type="password" name="confirmPassword" id="confirmPassword" placeholder="비밀번호확인"></li>
-                    <li><input type="text" name="user_age" id="user_age" placeholder="주민등록번호"></li>
-                    <li><input type="text"  name="user_pno" id="user_pno" placeholder="연락처"></li>
-                    <li><input type="text" name="user_address" id="user_address" placeholder="주소"></li>
-                    <li><a href="<%=request.getContextPath() %>/user/join_pro.jsp" class="join_btn"><button>회원가입</button></a></li>
-                    <li class="log_area"><span>계정이 있으십니까?</span><a href="<%=request.getContextPath() %>/user/login.jsp" class="log_btn">로그인</a></li>
-                </ul>
-                    </form>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
- <!-- 푸터 -->
+    <h1>회원 가입</h1>
+    <c:if test="${param.msg == 0}">
+        <p style="color: red;">이미 아이디가 존재하고있습니다.</p>
+    </c:if>
+    <form action="join_pro.jsp" method="post" onsubmit="return validateForm()">
+         <p>
+            <label for="user_id">아이디</label>
+            <input type="text" name="user_id" id="user_id" />
+        </p>
+        <p>
+            <label for="user_pw">비밀번호</label>
+            <input type="password" name="user_pw" id="user_pw" />
+        </p>
+        <p>
+            <label for="confirmPassword">비밀번호 확인:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </p>
+        <p>
+            <label for="user_name">이름</label>
+            <input type="text" name="user_name" id="user_name" />
+        </p>
+        <p>
+            <label for="user_age">생년월일</label>
+            <input type="text" name="user_age" id="user_age" />
+        </p>
+        <p>
+            <label for="user_pno">전화번호</label>
+            <input type="text" name="user_pno" id="user_pno" />
+        </p>
+        <p>
+            <label for="user_address">주소</label>
+            <input type="text" name="user_address" id="user_address" />
+        </p>
+        <input type="submit" value="회원가입" />
+    </form>
+    
+    <!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp"></jsp:include>
+	
 </body>
-
 </html>
