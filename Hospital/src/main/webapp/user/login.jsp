@@ -10,9 +10,18 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인 화면</title>
+	<jsp:include page="/layout/link_login_main.jsp" />
+	
+	<!-- jQuery CDN 방식으로 포함하기 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- slick js FILE -->
+    <script src="js/slick.min.js"></script>
+    <!-- script -->
+    <script src="js/script.js"></script>
+
 </head>
 <body>
-<h1>로그인</h1>
+
 <%
 	// 아이디 저장
 	String rememberId = "";
@@ -31,35 +40,50 @@
 	}
 		
 %>
+
+	<!-- 헤더 -->
+	<jsp:include page="../layout/header.jsp"></jsp:include>
+	
 	<form action="login_pro.jsp" method="post">
-		<p> 아 이 디 : <input type="text" name="id" value="<%= userId %>"> </p>
-		<p> 비밀번호 : <input type="password" name="pw" value=""> </p>
-		<p>
-		<%
-			if( rememberId != null && rememberId.equals("on") ) {
-		%>
-			<input type="checkbox" name="rememberId" id="remember-id" checked />
-		<%
-			}
-			else {
-		%>				
-			<input type="checkbox" name="rememberId" id="remember-id" />
-		<%
-			}
-		%>				
-				
-			<label for="remember-id">아이디 저장</label>
-		</p>
-		<p>
-			<input type="checkbox" name="rememberMe" id="remember-me">
-			<label for="remember-me">자동 로그인</label>
-		</p>
-		<c:if test="${ param.msg==0 }">
-		<p style="color:red">
-			아이디 또는 비밀번호가 일치하지 않습니다.		
-		</p>
-		</c:if>
-		<p><input type="submit" value="로그인"></p>
-	</form>
+	<div class="container">
+        <div class="inner">
+            <div class="main">
+                <h1>로그인</h1>
+                <ul>
+                    <li><input type="text" name="id" value="<%= userId %>" placeholder="아이디 입력"></li>
+                    <li><input type="password"  name="pw" value="" placeholder="비밀번호 입력"></li>
+                    <li>
+                        <div class="checkbox-container">
+                            <%
+                                // 첫 번째 로그인 폼의 아이디 저장 체크박스
+                                if( rememberId != null && rememberId.equals("on") ) {
+                            %>
+                                <input type="checkbox" name="rememberId" id="remember-id" checked />
+                            <%
+                                }
+                                else {
+                            %>                
+                                <input type="checkbox" name="rememberId" id="remember-id" />
+                            <%
+                                }
+                            %>
+                            <label for="remember-id">아이디 저장&emsp;&emsp;</label>
+                            <input type="checkbox" name="rememberMe" id="auto-login">
+                            <label for="auto-login">자동 로그인</label>
+                        </div>
+                    </li>
+                    <li><button type="submit">로그인</button></li>
+                    <li><p>계정이 없으십니까?</p><a href="<%= request.getContextPath() %>/user/join.jsp">회원가입</a></li>
+                </ul>
+            </form>
+       
+
+    
+		
+		
+		
+		
+	<!-- 푸터 -->
+	<jsp:include page="../layout/footer.jsp"></jsp:include>
 </body>
 </html>
