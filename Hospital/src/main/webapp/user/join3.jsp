@@ -12,7 +12,10 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-
+	<jsp:include page="/layout/link_join.jsp" />
+	<!-- jQuery CDN 방식으로 포함하기 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
 <script>
     function validateForm() {
         var password = document.getElementById("user_pw").value;
@@ -57,10 +60,15 @@
         
         return true;
     }
+    
 </script>
+
+
 
 </head>
 <body>
+	<!-- 헤더 -->
+	<jsp:include page="../layout/header.jsp"></jsp:include>
     <h1>회원 가입</h1>
     <c:if test="${param.msg == 0}">
         <p style="color: red;">이미 아이디가 존재하고있습니다.</p>
@@ -96,5 +104,9 @@
         </p>
         <input type="submit" value="회원가입" />
     </form>
+    
+    <!-- 푸터 -->
+	<jsp:include page="../layout/footer.jsp"></jsp:include>
+	
 </body>
 </html>

@@ -7,7 +7,7 @@
     width: 100%;
 }
 
-.container .inner .main {
+.container .inner .join {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,68 +15,74 @@
     position: relative;
 }
 
-.container .inner .main h1 {
+.container .inner .join h1 {
     font-size: 60px;
     font-weight: bold;
     margin: 70px;
 }
 
-.container .inner .main ul {
+.container .inner .join ul {
     position: relative;
 }
 
-.container .inner .main ul li {
+.container .inner .join ul li {
     padding: 10px 0;
     position: relative;
 }
 
-.container .inner .main ul li input[type="text"],
-.container .inner .main ul li input[type="password"] {
+.container .inner .join ul li input {
     border-radius: 5px;
     height: 60px;
-    width: 350px;
-    border: 1px solid #ccc;
-    padding: 8px;
+    width: 600px;
+    border: 1px solid #ccc; 
+    padding: 8px; 
     background-color: #D0EBFE;
     font-size: 15px;
 }
 
-.container .inner .main ul li input::placeholder {
+.container .inner .join ul li input::placeholder {
     color: #999;
     font-size: 18px;
     padding-left: 10px;
 }
 
-.container .inner .main .checkbox-container {
-    text-align: center;
+.container .inner .join ul li a.over_btn {
+    position: absolute;
+    right: 3px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.container .inner .main .checkbox-container label {
-    margin-left: 5px;
+
+.container .inner .join ul li a button {
+    background-color: #8AC9F5;
+    border-style: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    color : white;
+    font-size: 18px;
+    cursor: pointer;
+
 }
 
-.container .inner .main ul li{
+.container .inner .join ul li{
     text-align: center;
     
 }
 
-.container .inner .main ul li button {
-    background-color: #8AC9F5;
-    color: white;
-    border: none;
-    margin-top: 15px;
-    padding: 15px 30px;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
+.container .inner .join ul li a.join_btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
 }
 
-.container .inner .main ul li p {
+.container .inner .join ul li span {
     color : black;
     margin-bottom: 10px;
 }
 
-.container .inner .main ul li a {
+.container .inner .join ul li a {
     text-align: center;
     line-height: 20px;
     color: #007bff;

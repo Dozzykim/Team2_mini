@@ -1,0 +1,61 @@
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container .inner {
+    width: 100%;
+}
+
+.container .inner .board_area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .inner .board_area h1 {
+    font-size: 60px;
+    font-weight: bold;
+    margin: 70px 0 30px;
+}
+.container .inner .board_area p {
+    font-size: 18px;
+}
+
+.container .inner .board_area .action_area {
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.container .inner .board_area .action_area form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.container .inner .board_area .action_area form select {
+    width: 300px;
+    padding: 20px 18px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 18px;
+    color: gray;
+}
+.container .inner .board_area .action_area button {
+    background-color: #8AC9F5;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    position: relative; 
+    margin-top: 20px; 
+    margin-bottom: 30px;
+    color: white;
+    font-size: 18px;
+}
+
