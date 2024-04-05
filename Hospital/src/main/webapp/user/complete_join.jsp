@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +11,7 @@
     
     <!-- css  -->
     <jsp:include page="../layout/link.jsp" />
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/complete_join.css">
     
     <!-- js -->
     <jsp:include page="../layout/script.jsp" />
@@ -24,7 +26,7 @@
         <h1>" 회원가입 완료 "</h1>
         <h3>회원가입이 완료되었습니다.</h3>
         <div class="button-container">
-            <button onclick=moveToMain()>확인</button>
+            <button onclick=moveToLogin()>확인</button>
         </div>
     </div>
     
@@ -55,7 +57,7 @@
 	    <%
 		String root = request.getContextPath();
 		%>
-	    function moveToMain() {
+	    function moveToLogin() {
 	    	window.location.href="<%=root%>/user/login.jsp";
 		}
     </script>
