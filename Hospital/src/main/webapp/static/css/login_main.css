@@ -1,0 +1,68 @@
+.container {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container .inner .main {
+    text-align: center;
+}
+
+.container .inner .main h1 {
+    font-size: 60px;
+    margin-top: 80px;
+    font-weight: bold;
+}
+
+.container .inner .main ul {
+    list-style-type: none;
+    padding-top: 70px;
+}
+
+.container .inner .main ul li {
+    margin-bottom: 20px;
+}
+
+.container .inner .main ul li input[type="text"] {
+    border-radius: 5px;
+    height: 60px;
+    width: 350px;
+    border: 1px solid #ccc; 
+    padding: 8px; 
+    background-color: #D0EBFE;
+    font-size: 15px;
+}
+
+/* 플레이스홀더 스타일 */
+.container .inner .main ul li input.text::placeholder {
+    color: #999;
+}
+
+.container .inner .main .checkbox-container {
+    text-align: center;
+}
+
+.container .inner .main .checkbox-container label {
+    margin-left: 5px; 
+}
+
+
+.container .inner .main ul li button {
+    background-color: #8AC9F5;
+    color: white;
+    border: none;
+    margin-top: 15px;
+    padding: 15px 30px;
+    border-radius: 5px;
+}
+
+
+.container .inner .main ul li p {
+    margin-top: 80px;
+    margin-bottom: 10px;
+}
+
+.container .inner .main ul li a {
+    color: #007bff;
+    text-decoration: none;
+}
