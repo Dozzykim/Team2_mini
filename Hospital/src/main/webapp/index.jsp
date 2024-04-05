@@ -23,6 +23,7 @@
 				<li>
 					<a href="<%= request.getContextPath() %>/board/list.jsp">게시판으로 이동</a>
 					<a href="<%= request.getContextPath() %>/user/mypage.jsp">마이페이지로 이동</a>
+					<a href="<%= request.getContextPath() %>/reservation/reserv.jsp">예약페이지로 이동</a>
 				</li>
 			</ul>
 		</c:if>
