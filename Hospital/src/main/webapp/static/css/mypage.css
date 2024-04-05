@@ -4,8 +4,9 @@
     height: 100%;
     position: relative;
     text-align: center;
-    
+    margin: 0 auto; /* 가로 중앙 정렬을 위한 margin 속성 */
 }
+
 
 .container h1 {
     font-weight: bold;

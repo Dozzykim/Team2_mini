@@ -1,4 +1,3 @@
-
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
 <%@page import="hospital.DTO.Board"%>
@@ -25,12 +24,6 @@
 		List<Board> boardList = boardService.list();
 		SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
 	%>
-	
-	<!-- 헤더 -->
-	<a href="<%= request.getContextPath()%>/board/list.jsp">커뮤니티 게시판</a>
-	<a href="<%= request.getContextPath()%>/reservation/reserv.jsp">병원예약</a>
-	
-	
 	
 	
 	<!-- 컨텐츠 -->
