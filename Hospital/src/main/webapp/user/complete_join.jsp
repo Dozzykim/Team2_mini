@@ -10,6 +10,7 @@
     
     <!-- css  -->
     <jsp:include page="../layout/link.jsp" />
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/complete_join.css">
     
     <!-- js -->
     <jsp:include page="../layout/script.jsp" />
