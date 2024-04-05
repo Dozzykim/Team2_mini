@@ -11,7 +11,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>메인페이지</title>
 	
-	<jsp:include href="<%= request.getContextPath()%>/layout/link.jsp" />
+	<!--  아래 css파일들 link.jsp로 연결하려했지만.. 서로 상대경로가 달라서 탈락. -->
+	<!-- slick css FILE -->
+	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/slick.css">
+	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/slick-theme.css">
+	
+	<!-- css -->
+	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/main.css">
+	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/reset.css">
+	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/complete_join.css">
+		
 	
 	<!-- jQuery CDN 방식으로 포함하기 -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -41,7 +50,7 @@
 					</c:if>
 				</ul>
 				<h1 class="main_name">
-					<a href="#none">더조은 종합병원</a>
+					<a href="<%= request.getContextPath()%>/index.jsp">더조은 종합병원</a>
 				</h1>
 			</div>
 			<div class="header_bottom">
