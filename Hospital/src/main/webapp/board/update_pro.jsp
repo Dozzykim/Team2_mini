@@ -23,7 +23,7 @@
 	String root = request.getContextPath();
 	if(result > 0) {
 		//수정 성공
-		response.sendRedirect( root + "/board/list.jsp");
+		response.sendRedirect( root + "/board/read.jsp?no=" + no);
 	} else { 
 		//수정 실패
 		response.sendRedirect( root + "/board/update.jsp?no=" + no + "&msg=0");

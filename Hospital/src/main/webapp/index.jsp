@@ -19,7 +19,6 @@
 	<!-- css -->
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/main.css">
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/reset.css">
-	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/complete_join.css">
 		
 	
 	<!-- jQuery CDN 방식으로 포함하기 -->
@@ -55,7 +54,7 @@
 			</div>
 			<div class="header_bottom">
 				<ul>
-					<li><a href="<%=request.getContextPath()%>/board/list.jsp">소통해요</a></li>
+					<li><a href="<%=request.getContextPath()%>/board/list_test.jsp?category=total">소통해요</a></li>
 					<li><a href="<%=request.getContextPath()%>/reservation/reserv.jsp">진료예약</a></li>
 					<li><a href="<%=request.getContextPath()%>/HPinfo.jsp">병원 소개</a></li>
 				</ul>

@@ -7,22 +7,17 @@
 <!-- 게시글 등록처리 구간 -->
     
 <%
+	String root = request.getContextPath();
+
 	// 앞에 form태그에 작성해서 넘겨준 파라미터를 변수에 저장
 	String title = request.getParameter("title");
 	String userId = request.getParameter("userId");
 	String content = request.getParameter("content");
 	String category = request.getParameter("category");
 	
-	switch (category) {
-		case "1" :
-			category = "외과";
-			break;
-		case "2" :
-			category = "피부과";
-			break;
-		case "3" :
-			category = "소아과";
-			break;
+	if (category.equals("none")) {
+		response.sendRedirect(root + "/board/insert.jsp?msg=0");
+		return;
 	}
 	
 	
@@ -31,14 +26,13 @@
 	BoardService boardService = new BoardServiceImpl();
 	int result = boardService.insert(board);
 	
-	String root = request.getContextPath();
 	
 	if (result > 0) {
 		// 등록 성공
 		response.sendRedirect(root + "/board/list.jsp");
 	} else {
 		// 등록 실패
-		response.sendRedirect(root + "/board/insert.jsp?no=&msg=0");
+		response.sendRedirect(root + "/board/insert.jsp?msg=0");
 	}
 	
 %>

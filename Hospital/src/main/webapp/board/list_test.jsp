@@ -1,4 +1,3 @@
-
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
 <%@page import="hospital.DTO.Board"%>
@@ -13,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+<meta charset="UTF-8">
 	<title>게시글 목록</title>
 	<jsp:include page="../layout/link.jsp" />
 </head>
@@ -24,21 +23,26 @@
 	BoardService boardService = new BoardServiceImpl();
 	List<Board> boardList = boardService.list();
 	SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
-	
+	String select = request.getParameter("category");
 	%>
 
 
 	<!-- 컨텐츠 -->
 	<!-- 세션 따라오는지 체크  -->
-	<h3>${sessionScope.loginId}님 환영합니다!</h3>
+	<h3>${sessionScope.loginId}님환영합니다!</h3>
 	<h1>게시글 목록</h1>
-
-	<select>
-		<option value="total">전체</option>
-		<option value="1">외과</option>
-		<option value="2">피부과</option>
-		<option value="3">소아과</option>
-	</select>
+	
+		<select name="category" id="category">
+			<option value="total">전체</option>
+			<option value="1">외과</option>
+			<option value="2">피부과</option>
+			<option value="3">소아과</option>
+		</select>
+		
+		<form action="list_pro.jsp" method="get">
+			<input type="text" placeholder="게시글 번호" name="boardNo"/>
+		<input type="submit" value="조회"/>
+	</form>
 
 
 	<table border="1">
@@ -50,22 +54,20 @@
 		</tr>
 		<%
 		if (boardList == null || boardList.size() == 0) {
-		%>
-		<tr>
-			<td colspan="5">조회된 게시글이 없습니다.</td>
-		</tr>
-		<%
+			%>
+			<tr>
+				<td colspan="5">조회된 게시글이 없습니다.</td>
+			</tr>
+			<%
 		} else {
 			for (Board board : boardList) {
 		%>
-		<tr>
-			<td><%=board.getNo()%>.</td>
-			<td><a
-				href="<%=request.getContextPath()%>/board/read.jsp?no=<%=board.getNo()%>">[<%=board.getCategory()%>]
-					<%=board.getTitle()%></a></td>
-			<td><%=board.getUser_id()%></td>
-			<td><%=simpleDate.format(board.getReg_date())%></td>
-		</tr>
+			<tr>
+				<td><%=board.getNo()%>.</td>
+				<td><a href="<%=request.getContextPath()%>/board/read.jsp?no=<%=board.getNo()%>">[<%=board.getCategory()%>]<%=board.getTitle()%></a> </td>
+				<td><%=board.getUser_id()%></td>
+				<td><%=simpleDate.format(board.getReg_date())%></td>
+			</tr>
 		<%
 			}
 		}
@@ -83,13 +85,14 @@
 		<%String root = request.getContextPath();%>
 		// 게시글 작성 화면으로 이동
 	    function moveToInsert() {
-	    	window.location.href= "<%=root%>/board/insert.jsp";
+	            window.location.href="<%=root%>/board/insert.jsp";
 		}
 		
 		// 메인화면(index.jsp)으로 이동
 	    function moveToMain() {
 	    	window.location.href="<%=root%>/index.jsp";
 		}
+		
 	</script>
 </body>
 </html>

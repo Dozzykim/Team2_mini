@@ -92,7 +92,7 @@
 	        var choice = confirm("정말로 삭제하시겠습니까?");
 	        
 	        if (choice == true) {
-	            window.location.href= "<%= root%>/board/delete.jsp?no=<%= board.getNo()%>";
+	            window.location.href= "<%=root%>/board/delete.jsp?no=<%= board.getNo()%>";
 	        }
 	    }
 		
