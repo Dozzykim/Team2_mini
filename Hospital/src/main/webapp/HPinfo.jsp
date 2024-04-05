@@ -43,8 +43,8 @@
 				<ul class="util">
 					<!-- 비로그인 시에만 보임 -->
 					<c:if test="${sessionScope.loginId == null }">
-						<li><a href="<%=request.getContextPath()%>/user/login.jsp">로그인</a></li>
-						<li><a href="<%=request.getContextPath()%>/user/join.js">회원가입</a></li>
+						<li><a href="<%=request.getContextPath()%>/login_sub.jsp">로그인</a></li>
+						<li><a href="<%=request.getContextPath()%>/user/join.jsp">회원가입</a></li>
 					</c:if>
 					<!-- 로그인 시에만 보임 -->
 					<c:if test="${sessionScope.loginId != null }">

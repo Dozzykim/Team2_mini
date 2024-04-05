@@ -16,14 +16,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
     
-	<jsp:include page="/layout/link_mypage.jsp" />
-
-   <!-- jQuery CDN 방식으로 포함하기 -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- slick js FILE -->
-    <script src="js/slick.min.js"></script>
-    <!-- script -->
-    <script src="js/script.js"></script>
+	<jsp:include page="/layout/link.jsp" />
+	<link href="<%= request.getContextPath() %>/static/css/mypage.css" rel="stylesheet"/>
+	
 </head>
 
 <body>
@@ -31,8 +26,6 @@
 	<jsp:include page="../layout/header.jsp"></jsp:include>
 
     <!-- 컨테이너 영역 -->
-
-
    
     <%
         // 세션에서 사용자 ID 가져오기
@@ -45,7 +38,6 @@
             ReservationService reservationService = new ReservationServiceImpl();
             List<Reservation> reservationList = reservationService.listByUserId(sessionUserId);
     %>
-    
 
     
     <div class="container">

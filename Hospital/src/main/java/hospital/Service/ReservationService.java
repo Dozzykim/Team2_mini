@@ -13,11 +13,11 @@ public interface ReservationService {
     List<Reservation> listByUserId(String userId);
     
 	// 예약 등록
-	int insert(HttpServletRequest request, Reservation reservation);
+	int insert(Reservation reservation);
 	
 	// 예약 삭제
 	int delete(int no);
 	
     // 중복 검사
-	boolean check(HttpServletRequest request, Reservation reservation);
+	int check(Reservation reservation);
 }
