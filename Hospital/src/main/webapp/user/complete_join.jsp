@@ -28,6 +28,8 @@
         </div>
     </div>
     
+     
+    
 
     <footer class="footer">
         <div class="inner3">
@@ -54,7 +56,7 @@
 		String root = request.getContextPath();
 		%>
 	    function moveToMain() {
-	    	window.location.href="<%=root%>/index.jsp";
+	    	window.location.href="<%=root%>/user/login.jsp";
 		}
     </script>
 </body>
