@@ -66,6 +66,9 @@
                 }
             %>
         </table>
+        <a href="<%=request.getContextPath()%>/index.jsp">
+				<button>홈으로</button>
+			</a>
     </div>
     <% } %>
 </body>

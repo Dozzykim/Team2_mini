@@ -13,10 +13,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>게시글 목록</title>
+	<meta charset="UTF-8">
+	<title>게시글 목록</title>
+	<jsp:include page="../layout/link.jsp" />
 </head>
 <body>
+	<!-- 헤더 -->
+	<jsp:include page="../layout/header.jsp" />
 	<%
 		BoardService boardService = new BoardServiceImpl();
 		List<Board> boardList = boardService.list();
@@ -74,7 +77,7 @@
 	
 	
 	<!-- 푸터 -->
-	
+	<jsp:include page="../layout/footer.jsp" />
 	
 	<!-- 스크립트 -->
 	<script>
