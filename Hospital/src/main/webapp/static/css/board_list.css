@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container .inner {
+    width: 100%;
+}
+
+.container h1 {
+    font-size: 60px;
+    font-weight: bold;
+    margin: 70px 0px 30px;
+    text-align: center;
+}
+
+.container h1 img {
+    margin-bottom: -15px;
+    margin-right: 10px;
+    height: 80px;
+    width: 80px;
+}
+
+.container p {
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+}
+
+.util_area form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.util_area form select {
+    padding: 8px 0;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 15px;
+    color: gray;
+    text-align: left;
+    width: 130px;
+    padding-left: 5px;
+}
+
+table {
+    width: 100%;
+    max-width: 800px; 
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc; 
+    font-size: 16px;
+}
+
+th {
+    padding : 15px 0;
+    background-color: #D0EBFE;
+    color: black;
+    font-size: 18px;
+}
+
+#write {
+	padding-top : 10px;
+	display: flex;
+	justify-content: end;
+	
+}
+
+.cont_tb {
+    position: relative; /* 상대적 위치 지정 */
+    margin: 0 auto;
+    width: 100%; /* 테이블 컨테이너의 너비를 100%로 설정합니다. */
+    max-width: 800px; /* 테이블 컨테이너의 최대 너비를 800px로 설정합니다. */
+
+}
+
+.util_area {
+    padding-top: 50px;
+}
+
+
+#write button {
+    border-radius: 5px;
+    padding: 15px 30px;
+    background-color: #8AC9F5;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    border: none;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.util_area {
+    width: 800px;
+    margin: 0 auto;
+    
+}
+
+.util_area ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#search button {
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: #8AC9F5;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    border: none;
+    height: 35px;
+
+}
+
+.util_area ul li input {
+    width: 200px; /* 너비 조정 */
+    height: 35px;
+    float: left;
+    margin-right: 5px;
+    border-radius: 5px;
+
+}

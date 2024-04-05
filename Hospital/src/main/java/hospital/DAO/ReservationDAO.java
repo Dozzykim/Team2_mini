@@ -21,7 +21,8 @@ public class ReservationDAO extends JDBConnection{
 		
 		// SQL
 		String sql = " SELECT * "
-				   + " FROM reservation ";
+				   + " FROM reservation "
+				   + " ORDER BY r_date";
 		
 		try {
 			stmt = con.createStatement();
@@ -54,7 +55,7 @@ public class ReservationDAO extends JDBConnection{
 	    List<Reservation> reservationList = new ArrayList<>();
 
 	    // SQL
-	    String sql = "SELECT * FROM reservation WHERE user_id = ?";
+	    String sql = "SELECT * FROM reservation WHERE user_id = ? ORDER BY r_date ";
 
 	    try {
 	        PreparedStatement pstmt = con.prepareStatement(sql);
@@ -81,21 +82,17 @@ public class ReservationDAO extends JDBConnection{
 	}
 	
 	// 데이터 등록
-	public int insert(HttpServletRequest request, Reservation reservation) {
+	public int insert(Reservation reservation) {
+		
 	    int result = 0;
 
-	    // 세션에서 user_id 가져오기
-	    HttpSession session = request.getSession();
-	    String sessionUserId = (String) session.getAttribute("loginId");
-
-	    // 사용자의 세션 user_id와 예약 객체의 user_id가 일치하는 경우에만 예약을 추가합니다.
-	    if (sessionUserId != null && sessionUserId.equals(reservation.getUser_id())) {
+	
 	        String sql = " INSERT INTO Reservation (r_no, user_id, r_category, r_date, r_time) " 
 	                   + " VALUES (SEQ_RES_NO.NEXTVAL, ?, ?, ?, ?) ";
 
 	        try {
 	            psmt = con.prepareStatement(sql); 
-	            psmt.setString(1, sessionUserId); // 세션에서 가져온 user_id 사용
+	            psmt.setString(1, reservation.getUser_id()); // 세션에서 가져온 user_id 사용
 	            psmt.setString(2, reservation.getR_category()); 
 	            psmt.setDate(3, new java.sql.Date(reservation.getR_date().getTime())); 
 	            psmt.setString(4, reservation.getR_time());
@@ -106,9 +103,7 @@ public class ReservationDAO extends JDBConnection{
 	            System.err.println("예약 진행 시, 예외 발생");
 	            e.printStackTrace();
 	        }
-	    } else {
-	        System.err.println("사용자 세션 정보와 예약 객체의 user_id가 일치하지 않습니다.");
-	    }
+	 
 
 	    return result;
 	}
@@ -116,26 +111,30 @@ public class ReservationDAO extends JDBConnection{
 	
 	
 	// 중복 확인 
-	public boolean check(HttpServletRequest request, Reservation reservation) {
-	    boolean result = false;
+	public int check(Reservation reservation) {
+		int result = 0;
 
 	    // 예약 객체에서 진료 날짜와 시간을 가져옴
 	    java.util.Date utilDate = reservation.getR_date(); // java.util.Date
 	    java.sql.Date r_date = new java.sql.Date(utilDate.getTime()); // java.sql.Date로 변환
 	    String r_time = reservation.getR_time();
+	    String r_category = reservation.getR_category();
 
 	    // SQL
-	    String sql = "SELECT * FROM reservation WHERE r_date = ? AND r_time = ?";
+	    String sql = "SELECT * FROM reservation WHERE r_date = ? AND r_time = ? AND r_category = ?";
 
 	    try {
 	        PreparedStatement pstmt = con.prepareStatement(sql);
 	        pstmt.setDate(1, r_date);
 	        pstmt.setString(2, r_time);
+	        pstmt.setString(3, r_category);
 	        ResultSet rs = pstmt.executeQuery();
 
-	        // 중복되는 예약이 있으면 결과를 true로 설정
+	        // 중복되는 예약이 있으면 결과를 1로 설정
 	        if (rs.next()) {
-	            result = true;
+	            result = 1;
+	        } else {
+	        	result = 0;
 	        }
 	    } catch (SQLException e) {
 	        System.err.println("중복 확인 시, 예외 발생");

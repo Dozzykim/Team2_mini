@@ -30,7 +30,6 @@
     </script>
     
 </head>
-<body>
 
     
 	<!-- <h3>${sessionScope.loginId} 님 환영합니다!</h3> -->
@@ -41,6 +40,10 @@
         <div class="board_area">
             <h1><img src="/image/reservation.png" alt="">예약</h1>
             <p>원하는 진료 과와 날짜 및 시간을 선택하여 빠르게 예약해 보세요!</p>
+            <br>
+            <c:if test="${param.msg == 0 }">
+            	<p style="color: red;">해당 시간대에는 예약이 존재합니다!</p>
+            </c:if>
             <div class="action_area">
                 <form action="reserv_pro.jsp" method="post">
                     <select name="r_category" id="r_category">

@@ -14,32 +14,19 @@
 <!-- 게시글 카테고리별 조회 -->
 
 <%
-	String category = request.getParameter("category");
+	int searchNo = Integer.parseInt(request.getParameter("searchNo"));
 
-	switch (category) {
-	case "1" :
-		category = "외과";
-		break;
-	case "2" :
-		category = "피부과";
-		break;
-	case "3" :
-		category = "소아과";
-		break;
-	default :
-		category = null;
-		break;
-	}
-
-	
+	/* BoardService boardService = new BoardServiceImpl();
+	Board board = boardService.select(searchNo);
+		
 	String root = request.getContextPath();
 	
-	if (category != null) {
-		response.sendRedirect(root + "/board/list_test.jsp?category=" + category);
-	} else {
-		response.sendRedirect(root + "/board/list_test.jsp");
-	}
+	if (board != null) {
+		response.sendRedirect(root + "/board/list.jsp?msg=" + searchNo);
+	} */
 	
+	// 여기부터!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	
-	
+	String root = request.getContextPath();
+	response.sendRedirect(root + "/board/list.jsp?msg=" + searchNo);
 %>

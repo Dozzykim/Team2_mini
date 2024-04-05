@@ -8,17 +8,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>로그인 화면</title>
+	<meta charset="UTF-8">
+	<title>로그인 화면</title>
 
-<jsp:include page="/layout/link_login_adm.jsp" />
-	
-	<!-- jQuery CDN 방식으로 포함하기 -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- slick js FILE -->
-    <script src="js/slick.min.js"></script>
-    <!-- script -->
-    <script src="js/script.js"></script>
+	<jsp:include page="/layout/link.jsp" />
+	<link href="<%= request.getContextPath() %>/static/css/sub.css" rel="stylesheet"/>
+	<link href="<%= request.getContextPath() %>/static/css/login_main_adm.css" rel="stylesheet"/>
+		
 </head>
 <body>
 

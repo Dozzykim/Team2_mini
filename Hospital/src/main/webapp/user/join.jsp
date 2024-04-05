@@ -13,7 +13,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>회원가입</title>
-	<jsp:include page="/layout/link_join.jsp" />
+	<jsp:include page="/layout/link.jsp" />
+	<link href="<%= request.getContextPath() %>/static/css/join.css" rel="stylesheet"/>
     
 
     <!-- jQuery CDN 방식으로 포함하기 -->
