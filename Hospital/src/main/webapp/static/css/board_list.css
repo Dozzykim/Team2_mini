@@ -69,13 +69,14 @@ th {
 }
 
 #write {
-	padding-top : 30px;
-    display: flex;
-    justify-content: end;
-
+	padding-top : 10px;
+	display: flex;
+	justify-content: end;
+	
 }
 
 .cont_tb {
+    position: relative; /* 상대적 위치 지정 */
     margin: 0 auto;
     width: 100%; /* 테이블 컨테이너의 너비를 100%로 설정합니다. */
     max-width: 800px; /* 테이블 컨테이너의 최대 너비를 800px로 설정합니다. */
@@ -87,7 +88,7 @@ th {
 }
 
 
-#write button{
+#write button {
     border-radius: 5px;
     padding: 15px 30px;
     background-color: #8AC9F5;
@@ -95,7 +96,6 @@ th {
     color: white;
     font-size: 18px;
     border: none;
-    margin-bottom : 50px;
 }
 
 strong {
