@@ -34,7 +34,7 @@ public class UserDAO extends JDBConnection {
 			// executeUpdate()
 			// : SQL (INSERT, UPDATE, DELETE)을 실행하고 적용된 데이터 개수를 int 타입으로 반환
 		} catch (SQLException e) {	
-			System.err.println("게시글 등록 시, 예외 발생");
+			System.err.println("회원가입시 시, 예외 발생");
 			e.printStackTrace();
 		}
 		return result;
