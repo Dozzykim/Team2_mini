@@ -2,4 +2,5 @@ eclipse.preferences.version=1
 encoding//src/main/webapp/HPinfo.jsp=UTF-8
 encoding//src/main/webapp/login_sub.jsp=UTF-8
 encoding//src/main/webapp/reservation/reservComplete.jsp=UTF-8
+encoding//src/main/webapp/user/login.jsp=UTF-8
 encoding/<project>=UTF-8

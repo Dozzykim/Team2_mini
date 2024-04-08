@@ -1,22 +1,63 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>예약완료 시 진입페이지</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가입 완료</title>
+    
+    <!-- css  -->
+    <jsp:include page="../layout/link.jsp" />
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/complete_reserv.css">
+    
+    <!-- js -->
+    <jsp:include page="../layout/script.jsp" />
+
 </head>
+
 <body>
-    <h1>예약이 완료되었습니다!</h1>
-    <form action="../index.jsp" method="post"> 
-        <input type="submit" value="메인화면으로 가기"> 
-    </form>
+	<!-- 헤더 -->
+	<jsp:include page="../layout/header.jsp" />
+
+    <div class="container">
+        <h1>" 예약 완료 "</h1>
+        <h3>예약이 완료되었습니다.</h3>
+        <div class="button-container">
+            <button onclick=moveToMain()>확인</button>
+        </div>
+    </div>
     
+
+    <footer class="footer">
+        <div class="inner3">
+            <div class="info">
+                <ul>
+                    <li></li>
+                    <li>영업 시간: 9:00 ~ 18: 00</li>
+                    <li>찾아오시는 길 :  인천광역시 부평구 부평1동 534-48</li>
+                    <li>전화번호 : 032 - 123 - 5678</li>
+                    
+                </ul>
+            </div>
+            <div class="joeun">
+                <p>THE JOEUN HOSPITAL</p>
+            </div>
+            <div class="copy_r">
+                <p>Copyright ⓒ The Joeun Hospital. All Rights Rerved</p>
+            </div>
+        </div>
+    </footer>
     
+    <script >
+	    <%
+		String root = request.getContextPath();
+		%>
+	    function moveToMain() {
+	    	window.location.href="<%=root%>/index.jsp";
+		}
+    </script>
 </body>
+
 </html>

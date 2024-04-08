@@ -14,14 +14,14 @@
 				
 					<!-- 비로그인 시에만 보임 -->
 					<c:if test="${sessionScope.loginId == null }">
-						<li><a href="<%= request.getContextPath() %>/login_sub.jsp">로그인</a></li>
-						<li><a href="<%=request.getContextPath()%>/user/join.jsp">회원가입</a></li>
+						<li><a href="<%= request.getContextPath() %>/admin/login.jsp">로그인</a></li>
+						
 					</c:if>
 					
 					<!-- 로그인 시에만 보임 -->
 					<c:if test="${sessionScope.loginId != null }">
-						<li><a href="<%=request.getContextPath()%>/user/logout.jsp">로그아웃</a></li>
-						<li><a href="<%=request.getContextPath()%>/user/mypage.jsp">마이페이지</a></li>
+						<li><a href="<%=request.getContextPath()%>/admin/logout.jsp">로그아웃</a></li>
+						
 					</c:if>
 				</ul>
 				<h1 class="main_name">
@@ -31,8 +31,9 @@
 			<div class="header_bottom">
 				<ul>
 					<li><a href="<%=request.getContextPath()%>/board/list.jsp">소통해요</a></li>
-					<li><a href="<%=request.getContextPath()%>/reservation/reserv.jsp">진료예약</a></li>
-					<li><a href="<%=request.getContextPath()%>/HPinfo.jsp">병원 소개</a></li>
+					<li><a
+						href="<%=request.getContextPath()%>/reservation/reserv.jsp">예약현황</a></li>
+					<li><a href="#none">병원 소개</a></li>
 				</ul>
 			</div>
 		</div>

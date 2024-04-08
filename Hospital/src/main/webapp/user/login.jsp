@@ -8,17 +8,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>로그인 화면</title>
-	<jsp:include page="/layout/link_login_main.jsp" />
-	
-	<!-- jQuery CDN 방식으로 포함하기 -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- slick js FILE -->
-    <script src="js/slick.min.js"></script>
-    <!-- script -->
-    <script src="js/script.js"></script>
-
+	<meta charset="UTF-8">
+	<title>로그인 화면</title>
+	<jsp:include page="/layout/link.jsp" />
+	<link href="<%= request.getContextPath() %>/static/css/login_main.css" rel="stylesheet"/>
 </head>
 <body>
 
@@ -52,6 +45,11 @@
                 <ul>
                     <li><input type="text" name="id" value="<%= userId %>" placeholder="아이디 입력"></li>
                     <li><input type="password"  name="pw" value="" placeholder="비밀번호 입력"></li>
+	                    <c:if test="${ param.msg==0 }">
+							<p style="color:red">
+								아이디 또는 비밀번호가 일치하지 않습니다.		
+							</p>
+						</c:if>
                     <li>
                         <div class="checkbox-container">
                             <%
@@ -77,11 +75,6 @@
                 </ul>
             </form>
        
-
-    
-		
-		
-		
 		
 	<!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp"></jsp:include>

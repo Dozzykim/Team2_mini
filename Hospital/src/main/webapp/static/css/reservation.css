@@ -10,14 +10,12 @@
 .container .inner .board_area {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
 .container .inner .board_area h1 {
     font-size: 60px;
     font-weight: bold;
-
     margin: 70px 0px 30px;
     text-align: center;
 }
@@ -54,6 +52,39 @@
     font-size: 18px;
     color: gray;
 }
+
+.container .inner .board_area .action_area form select {
+            width: 300px; /* 선택 요소와 datepicker의 너비를 동일하게 조정합니다. */
+            padding: 20px 18px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 18px;
+            color: gray;
+}
+
+.container .inner .board_area .action_area form #datepicker {
+    width: 300px;
+    padding: 20px 18px; 
+    margin: 10px 0; 
+    border-radius: 5px;
+    font-size: 18px; 
+    color: gray;
+    position: relative; 
+}
+
+.container .inner .board_area .action_area form .cal {
+	position: relative;
+}
+
+.container .inner .board_area .action_area form .cal i {
+	position: absolute;
+	right : 5%;
+	top : 50%;
+	transform : translateY(-50%);
+	cursor: pointer;
+}
+
+        
 .container .inner .board_area .action_area button {
     background-color: #8AC9F5;
     border: none;

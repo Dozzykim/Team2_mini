@@ -4,7 +4,7 @@
 <link href="<%= request.getContextPath() %>/static/css/reset.css" rel="stylesheet"/>
 <link href="<%= request.getContextPath() %>/static/css/main.css" rel="stylesheet"/>
 <link href="<%= request.getContextPath() %>/static/css/sub.css" rel="stylesheet"/>
-<link href="<%= request.getContextPath() %>/static/css/join.css" rel="stylesheet"/>
+<link href="<%= request.getContextPath() %>/static/css/reservation.css" rel="stylesheet"/>
 
 <!-- slick css FILE -->
 <link href="<%= request.getContextPath() %>/static/css/slick.css" rel="stylesheet"/>

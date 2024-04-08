@@ -175,25 +175,51 @@ public class BoardDAO extends JDBConnection {
 		return result;
 	}
 	
-	public int lastNo() {
-		int lastNo = 0;
+	
+	
+	
+	// 데이터 목록 - 카테고리 기준으로 조회
+	public List<Board> listByCategory(String category) {
+		// 게시글 목록을 담을 컬렉션 객체 생성
+		List<Board> boardList = new ArrayList<Board>();
 		
-		String sql = " SELECT MAX(NO) "
-				   + " FROM BOARD ";
-		
+		// SQL 작성
+		String sql = " SELECT * "
+				   + " FROM board "
+				   + " WHERE category = ? "
+				   + " ORDER BY no ";
 		try {
-			stmt = con.createStatement();	// 쿼리 실행 객체 생성
-			
-			rs = stmt.executeQuery(sql);
-			
-			while(rs.next()) {
-				lastNo = rs.getInt("MAX(NO)");
-			} 
-		} catch (SQLException e) {
-			System.err.println("게시글 삭제 시, 예외 발생");
-			e.printStackTrace();
+		   // 쿼리(SQL) 실행 객체 생성 - Statement (stmt)
+		   psmt = con.prepareStatement(sql);
+		   psmt.setString(1, category);
+		   
+		   // 쿼리(SQL) 실행 -> 결과  - ResultSet (rs)
+		   rs = psmt.executeQuery();
+		   
+		   // 조회 결과를 리스트(boardList)에 추가
+		   while( rs.next() ) {      // next() : 실행 결과의 다음 데이터로 이동
+			  Board board = new Board();
+			  
+			  // 결과 데이터 가져오기
+			  // rs.getXXX("컬럼명") --> 해당 컬럼의 데이터를 가져온다
+			  // * "컬럼명"의 값을 특정 타입으로 변환
+			  board.setNo( rs.getInt("no") );
+			  board.setTitle( rs.getString("title") );
+			  board.setCategory(rs.getString("category"));
+			  board.setUser_id(rs.getString("user_id"));
+			  board.setContent( rs.getString("content") );
+			  board.setReg_date( rs.getTimestamp("reg_date") );
+			  board.setUpd_date( rs.getTimestamp("upd_date") );
+			  // 게시글 목록에 추가
+			  boardList.add(board);
+		   }
+		} catch(SQLException e) {
+		   System.err.println("게시글 목록 조회 시, 예외 발생");
+		   e.printStackTrace();
 		}
-		
-		return lastNo+1;
-	}
+		// 게시글 목록 반환
+		return boardList;
+	 }
+	
+	
 }

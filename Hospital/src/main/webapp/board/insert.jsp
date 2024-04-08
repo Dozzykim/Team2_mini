@@ -56,7 +56,7 @@
 					</tbody>
 				</table>
 				<div id="insert">
-					<button>버튼</button>
+					<button>작성</button>
 				</div>
 			</form>
 		</div>

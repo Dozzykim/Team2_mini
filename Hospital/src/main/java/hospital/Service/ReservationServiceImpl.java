@@ -39,9 +39,9 @@ public class ReservationServiceImpl implements ReservationService{
 	}
 	
 	
-	public int insert(HttpServletRequest request, Reservation reservation) {
+	public int insert(Reservation reservation) {
 		
-		int result = reservationDAO.insert(request, reservation);
+		int result = reservationDAO.insert(reservation);
 
 	    return result;
 	}
@@ -59,21 +59,11 @@ public class ReservationServiceImpl implements ReservationService{
 
 
 	@Override // 중복검사
-	public boolean check(HttpServletRequest request, Reservation reservation) {
-	    boolean result = false;
-
-	    // 세션에서 user_id 가져오기
-	    HttpSession session = request.getSession();
-	    String sessionUserId = (String) session.getAttribute("user_id");
-
-	    // 사용자의 세션 user_id와 예약 객체의 user_id가 일치하는 경우에만 예약을 추가하고 중복을 확인
-	    if (sessionUserId != null && sessionUserId.equals(reservation.getUser_id())) {
-	        // DAO의 insertAndCheckDuplicate 메서드를 호출하여 예약을 추가하고 중복을 확인
-	        result = reservationDAO.check(request, reservation);
-	    } else {
-	        System.err.println("사용자 세션 정보와 예약 객체의 user_id가 일치하지 않습니다.");
-	    }
-
+	public int check(Reservation reservation) {
+	    int result = 0;
+	    ReservationDAO reservationDAO = new ReservationDAO();
+	    result = reservationDAO.check(reservation);
+	    System.out.println("결과값: " + result);
 	    return result;
 	}
 
