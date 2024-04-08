@@ -146,8 +146,8 @@ textarea {
     color: white;
     font-size: 16px;
     border: none;
+    margin-left: 10px;
 }
-
 
 
 .cont_tb2 table {
@@ -157,6 +157,12 @@ textarea {
     margin: 0 auto;
     width: 800px; /* 테이블 컨테이너의 너비를 100%로 설정합니다. */
     margin: 50px auto;
+}
+
+.cont_tb2 table th {
+	background-color: white;
+	border: none;
+	
 }
 
 .cont_tb2 td {
@@ -192,3 +198,6 @@ textarea {
     border: none;
 }
 
+#content {
+	resize: none;
+}
