@@ -1,59 +1,61 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>댓글</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Chat</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>댓글 목록</h1>
-	<h3>${sessionScope.loginId} 님 환영합니다!</h3>
-    <ul id="commentList">
-        <!-- 여기에 댓글 목록이 나열될 것입니다. -->
-    </ul>
-
-    <h2>댓글 작성</h2>
-    <form id="commentForm">
-        <input type="text" id="commentText" placeholder="댓글을 입력하세요">
-        <input type="submit" value="작성">
-    </form>
+    <div id="chat-box">
+        <!-- 채팅 메시지가 표시될 영역 -->
+    </div>
+    <input type="text" id="message" placeholder="메시지를 입력하세요">
+    <button id="send-btn">전송</button>
 
     <script>
-        $(document).ready(function() {
-            // 페이지 로드 시 댓글 목록을 가져옴
-            loadComments();
+        $(document).ready(function(){
+            // 메시지 전송 버튼 클릭 이벤트
+            $('#send-btn').click(function(){
+                var message = $('#message').val(); // 입력된 메시지 가져오기
+                sendMessage(message); // sendMessage 함수 호출
+                $('#message').val(''); // 입력 필드 비우기
+            });
 
-            // 댓글 작성 폼이 제출될 때
-            $("#commentForm").submit(function(event) {
-                // 폼 제출 이벤트를 막음
-                event.preventDefault();
+            // 엔터 키로도 메시지 전송할 수 있도록 설정
+            $('#message').keypress(function(event){
+                if(event.which == 13){ // 엔터 키 누르면
+                    $('#send-btn').click(); // 전송 버튼 클릭 이벤트 발생
+                }
+            });
 
-                // 입력된 댓글 내용을 가져옴
-                var commentText = $("#commentText").val();
-
-                // Ajax를 사용하여 서버에 댓글을 전송
+            // 채팅 메시지를 받아오는 함수
+            function fetchMessages(){
                 $.ajax({
-                    type: "POST",
-                    url: "addComment.jsp", // 댓글을 추가하는 서버 측 JSP 파일 경로
-                    data: { comment: commentText }, // 댓글 내용을 데이터로 전송
-                    success: function() {
-                        // 댓글이 성공적으로 추가된 후 댓글 목록을 다시 로드함
-                        loadComments();
-                        // 댓글 입력 필드를 초기화
-                        $("#commentText").val("");
+                    url: 'fetchMessages.jsp',
+                    method: 'GET',
+                    success: function(response){
+                        $('#chat-box').html(response); // 서버로부터 받은 메시지를 출력
                     }
                 });
-            });
-        });
+            }
 
-        // 댓글 목록을 가져오는 함수
-        function loadComments() {
-            $.get("getComments.jsp", function(data) { // 댓글을 가져오는 서버 측 JSP 파일 경로
-                // 서버에서 받은 HTML을 댓글 목록 영역에 삽입
-                $("#commentList").html(data);
-            });
-        }
+            // 채팅 메시지 전송 함수
+            function sendMessage(message){
+                $.ajax({
+                    url: 'sendMessage.jsp',
+                    method: 'POST',
+                    data: { message: message }, // 전송할 데이터
+                    success: function(){
+                        fetchMessages(); // 전송 후에는 채팅 메시지 갱신
+                    }
+                });
+            }
+
+            // 페이지 로드 후 초기 채팅 메시지 불러오기
+            fetchMessages();
+        });
     </script>
 </body>
 </html>
