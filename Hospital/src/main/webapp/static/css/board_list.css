@@ -29,13 +29,6 @@
     padding: 5px;
 }
 
-.util_area form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
 .util_area form select {
     padding: 8px 0;
     margin: 5px 0;
@@ -85,6 +78,9 @@ th {
 
 .util_area {
     padding-top: 50px;
+    width: 800px;
+    margin: 0 auto;
+    position: relative;
 }
 
 
@@ -102,11 +98,7 @@ strong {
     font-weight: bold;
 }
 
-.util_area {
-    width: 800px;
-    margin: 0 auto;
-    
-}
+
 
 .util_area ul {
     display: flex;
@@ -126,11 +118,28 @@ strong {
 
 }
 
-.util_area ul li input {
+.util_area form ul li:nth-child(2) {
+	position: absolute;
+	right : 0px;
+}
+
+
+.util_area form ul li input {
     width: 200px; /* 너비 조정 */
     height: 35px;
     float: left;
     margin-right: 5px;
     border-radius: 5px;
-
 }
+
+.util_area form ul li button {
+	border-radius: 5px;
+    padding: 10px 20px;
+    background-color: #8AC9F5;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    border: none;
+    height: 35px;
+}
+
