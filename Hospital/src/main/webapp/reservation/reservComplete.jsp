@@ -1,63 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+	pageEncoding="UTF-8"%>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>가입 완료</title>
-    
-    <!-- css  -->
-    <jsp:include page="../layout/link.jsp" />
-    <link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/complete_reserv.css">
-    
-    <!-- js -->
-    <jsp:include page="../layout/script.jsp" />
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>예약</title>
+	
+	<!-- css -->
+	<jsp:include page="../layout/link.jsp" />
+	<link rel="stylesheet" href="../static/css/complete_res.css">
+	
+	<!-- js -->
+	<jsp:include page="../layout/script.jsp" />
 </head>
 
 <body>
 	<!-- 헤더 -->
 	<jsp:include page="../layout/header.jsp" />
 
-    <div class="container">
-        <h1>" 예약 완료 "</h1>
-        <h3>예약이 완료되었습니다.</h3>
-        <div class="button-container">
-            <button onclick=moveToMain()>확인</button>
-        </div>
-    </div>
-    
-
-    <footer class="footer">
-        <div class="inner3">
-            <div class="info">
-                <ul>
-                    <li></li>
-                    <li>영업 시간: 9:00 ~ 18: 00</li>
-                    <li>찾아오시는 길 :  인천광역시 부평구 부평1동 534-48</li>
-                    <li>전화번호 : 032 - 123 - 5678</li>
-                    
-                </ul>
-            </div>
-            <div class="joeun">
-                <p>THE JOEUN HOSPITAL</p>
-            </div>
-            <div class="copy_r">
-                <p>Copyright ⓒ The Joeun Hospital. All Rights Rerved</p>
-            </div>
-        </div>
-    </footer>
-    
-    <script >
-	    <%
-		String root = request.getContextPath();
-		%>
-	    function moveToMain() {
-	    	window.location.href="<%=root%>/index.jsp";
-		}
-    </script>
+	<div class="container">
+		<div class="inner">
+			<div class="board_area">
+				<h1>
+					<img src="../static/img/reservation.png" alt="">예약
+				</h1>
+				<p>원하는 진료 과와 날짜 및 시간을 선택하여 빠르게 예약해 보세요!</p>
+				<div class="main_area">
+					<span>예약이 완료 되었습니다!<br>예약 된 시간에 맞춰 내원해 주세요.
+					</span> <a href="<%=request.getContextPath()%>/index.jsp"><button>확인</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 푸터 -->
+	<jsp:include page="../layout/footer.jsp" />
 </body>
 
 </html>

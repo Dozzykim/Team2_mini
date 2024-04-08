@@ -9,10 +9,13 @@
     pageEncoding="UTF-8"%>
 
 <%
+
 	String id = request.getParameter("user_id");
 	String pw = request.getParameter("user_pw");
 	String name = request.getParameter("user_name");
-	String age = request.getParameter("user_age");
+	String age1 = request.getParameter("user_age1"); // 주민등록번호 앞자리
+	String age2 = request.getParameter("user_age2"); // 주민등록번호 뒷자리
+	String age = age1 + '-' +  age2; 				 // 주민등록번호 전체
 	String pno = request.getParameter("user_pno");
 	String address = request.getParameter("user_address");
 	
@@ -20,9 +23,12 @@
 	user.setUser_id(id);
 	user.setUser_pw(pw);
 	user.setUser_name(name);
-	user.setUser_age(age);
+	user.setUser_age(age); 
 	user.setUser_pno(pno);
 	user.setUser_address(address);
+	
+
+
 	
 	// 회원 정보 등록 요청
 	UserService userService = new UserServiceImpl();
@@ -33,12 +39,12 @@
 	// 회원가입 성공
 	if( result > 0 ) {
 		response.sendRedirect(root + "/user/complete_join.jsp");
-		session.setAttribute("loginId", user.getUser_id());
 	}
 	// 회원가입 실패
 	else {
 		response.sendRedirect("join.jsp?msg=0");		// msg=0 은 회원가입 실패
 	}
+	
 	
 	
 %>
