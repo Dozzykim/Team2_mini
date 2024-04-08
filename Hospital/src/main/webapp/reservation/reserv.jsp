@@ -30,6 +30,8 @@
         	// $('선택자').trigger('이벤트')
         	$('#datepicker').trigger('focus')
         }
+        
+     
     </script>
     
 </head>
@@ -71,7 +73,7 @@
                         <option value="16:00">16:00</option>
                         <option value="17:00">17:00</option>
                     </select>
-                    <button type="submit">예약하기</button>
+                    <button type="submit" onclick="rcheck()">예약하기</button>
                 </form>
             </div>
         </div>
