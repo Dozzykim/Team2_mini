@@ -44,10 +44,10 @@ public class UserDAO extends JDBConnection {
 	 * @param user_id
 	 * @return
 	 */
-	public boolean doubleCheck(String user_id) {
+	public boolean idCheck(String user_id) {
 	    boolean isExist = false;
 
-	    String sql = "SELECT COUNT(*) FROM USERS WHERE user_id = ?";
+	    String sql = "SELECT COUNT(*) cnt FROM USERS WHERE user_id = ?";
 
 	    try {
 	        psmt = con.prepareStatement(sql);
@@ -55,8 +55,9 @@ public class UserDAO extends JDBConnection {
 
 	        rs = psmt.executeQuery();
 
-	        if (rs.next()) { 
-	            isExist = true; // 아이디가 존재하면 true로 설정
+	        if (rs.next()) {
+	        	int count = rs.getInt("cnt");
+	            isExist = count > 0 ? true : false; // 아이디가 존재하면 true로 설정
 	        } 
 	    } catch (Exception e) {
 	        System.err.println("아이디 중복체크 시, 예외 발생");
