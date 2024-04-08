@@ -24,6 +24,7 @@
     <!-- script -->
     <script src="js/script.js"></script>
     <script>
+
     function validateForm() {
         var password = document.getElementById("user_pw").value;
         var confirmPassword = document.getElementById("confirmPassword").value;
@@ -79,11 +80,18 @@
 		//    return false;
 		//}
 
-        // 전화번호 유효성 검사 (숫자만 포함되어 있는지)
-        var phone = document.getElementById("user_pno").value;
-        var phoneRegex = /^[0-9]+$/;
-        if (!phoneRegex.test(phone)) {
-            alert("전화번호는 숫자로만 입력해야 합니다.");
+       // 전화번호 유효성 검사 (숫자만 포함되어 있는지)
+       var phone = document.getElementById("user_pno").value;
+       var phoneRegex = /^[0-9]+$/;
+       if (!phoneRegex.test(phone)) {
+           alert("전화번호는 숫자로만 입력해야 합니다.");
+           return false;
+       }
+        
+        // 주소 유효성 검사(아무 값도 들어오지 않으면 경고창)
+        var address = document.getElementById("user_address").value;
+        if (address.trim() === "") {
+            alert('주소를 입력해주세요.');
             return false;
         }
         
@@ -96,8 +104,49 @@
         
         return true; 
     }
-      
-    </script>
+    
+</script>
+<% String root = request.getContextPath(); %>
+<c:set var="root" value="<%= root %>" />
+<script type="text/javascript">
+
+	// 자바 - EL(표현언어)를 자바스크립트로 가져오는 방법
+	const root = "${ root }"
+	
+	function checkId() {
+		var id = $('#user_id').val();
+		
+		if( id == null || id == "" ) {
+			alert("아이디를 입력하세요!")
+			return
+		}
+			
+			
+			
+			 
+		
+		$.ajax({
+			url: root + '/user/id_check',
+			type: 'post',
+			data: {user_id: id},
+			success: function(data) {
+				if (data === "true") {
+                    // 중복된 아이디일 경우
+                    $('.id_already').show();
+                    $('.id_ok').hide();
+                } else {
+                    // 중복되지 않은 아이디일 경우
+                    $('.id_ok').show();
+                    $('.id_already').hide();
+                }
+			},
+			error: function() {
+				alert("에러입니다.");
+			}
+		})
+	}
+</script>
+
 </head>
 
 <body>
@@ -113,8 +162,17 @@
    					</c:if>
                 <form action="join_pro.jsp" method="post" onsubmit="return validateForm()">
                 <ul>
-                    <li><input type="text" name="user_name" id="user_name" placeholder="이름"></li>
-                    <li><input type="text"  name="user_id" placeholder="아이디" id="user_id"></li>
+                    <li>
+                        <input type="text" name="user_name" id="user_name" placeholder="이름">
+                    </li>
+                    <li>
+                         <input type="text" name="user_id" placeholder="아이디" id="user_id" required />
+                         <input type="button" id="emoverlay" onclick="checkId()" value="중복확인"/>
+                    </li>
+                    <p>
+						 <span class="id_ok" style="color: green; display: none;">사용 가능한 아이디입니다.</span>                      
+						 <span class="id_already" style="color: red; display: none;">중복된 아이디입니다.</span>                      
+                   	</p>
                     <li><input type="password" name="user_pw" placeholder="비밀번호" id="user_pw"></li>
                     <li><input type="password" name="confirmPassword" id="confirmPassword" placeholder="비밀번호확인"></li>
                     <li>
@@ -124,7 +182,7 @@
 					</li>
                     <li><input type="text"  name="user_pno" id="user_pno" placeholder="연락처"></li>
                     <li><input type="text" name="user_address" id="user_address" placeholder="주소"></li>
-                    <li><a href="<%=request.getContextPath() %>/user/join_pro.jsp" class="join_btn"><button>회원가입</button></a></li>
+                    <li><a href="<%=request.getContextPath() %>/user/join_pro.jsp" class="join_btn"><button type="submit">회원가입</button></a></li>
                     <li class="log_area"><span>계정이 있으십니까?</span><a href="<%=request.getContextPath() %>/user/login.jsp" class="log_btn">로그인</a></li>
                 </ul>
                     </form>
@@ -134,6 +192,7 @@
 
     <!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp"></jsp:include>
+	
 </body>
 
 </html>

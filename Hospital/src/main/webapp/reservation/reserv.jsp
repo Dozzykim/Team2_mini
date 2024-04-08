@@ -15,7 +15,10 @@
     <title>예약화면</title>
    
    
-    <jsp:include page="/layout/link_reserv.jsp" />
+    <jsp:include page="/layout/link.jsp" />
+    <link href="<%= request.getContextPath() %>/static/css/sub.css" rel="stylesheet"/>
+	<link href="<%= request.getContextPath() %>/static/css/reservation.css" rel="stylesheet"/>
+    
     <script>
         $(function() {
             $("#datepicker").datepicker({

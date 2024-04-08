@@ -19,7 +19,7 @@ public interface UserService {
     
     // 자동 로그인 - 토큰 조회
     public PersistentLogins selectTokenByToken(String p_token);
-    
-    // 아이디 중복 확인
-    public String doubleCheck(String user_id);
+
+	public boolean idCheck(String user_id);
+
 }
