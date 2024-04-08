@@ -29,39 +29,31 @@
     text-align: center;
 }
 
-.container .inner .board_area .action_area {
-    width: 100%;
-    position: relative;
-    text-align: center;
-}
-
-.container .inner .board_area .action_area form {
+.board_area .main_area {
+    width: 800px;
+    height : 300px;
+    border: 1px solid #000;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    margin: 50px 0;
 }
 
-.container .inner .board_area .action_area form select {
-    width: 300px;
-    padding: 20px 18px;
-    margin: 10px 0;
-    border-radius: 5px;
+.board_area span {
+    text-align: center;
+    line-height: 25px;
+    padding-bottom: 50px;
     font-size: 18px;
-    color: gray;
 }
-.container .inner .board_area .action_area button {
+
+.container .inner .board_area .main_area button {
     background-color: #8AC9F5;
+    color: white;
     border: none;
+    margin-top: 15px;
     padding: 15px 30px;
     border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    position: relative; 
-    margin-top: 20px; 
-    margin-bottom: 30px;
-    color: white;
     font-size: 18px;
+    cursor: pointer;
 }
-
