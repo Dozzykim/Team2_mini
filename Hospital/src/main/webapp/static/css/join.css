@@ -74,7 +74,7 @@
     
 }
 
-.container .inner .join ul li span {
+.container .inner .join ul li p {
     color : black;
     margin-bottom: 10px;
 }
@@ -85,3 +85,25 @@
     color: #007bff;
     text-decoration: none;
 }
+.container .inner .join ul li:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#emoverlay {
+    background-color: #8AC9F5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+}
+
+#user_id {
+    width: 490px;
+    margin-right: 10px;
+}
+

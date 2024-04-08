@@ -81,14 +81,16 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String doubleCheck(String user_id) {
-        boolean isExist = userDAO.doubleCheck(user_id);
-        if (isExist) {
-            return "이미 사용 중인 아이디입니다.";
-        } else {
-            return "사용할 수 있는 아이디입니다.";
-        }
-    }
+	public boolean idCheck(String user_id) {
+		boolean result = userDAO.idCheck(user_id);
+		return result;
+	}
+
+	
+
+
+
+
 	
 	
 }
