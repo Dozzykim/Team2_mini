@@ -12,26 +12,30 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>게시판</title>
-<jsp:include page="../layout/link.jsp" />
-<link rel="stylesheet" href="../static/css/board_list.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>게시판</title>
+	
+	<!-- css -->
+	<jsp:include page="../layout/link.jsp" />
+	<link rel="stylesheet" href="../static/css/board_list.css">
+	
+	<!-- js -->
+	<jsp:include page="../layout/script.jsp" />
 </head>
 
 <body>
 
-	<%
+	<% 
 		// 파라미터
 		String category = request.getParameter("category");
 		String searchNo = request.getParameter("searchNo");
 		
-	
 		BoardService boardService = new BoardServiceImpl();
 		List<Board> boardList = boardService.list();
 		
+		// 작성일자 Date포맷 설정
 		SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
 	%>
 	
@@ -75,10 +79,11 @@
 								</select>
 							</li>
 							<li>
+								<input type="text" name="searchNo" placeholder="검색할 글번호를 입력하세요.">
+								<button type="submit" class="search">검색</button>
 							</li>
 						</ul>
-						<input type="text" name="searchNo" placeholder="검색할 글번호를 입력하세요.">
-						<button type="submit" class="search">검색</button>
+						
 					</form>
 				</div>
 				<div class="cont_tb">
