@@ -41,6 +41,7 @@
 	} else {
 		//예약 insert
 		reservationService.insert(reservation);
+		response.sendRedirect(root + "/reservation/reservComplete.jsp");
 	}
 
 %>
