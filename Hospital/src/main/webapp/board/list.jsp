@@ -12,44 +12,31 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>게시판</title>
-<jsp:include page="../layout/link.jsp" />
-<link rel="stylesheet" href="../static/css/board_list.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>게시판</title>
+	
+	<!-- css -->
+	<jsp:include page="../layout/link.jsp" />
+	<link rel="stylesheet" href="../static/css/board_list.css">
+	
+	<!-- js -->
+	<jsp:include page="../layout/script.jsp" />
 </head>
 
 <body>
 
-	<%
-		
-		String reqSearchNo = request.getParameter("searchNo");
+	<% 
+		// 파라미터
 		String category = request.getParameter("category");
-		int searchNo = reqSearchNo == null || reqSearchNo.equals("") ? 0 : Integer.parseInt(reqSearchNo);
-		reqSearchNo = reqSearchNo == null ? "" : reqSearchNo;
+		String searchNo = request.getParameter("searchNo");
 		
 		BoardService boardService = new BoardServiceImpl();
-		List<Board> boardList = new ArrayList<Board>();
+		List<Board> boardList = boardService.list();
+		
+		// 작성일자 Date포맷 설정
 		SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
-		
-		// reqSearchNo 있으면 번호로 조회
-		if( reqSearchNo != null && !reqSearchNo.equals("") ) {
-			Board board = boardService.select(searchNo);
-			boardList.add(board);
-		}
-		
-		// reqSearchNo 없고 category 있으면 카테고리로 조회
-		else if( category != null && !category.equals("") ) {
-			boardList = boardService.listByCategory(category);
-		}
-		
-		// 전체조회
-		else {
-			boardList = boardService.list();
-		}
-	
 	%>
 	
 	<!-- 헤더 -->
@@ -72,19 +59,31 @@
 						<ul>
 							<li>
 								<select name="category" id="list">
-									<option value="">전체</option>
-									<option value="외과" <%= category.equals("외과") ? "selected" : "" %>>외과</option>
-									<option value="내과" <%= category.equals("내과") ? "selected" : "" %>>내과</option>
-									<option value="산부인과" <%= category.equals("산부인과") ? "selected" : "" %>>산부인과</option>
-									<option value="피부과" <%= category.equals("피부과") ? "selected" : "" %>>피부과</option>
+									<%
+									if (category == null) {
+									%>
+										<option value="전체" selected>전체</option>
+										<option value="외과">외과</option>
+										<option value="내과">내과</option>
+										<option value="산부인과">산부인과</option>
+										<option value="피부과">피부과</option>
+									<%
+									} else {
+									%>
+										<option value="전체">전체</option>
+										<option value="외과" <%= category.equals("외과") ? "selected" : "" %>>외과</option>
+										<option value="내과" <%= category.equals("내과") ? "selected" : "" %>>내과</option>
+										<option value="산부인과" <%= category.equals("산부인과") ? "selected" : "" %>>산부인과</option>
+										<option value="피부과" <%= category.equals("피부과") ? "selected" : "" %>>피부과</option>
+									<%} %>
 								</select>
 							</li>
 							<li>
-								<input type="text" name="searchNo" placeholder="검색할 글번호를 입력하세요."
-									  value="<%= reqSearchNo %>">
-								<button type="submit">검색</button>
+								<input type="text" name="searchNo" placeholder="검색할 글번호를 입력하세요.">
+								<button type="submit" class="search">검색</button>
 							</li>
 						</ul>
+						
 					</form>
 				</div>
 				<div class="cont_tb">
@@ -92,10 +91,9 @@
 						<tr>
 							<th class="no">NO.</th>
 							<th class="tit">제목</th>
-							<th calss="wri">글쓴이</th>
+							<th class="wri">글쓴이</th>
 							<th class="date">작성일</th>
 						</tr>
-						<%-- 코드 보류 --%>
 						<%
 							if (boardList == null || boardList.size() == 0) {
 						%>
@@ -105,16 +103,30 @@
 						<%
 							} else { 
 								for (Board board : boardList) {
+									if (category == null && searchNo == null) {
+										// list.jsp에 진입한 경우 (전달받은 파라미터가 없을 경우 ex. url: /list.jsp) %>
+										<tr>
+											<td><%=board.getNo()%>.</td>
+											<td><a
+												href="<%= request.getContextPath()%>/board/read.jsp?no=<%=board.getNo()%>">[<%=board.getCategory() %>]
+													<%= board.getTitle() %></a></td>
+											<td><%= board.getUser_id() %></td>
+											<td><%= simpleDate.format(board.getReg_date()) %></td>
+										</tr>
+						<%			} else {
+										// 카테고리만 검색 or 번호만 검색 or 카테고리+번호검색 (form 전송되면 무조건 카테고리,번호 파라미터가 url로 전달됨)
+										if ( ( board.getCategory().equals(category) || category.equals("전체") ) && ( String.valueOf(board.getNo()).equals(searchNo) || searchNo == "")) {
 						%>
-								<tr>
-									<td><%=board.getNo()%>.</td>
-									<td><a
-										href="<%= request.getContextPath()%>/board/read.jsp?no=<%=board.getNo()%>">[<%=board.getCategory() %>]
-											<%= board.getTitle() %></a></td>
-									<td><%= board.getUser_id() %></td>
-									<td><%= simpleDate.format(board.getReg_date()) %></td>
-								</tr>
-						<%
+										<tr>
+											<td><%=board.getNo()%>.</td>
+											<td><a
+												href="<%= request.getContextPath()%>/board/read.jsp?no=<%=board.getNo()%>">[<%=board.getCategory() %>]
+													<%= board.getTitle() %></a></td>
+											<td><%= board.getUser_id() %></td>
+											<td><%= simpleDate.format(board.getReg_date()) %></td>
+										</tr>
+						<% 				}
+									}
 								} 
 							}
 						%>
@@ -125,25 +137,8 @@
 		</div>
 	</div>
 
-	<footer class="footer">
-		<div class="inner3">
-			<div class="info">
-				<ul>
-					<li></li>
-					<li>영업 시간: 9:00 ~ 18: 00</li>
-					<li>찾아오시는 길 : 인천광역시 부평구 부평1동 534-48</li>
-					<li>전화번호 : 032 - 123 - 5678</li>
-
-				</ul>
-			</div>
-			<div class="joeun">
-				<p>THE JOEUN HOSPITAL</p>
-			</div>
-			<div class="copy_r">
-				<p>Copyright ⓒ The Joeun Hospital. All Rights Rerved</p>
-			</div>
-		</div>
-	</footer>
+	<!-- 푸터 -->
+	<jsp:include page="../layout/footer.jsp" />
 	
 	<jsp:include page="/layout/script.jsp" />
 	<script>

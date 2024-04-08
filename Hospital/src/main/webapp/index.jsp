@@ -54,7 +54,7 @@
 			</div>
 			<div class="header_bottom">
 				<ul>
-					<li><a href="<%=request.getContextPath()%>/board/list_test.jsp?category=total">소통 해요</a></li>
+					<li><a href="<%=request.getContextPath()%>/board/list.jsp">소통 해요</a></li>
 					<li><a href="<%=request.getContextPath()%>/reservation/reserv.jsp">진료 예약</a></li>
 					<li><a href="<%=request.getContextPath()%>/HPinfo.jsp">병원 소개</a></li>
 				</ul>
