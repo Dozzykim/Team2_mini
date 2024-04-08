@@ -16,8 +16,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시판 조회</title>
     
+    <!-- css -->
     <jsp:include page="../layout/link.jsp" />
-    <link rel="stylesheet" href="../static/css/select.css">
+    <link rel="stylesheet" href="../static/css/read.css">
     
     <jsp:include page="../layout/script.jsp" />
 </head>
@@ -53,7 +54,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td colspan="4"><p id="content"><%=board.getContent() %></p></td>
+                        <td colspan="4"><textarea id="content"><%=board.getContent() %></textarea></td>
                     </tr>
                 </tbody> 
             </table>
@@ -67,6 +68,26 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- 댓글 -->
+    <div class="cont_tb2">
+        <ul>
+            <li class="head">
+                <p>댓글</p>
+                <input type="text" placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다.">
+                <a href="#none" id="search"><button>작성</button></a>
+            </li>
+        </ul>
+        <table border="1">
+                <div class="coment">
+                    <tr>
+                        <td>아이디</td>
+                        <td>작성 댓글</td>
+                        <td><a href="#none"><button>삭제</button></a></td>
+                    </tr>
+                </div>
+        </table>
+        
     </div>
 
 	<!-- 푸터 -->
