@@ -33,7 +33,6 @@
 	// 회원가입 성공
 	if( result > 0 ) {
 		response.sendRedirect(root + "/user/complete_join.jsp");
-		session.setAttribute("loginId", user.getUser_id());
 	}
 	// 회원가입 실패
 	else {

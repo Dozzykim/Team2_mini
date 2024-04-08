@@ -93,7 +93,7 @@
                     </li>
                     <li><input type="password" name="user_pw" placeholder="비밀번호" id="user_pw"></li>
                     <li><input type="password" name="confirmPassword" id="confirmPassword" placeholder="비밀번호확인"></li>
-                    <li><input type="text" name="user_age" id="user_age" placeholder="주민등록번호"></li>
+                    <li><input type="text" name="user_age" id="user_age1" placeholder="주민등록번호">-<input type="text" name="user_age2" id="user_age" placeholder="주민등록번호"></li>
                     <li><input type="text"  name="user_pno" id="user_pno" placeholder="연락처"></li>
                     <li><input type="text" name="user_address" id="user_address" placeholder="주소"></li>
                     <li><a href="<%=request.getContextPath() %>/user/join_pro.jsp" class="join_btn"><button>회원가입</button></a></li>

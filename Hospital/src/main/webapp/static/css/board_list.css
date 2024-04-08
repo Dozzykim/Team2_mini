@@ -2,6 +2,7 @@
     width: 100%;
     height: 600px;
     margin: 0 auto;
+    overflow: auto;
 }
 
 .container .inner {
@@ -30,9 +31,8 @@
 
 .util_area form {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+	justify-content: space-between;
 
 }
 .util_area form select {
@@ -106,7 +106,7 @@ strong {
     
 }
 
-.util_area ul {
+.util_area form ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
