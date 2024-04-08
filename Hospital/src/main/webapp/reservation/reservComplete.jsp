@@ -33,7 +33,6 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp" />
 </body>

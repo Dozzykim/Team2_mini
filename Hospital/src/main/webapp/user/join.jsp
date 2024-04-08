@@ -28,6 +28,7 @@
         var password = document.getElementById("user_pw").value;
         var confirmPassword = document.getElementById("confirmPassword").value;
         
+        
         // 비밀번호와 비밀번호 확인이 일치하는지 확인
         if (password !== confirmPassword) {
             alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
@@ -44,19 +45,40 @@
         // 이름 유효성 검사 (숫자가 포함되어 있지 않은지)
         var name = document.getElementById("user_name").value;
         var nameRegex = /^[가-힣]+$/;
-        if (!nameRegex.test(name)) {
+        if (!nameRegex.test(name) || !name) {
             alert("이름은 한글로만 입력해야 합니다.");
             return false;
         }
 
-        // 주민등록번호 유효성 검사 (숫자와 '-'로만 이루어져 있는지)
-        var age = document.getElementById("user_age").value;
-        var ageRegex = /^\d{6}-\d{7}$/;
-        if (!ageRegex.test(age)) {
-            alert("주민등록번호는 '000000-0000000' 형식으로 입력해야 합니다.");
-            return false;
-        }
- 
+        
+     	// 주민등록번호 유효성 검사
+		var age1 = document.getElementById("user_age1").value; // 주민등록번호 앞자리
+		var age2 = document.getElementById("user_age2").value; // 주민등록번호 뒷자리
+		
+		// 주민등록번호 앞자리 정규표현식
+		var age1Regex = /^\d{6}$/;
+		if (!age1Regex.test(age1)) {
+		    alert("주민등록번호 앞자리는 6자리의 숫자로 입력해야 합니다.");
+		    return false;
+		}
+		
+		// 주민등록번호 뒷자리 정규표현식 
+		var age2Regex = /^\d{7}$/;
+		if (!age2Regex.test(age2)) {
+		    alert("주민등록번호 뒷자리는 7자리의 숫자로 입력해야 합니다.");
+		    return false;
+		}
+		
+		// 주민등록번호 전체
+		var age = age1.toString() + '-' + age2.toString();
+		
+		// 주민등록번호의 전체 유효성 검사
+		//var ageRegex = /^\d{6}-\d{7}$/;
+		//if (!ageRegex.test(age) === '') {
+		//    alert("주민등록번호는 '000000-0000000' 형식으로 입력해야 합니다.");
+		//    return false;
+		//}
+
         // 전화번호 유효성 검사 (숫자만 포함되어 있는지)
         var phone = document.getElementById("user_pno").value;
         var phoneRegex = /^[0-9]+$/;
@@ -65,10 +87,17 @@
             return false;
         }
         
-        return true;
+        // 주소 유효성 검사(아무 값도 들어오지 않으면 경고창)
+        var address = document.getElementById("user_address").value;
+        if (address.trim() === "") {
+            alert('주소를 입력해주세요.');
+            return false;
+        }
+        
+        return true; 
     }
-    
-</script>
+      
+    </script>
 </head>
 
 <body>
@@ -80,20 +109,19 @@
             <div class="join">
                 <h1>회원가입</h1>
                     <c:if test="${param.msg == 0}">
-       					 <p style="color: red;">이미 아이디가 존재하고 있습니다.</p>
-   					 </c:if>
+       					 <p style="color: red;">회원가입에 실패하였습니다.</p>
+   					</c:if>
                 <form action="join_pro.jsp" method="post" onsubmit="return validateForm()">
                 <ul>
-                    <li>
-                        <input type="text" name="user_name" id="user_name" placeholder="이름">
-                    </li>
-                    <li>
-                        <input type="text"  name="user_id" placeholder="아이디" id="user_id">
-                      
-                    </li>
+                    <li><input type="text" name="user_name" id="user_name" placeholder="이름"></li>
+                    <li><input type="text"  name="user_id" placeholder="아이디" id="user_id"></li>
                     <li><input type="password" name="user_pw" placeholder="비밀번호" id="user_pw"></li>
                     <li><input type="password" name="confirmPassword" id="confirmPassword" placeholder="비밀번호확인"></li>
-                    <li><input type="text" name="user_age" id="user_age1" placeholder="주민등록번호">-<input type="text" name="user_age2" id="user_age" placeholder="주민등록번호"></li>
+                    <li>
+					    <input type="text" name="user_age1" id="user_age1" placeholder="주민등록번호 앞자리" >
+					    -  
+					    <input type="text" name="user_age2" id="user_age2" placeholder="주민등록번호 뒷자리">
+					</li>
                     <li><input type="text"  name="user_pno" id="user_pno" placeholder="연락처"></li>
                     <li><input type="text" name="user_address" id="user_address" placeholder="주소"></li>
                     <li><a href="<%=request.getContextPath() %>/user/join_pro.jsp" class="join_btn"><button>회원가입</button></a></li>
@@ -104,11 +132,7 @@
         </div>
     </div>
 
-
-
-
-
- <!-- 푸터 -->
+    <!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp"></jsp:include>
 </body>
 

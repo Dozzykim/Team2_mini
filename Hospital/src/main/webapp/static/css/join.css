@@ -40,6 +40,17 @@
     font-size: 15px;
 }
 
+#user_age1,
+#user_age2 {
+    border-radius: 5px;
+    height: 60px;
+    width: 292px; 
+    border: 1px solid #ccc; 
+    padding: 8px; 
+    background-color: #D0EBFE;
+    font-size: 15px;
+}
+
 .container .inner .join ul li input::placeholder {
     color: #999;
     font-size: 18px;
