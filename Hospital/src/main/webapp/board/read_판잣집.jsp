@@ -9,21 +9,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시판 조회</title>
-    
-    <jsp:include page="../layout/link.jsp" />
-    <link rel="stylesheet" href="../static/css/select.css">
-    
-    <jsp:include page="../layout/script.jsp" />
+	<meta charset="UTF-8">
+	<title>게시글 상세조회</title>
+	<jsp:include page="../layout/link.jsp" />
+	<link rel="stylesheet" href="../static/css/select.css">
 </head>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <body>
-
 	<%
 		BoardService boardService = new BoardServiceImpl();
 		int no = Integer.parseInt(request.getParameter("no"));
@@ -34,44 +28,60 @@
 		// 등록일자/수정일자를 yyyy-mm-dd형식으로 출력도와주는 클래스 생성
 		SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
 	%>
-    <!-- 헤더 -->
+	
+	<!-- 헤더 -->
 	<jsp:include page="../layout/header.jsp" />
+	
+	
+	<!-- 컨텐츠 -->
+	<h1>게시글 조회</h1>
+	<%
+		if(board != null && board.getNo()> 0) { 
+	%>
+	
+	<table border="1">
+		<tr>
+			<th>글번호</th>
+			<td><%= board.getNo() %>.</td>
+		</tr>
+		<tr>
+			<th>제목</th>
+			<td>[<%= board.getCategory()%>] <%= board.getTitle() %></td>
+		</tr>
+		<tr>
+			<th>작성자</th>
+			<td><%= board.getUser_id()%></td>
+		</tr>
+		<tr>
+			<th>작성자</th>
+			<td><%= simpleDate.format(board.getReg_date()) %></td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td><%=board.getContent() %></td>
+		</tr>
+	</table>
+	<% } else { %>
+		<h3>조회된 게시글이 없습니다.</h3>
+	<% } %>
+	<div>
+			<button onclick="moveToList()">목록</button>
+		<c:if test="<%= writer.equals(loginId)%>">
+			<button onclick="moveToUpdate()">수정</button>
+			<button onclick="doubleCheck()">삭제</button>
+		</c:if>
+	</div>
+	
+	<form action="<%= request.getContextPath() %>/board/cmnt_pro.jsp" method="post">
+		<input type="hidden" name="boardNo" value="${board.getNo()}"/>
+		<input type="hidden" name="userId" value="${sessionScope.loginId}"/>
+		<p>댓글 <textarea rows="1" cols="50" name="cmmt"></textarea> <input type="submit" value="등록"/></p>
+	</form>	
 
-    <div class="container">
-        <h1><img src="../static/img/board.png" alt="">커뮤니티 게시판</h1>
-        <p>자신만의 건강 고민과 팁을 사람들과 공유해 보세요! </p>
-        <div class="table-wrapper">
-
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th><%= board.getNo() %>.</th>
-                        <th>[<%= board.getCategory()%>] <%= board.getTitle() %></th>
-                        <th><%= board.getUser_id()%></th>
-                        <th><%= simpleDate.format(board.getReg_date()) %></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="4"><p id="content"><%=board.getContent() %></p></td>
-                    </tr>
-                </tbody> 
-            </table>
-            <div class="insert">
-                <div class="left_area">
-                	<c:if test="<%= writer.equals(loginId)%>">
-                        <button onclick="moveToUpdate()">수정</button>
-                        <button onclick="doubleCheck()">삭제</button>
-                    </c:if>
-                        <button onclick="moveToList()">목록</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+	
+	
 	<!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp" />
-	
 	<!-- 스크립트 -->
 	<script>
 		<%
@@ -97,6 +107,6 @@
 		}
 	</script>
 	
+	
 </body>
-
 </html>

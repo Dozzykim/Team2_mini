@@ -28,13 +28,6 @@
     padding: 5px;
 }
 
-.util_area form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
 .util_area form select {
     padding: 8px 0;
     margin: 5px 0;
@@ -68,9 +61,9 @@ th {
 }
 
 #write {
-    position: absolute; /* 버튼의 위치를 절대적으로 설정합니다. */
-    bottom: -70px; /* 테이블 아래에 위치하도록 설정합니다. */
-    right: 0; /* 오른쪽 정렬 */
+   padding-top : 10px;
+   display: flex;
+   justify-content: end; 
 }
 
 .cont_tb {
@@ -83,6 +76,10 @@ th {
 
 .util_area {
     padding-top: 50px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    max-width: 800px;
 }
 
 
@@ -100,11 +97,7 @@ strong {
     font-weight: bold;
 }
 
-.util_area {
-    width: 800px;
-    margin: 0 auto;
-    
-}
+
 
 .util_area ul {
     display: flex;
@@ -124,10 +117,39 @@ strong {
 
 }
 
-.util_area ul li input {
+.util_area form ul li:nth-child(2) {
+   position: absolute;
+   right : 0px;
+}
+
+
+.util_area form ul li input {
     width: 200px; /* 너비 조정 */
     height: 35px;
     float: left;
     margin-right: 5px;
+    border-radius: 5px;
+}
 
+.util_area form ul li button {
+   border-radius: 5px;
+    padding: 10px 20px;
+    background-color: #8AC9F5;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    border: none;
+    height: 35px;
+}
+
+.cont_tb table tr th:nth-child(1) {
+    width: 80px;
+}
+
+.cont_tb table tr th:nth-child(3) {
+    width: 150px;
+}
+
+.cont_tb table tr th:nth-child(4) {
+    width: 150px;
 }
