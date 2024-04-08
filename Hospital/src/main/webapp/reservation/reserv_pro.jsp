@@ -19,9 +19,7 @@
     if (user_id == null || user_id.isEmpty()) {
 %>
     <script>
-        // 로그인되어 있지 않은 경우 알림 표시
         alert("로그인이 필요합니다.");
-        // 로그인 페이지로 이동
         window.location.href = "<%= root %>/user/login.jsp";
     </script>
 <%
@@ -35,6 +33,14 @@
     if (r_dateStr != null && !r_dateStr.isEmpty()) {
         r_date = Date.valueOf(r_dateStr);
     }
+    else{
+    	out.println("<script>alert('날짜를 선택해주세요.'); history.go(-1);</script>");
+    	// histroy.go() 이전 또는 이후 페이지의 이동이 가능
+    	// -1을 넣었기 때문에 이전 페이지로 돌아감
+    	return;
+    }
+    
+
     String r_time = request.getParameter("r_time");
     
     // Reservation 객체 생성
