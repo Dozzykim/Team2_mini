@@ -17,14 +17,9 @@
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/slick-theme.css">
 	
 	<!-- css -->
-<<<<<<< HEAD
-	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/main.css">
-	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/reset.css">
-	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/response.css">
-=======
 	<jsp:include page="/layout/link.jsp" />
+	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/response.css">
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/index.css">
->>>>>>> branch 'TaeWon' of https://github.com/Dozzykim/Team2_mini.git
 		
 	
 	<!-- jQuery CDN 방식으로 포함하기 -->

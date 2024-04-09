@@ -1,39 +1,62 @@
 @charset "UTF-8";
 /* 반응형 영역 */
 
+
+
 @media (max-width: 960px) {
     .container {
-        width: 100% !important;
+        width: 100%;
         margin: 0 auto;
     }
     .slide-container {
         width: 700px !important;
         height: 100%;
     }
+    
+    img { width : 100%;}
 
 
     /* -------------------cont2------------------- */
 
-    .cont2 .cont2_right{
-    }
+
 
     .cont2 {
+    	padding-top : 50px;
+        width: 700px !important;
+        height: 700px !important;
         position: relative;
     }
+    
+    .cont2 .cont2_right{
+    	width : 100%;
+    	position: absolute;
+    	left : 50%;
+    	top : 50%;
+    	transform : translate(-50%, -50%);
+    	z-index: -1;
+    	
+    }
+    
 
     .cont2 .cont2_left {
-        position: absolute;
-        left : 50%;
-        top : 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
+    	position: absolute;
+    	left : 50%;
+    	top : 50%;
+    	transform : translate(-50%, -50%);
+    	background-color: rgba(255, 255, 255, 0.7 );
+    	box-shadow : 2px 2px 2px 2px rgba(0,0,0,0.5);
+    	box-sizing: border-box;
+    	border-radius: 30px;
+    	box-sizing: border-box;
     }
-
     .cont2 .cont2_left ul {
-        box-sizing: border-box;
-        background-color: rgba(255, 255, 255, 0.7 );
-        border-radius: 30px;
+
+        
+
     }
+    
+    .cont2 .cont2_left ul li { text-align : center; }
+    
     .cont2 .cont2_left ul li  strong {
         font-size: 1.8rem;
     }
@@ -51,25 +74,37 @@
 
     /* -------------------cont3------------------- */
 
-    .cont3 .cont3_left{
-        display: none;
-    }
+
 
 
     .cont3 {
-        width: 700px;
-        height: 700px;
-        background-image: url(../image/surgery.jpg);
-        background-size: cover;
+    
+    	width: 700px !important;
+        height: 700px !important;
         position: relative;
+    
     }
 
+	.cont3 .cont3_left{
+		width : 100%;
+    	position: absolute;
+    	left : 50%;
+    	top : 50%;
+    	transform : translate(-50%, -50%);
+    	z-index: -1;
+    	
+    }
+    
+
     .cont3 .cont3_right {
-        position: absolute;
-        left : 50%;
-        top : 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
+    	position: absolute;
+    	left : 50%;
+    	top : 50%;
+    	transform : translate(-50%, -50%);
+    	background-color: rgba(255, 255, 255, 0.7 );
+    	box-shadow : 2px 2px 2px 2px rgba(0,0,0,0.5);
+    	box-sizing: border-box;
+    	border-radius: 30px;
     }
 
     .cont3 .cont3_right ul {
@@ -95,23 +130,31 @@
 /* -------------------cont4------------------- */
 
     .cont4 .cont4_right{
-        display: none;
     } 
  
     .cont4 {
-        width: 700px;
-        height: 700px;
-        background-image: url(../image/surgery1.jpg);
-        background-size: cover;
+        width: 700px !important;
+        height: 700px !important;
         position: relative;
     }
 
+    .cont4 .cont4_right {
+    	width : 100%;
+    	position: absolute;
+    	left : 50%;
+    	top : 50%;
+    	transform : translate(-50%, -50%);
+    	z-index: -1;
+    }
     .cont4 .cont4_left {
-        position: absolute;
-        left : 50%;
-        top : 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
+    	position: absolute;
+    	left : 50%;
+    	top : 50%;
+    	transform : translate(-50%, -50%);
+    	background-color: rgba(255, 255, 255, 0.7 );
+    	box-shadow : 2px 2px 2px 2px rgba(0,0,0,0.5);
+    	box-sizing: border-box;
+    	border-radius: 30px;
     }
 
     .cont4 .cont4_left ul {
@@ -135,24 +178,36 @@
 
     /* -------------------cont5------------------- */
 
-    .cont5 .cont5_left{
-        display: none;
-    }
 
     .cont5 {
-        width: 700px;
-        height: 700px;
-        background-image: url(../image/surgery2.jpg);
-        background-size: cover;
+        width: 700px !important;
+        height: 700px !important;
         position: relative;
     }
+        .cont5 .cont5_left{
+        width : 100%;
+        position: absolute;
+    	left : 50%;
+    	top : 50%;
+    	transform : translate(-50%, -50%);
+    	z-index: -1;
+
+    }
+    
 
     .cont5 .cont5_right {
-        position: absolute;
-        left : 50%;
-        top : 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
+    
+    	position: absolute;
+    	left : 50%;
+    	top : 50%;
+    	transform : translate(-50%, -50%);
+    	background-color: rgba(255, 255, 255, 0.7 );
+    	box-shadow : 2px 2px 2px 2px rgba(0,0,0,0.5);
+    	box-sizing: border-box;
+    	border-radius: 30px;
+
+	
+
     }
 
     .cont5 .cont5_right ul {
@@ -173,37 +228,44 @@
         font-size: 1rem !important;
     }
 
-    .cont5 .cont5_left{
-        display: none;
-    }
+
 
 
     /* -------------------cont5------------------- */
 
-    .cont6 .cont6_right{
-        display: none;
-    }
+
 
     .cont6 {
-        width: 700px;
-        height: 700px;
-        background-image: url(../image/surgery3.jpg);
-        background-size: cover;
+        width: 700px !important;
+        height: 700px !important;
         position: relative;
     }
+    
+        .cont6 .cont6_right{
+        width : 100%;
+    	position: absolute;
+    	left : 50%;
+    	top : 50%;
+    	transform : translate(-50%, -50%);
+    	z-index: -1;
+    	
+    }
+    
 
     .cont6 .cont6_left {
-        position: absolute;
-        left : 50%;
-        top : 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
+    	position: absolute;
+    	left : 50%;
+    	top : 50%;
+    	transform : translate(-50%, -50%);
+    	background-color: rgba(255, 255, 255, 0.7 );
+    	box-shadow : 2px 2px 2px 2px rgba(0,0,0,0.5);
+    	box-sizing: border-box;
+    	border-radius: 30px;
     }
 
+
     .cont6 .cont6_left ul {
-        box-sizing: border-box;
-        background-color: rgba(255, 255, 255, 0.7 );
-        border-radius: 30px;
+
     }
     .cont6 .cont6_left ul li  strong {
         font-size: 1.8rem;
@@ -219,5 +281,4 @@
     }
     
 
-    
 }
