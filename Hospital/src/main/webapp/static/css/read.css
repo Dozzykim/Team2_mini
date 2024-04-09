@@ -1,4 +1,4 @@
-.container {
+ .container {
 	width: 100%;
 	margin: 0 auto;
 	padding: 30px;
@@ -49,7 +49,7 @@ th {
 	border-bottom: 2px solid #ccc;
 	text-align: center;
 	font-size: 16px;
-	line-height: 61.5px;
+	line-height: 40px;
 }
 
 th:nth-child(1) {
@@ -149,14 +149,28 @@ textarea {
 	border: none;
 	margin-left: 10px;
 }
+.id_comment {
+	display: flex;
+	width: 150px;
+	margin: 30px 50px 20px 257px;
+	justify-content: space-between;
+}
 
+.noneCmmt {
+	margin-left: 175px;
+}
+
+#line{
+	width: 740px;
+	margin-left: 175px;
+}
 .cont_tb2 table {
 	border-collapse: collapse; /* 테이블 테두리를 합칩니다. */
 	border: none; /* 테이블 테두리를 없앱니다. */
 	position: relative; /* 상대적 위치 지정 */
 	margin: 0 auto;
 	width: 800px; /* 테이블 컨테이너의 너비를 100%로 설정합니다. */
-	margin: 50px auto;
+	margin: 10px auto 50px;
 }
 
 .cont_tb2 table th {

@@ -1,3 +1,7 @@
+<%@page import="hospital.DTO.Comment"%>
+<%@page import="java.util.List"%>
+<%@page import="hospital.Service.CmmtServiceImpl"%>
+<%@page import="hospital.Service.CmmtService"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="hospital.DTO.Board"%>
 <%@page import="hospital.Service.BoardServiceImpl"%>
@@ -10,30 +14,37 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>게시판 조회</title>
-
-<!-- css -->
-<jsp:include page="../layout/link.jsp" />
-<link rel="stylesheet" href="../static/css/read.css">
-
-<jsp:include page="../layout/script.jsp" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>게시판 조회</title>
+	
+	<!-- css -->
+	<jsp:include page="../layout/link.jsp" />
+	<link rel="stylesheet" href="../static/css/read.css">
+	
+	<!-- js -->
+	<jsp:include page="../layout/script.jsp" />
 </head>
 
 <body>
 
 	<%
-	BoardService boardService = new BoardServiceImpl();
 	int no = Integer.parseInt(request.getParameter("no"));
+	
+	// 게시글 세팅
+	BoardService boardService = new BoardServiceImpl();
 	Board board = boardService.select(no);
 	String writer = board.getUser_id();
 	String loginId = (String) session.getAttribute("loginId");
+	
+	// 해당 게시글의 댓글 세팅
+	CmmtService cmmtService = new CmmtServiceImpl();
+	List<Comment> cmmtList = cmmtService.list(no);
 
 	// 등록일자/수정일자를 yyyy-mm-dd형식으로 출력도와주는 클래스 생성
-	SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
+	SimpleDateFormat boardDate = new SimpleDateFormat("yyyy-MM-dd");
+	SimpleDateFormat cmmtDate = new SimpleDateFormat("MM/dd HH:mm");
 	%>
 	<!-- 헤더 -->
 	<jsp:include page="../layout/header.jsp" />
@@ -51,7 +62,7 @@
 						<th><%=board.getNo()%>.</th>
 						<th>[<%=board.getCategory()%>] <%=board.getTitle()%></th>
 						<th><%=board.getUser_id()%></th>
-						<th><%=simpleDate.format(board.getReg_date())%></th>
+						<th><%=boardDate.format(board.getReg_date())%></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -76,25 +87,41 @@
 	<div class="cont_tb2">
 		<ul>
 			<li class="head">
-				<p>댓글</p> <input type="text" id="commentInput"
-				placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다.">
-				<button id="search" onclick="submitComment()">작성</button>
+				<p>댓글</p>
+				<input type="hidden" name="boardNo" value=<%=board.getNo()%>/>
+				<input type="hidden" name="loginId" value=<%=loginId%>/>
+				<input type="text" name="cmmt" id="cmmt" placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다.">
+				<button type="submit" id="search" onclick="addCmmt()">작성</button>
 			</li>
 		</ul>
-		<table border="1" id="commt_area">
-			<div class="comment">
-				<tr>
-					<th class="cmmtId">아이디</th>
-					<th class="cmmtContent">작성 댓글</th>
-				</tr>
-				<tr>
-					<td>joeun</td>
-					<td>아니 여기 의사들 다 이상하지 않아요?</td>
-					<td><a href="#none"><button>삭제</button></a></td>
-				</tr>
-			</div>
-		</table>
+		<div class="id_comment">
+			<p>아이디&emsp;&emsp;&emsp;&emsp;댓글</p>
+		</div>
+			<%
+				// 무플 시,
+				if (cmmtList == null || cmmtList.size() == 0) {
+			%>
+				<div class="noneCmmt">
+					<p>댓글이 없습니다.<p>
+					<p>첫 번째 댓글을 남겨주세요.</p>
+				</div>
+			<%
+				// 댓글 존재 시,
+				} else {
+					for(Comment cmmt : cmmtList) {
+			%>
+				<table border="1" id="commt_area">
+					<tr>
+						<td><%=cmmt.getUser_id()%></td>
+						<td><%=cmmt.getContent()%></td>
+						<td><%=cmmtDate.format(cmmt.getReg_date())%></td>
+					</tr>
+			<%
+					}
+				}
+			%>
 
+			</table>
 	</div>
 
 	<!-- 푸터 -->
@@ -103,6 +130,8 @@
 	<!-- 스크립트 -->
 	<script>
 		<%String root = request.getContextPath();%>
+		<c:set var="root" value="<%=root%>" />
+		const root = "{root}";
 		
 		// 선택받기
 	    function doubleCheck() {
@@ -117,17 +146,39 @@
 		function moveToUpdate() {
 			window.location.href= "<%=root%>/board/update.jsp?no=<%=board.getNo()%>";
 		}
+		
 		// 리스트로 이동
 		function moveToList() {
-			window.location.href= "<%=root%>
-		/board/list.jsp";
+			window.location.href= "<%=root%>/board/list.jsp";
 		}
-
+	
+		// 댓글추가
+		function addCmmt() {
+			window.location.href="<%=root%>/board/addCmmt.jsp";
+		}
+		
+		// 여길 완성해야되는데.ㅣ..
 		function submitComment() {
-
-		}
+			// id가 cmmt인 태그에서 value를 불러와서 저장
+			var cmmt = $('#cmmt').val();
+			var id = <%=request.getAttribute("loginId")%>;
+			if (cmmt == null || cmmt == "") {
+				alert("내용을 입력하세요");
+				return;
+			}
+			
+			$.ajax({
+				url: root + '/board/submitCommt',
+				type: 'post',
+				data: {
+					user_id: id,
+					comment: cmmt
+				},
+				success: function (data) {
+					}
+				}
+			})
 	</script>
 
 </body>
-
 </html>
