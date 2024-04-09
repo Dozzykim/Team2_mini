@@ -1,8 +1,8 @@
 <%@page import="hospital.Service.AdminServiceImpl"%>
 <%@page import="hospital.Service.AdminService"%>
 <%@page import="hospital.DTO.Admin"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%
 	String id = request.getParameter("id");
@@ -12,21 +12,21 @@
 	admin.setAdmin_id(id);
 	admin.setAdmin_pw(pw);
 	
-	// ·Î±×ÀÎ ¿äÃ»
+	// ë¡œê·¸ì¸ ìš”ì²­
 	AdminService userService = new AdminServiceImpl();
 	Admin loginAdmin = userService.login(admin);
 	
-	// ·Î±×ÀÎ ½ÇÆÐ
+	// ë¡œê·¸ì¸ ì‹¤íŒ¨
 	if( loginAdmin == null ) {
 		response.sendRedirect("admin/login.jsp?msg=0");
 		return;
 	}
 	String root = request.getContextPath();
 	if( loginAdmin != null) {
-		// ·Î±×ÀÎ ¼º°ø
-		// ¼¼¼Ç¿¡ ¾ÆÀÌµð µî·Ï ÈÄ, ¸ÞÀÎ ÆäÀÌÁö·Î ÀÌµ¿
+		// ë¡œê·¸ì¸ ì„±ê³µ
+		// ì„¸ì…˜ì— ì•„ì´ë”” ë“±ë¡ í›„, ë©”ì¸ íŽ˜ì´ì§€ë¡œ ì´ë™
 		session.setAttribute("loginId", loginAdmin.getAdmin_id() );
-		response.sendRedirect( root + "/index_admin.jsp" );
+		response.sendRedirect( root + "/admin/index_admin.jsp" );
 	}
 	
 %>

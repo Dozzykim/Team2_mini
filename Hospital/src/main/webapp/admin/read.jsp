@@ -62,9 +62,7 @@
 			</table>
 			<div class="insert">
 				<div class="left_area">
-					<c:if test="<%=writer.equals(loginId)%>">
 						<button onclick="doubleCheck()">삭제</button>
-					</c:if>
 					<button onclick="moveToList()">목록</button>
 				</div>
 			</div>

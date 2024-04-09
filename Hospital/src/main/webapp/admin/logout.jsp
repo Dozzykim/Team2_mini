@@ -9,7 +9,14 @@
 	<!-- 로그아웃 버튼 클릭시 로그아웃 처리되면서 메인화면으로 바로 이동됨 -->
 <%
 	
+
+	// 세션 무효화
+	session.invalidate();
 	
+	
+	// 메인 페이지로 이동
+	// i) jsp 를 지정하여 이동
+	// response.sendRedirect("index.jsp");
 	// ii)) url 경로를 지정하여 이동
 	response.sendRedirect(request.getContextPath() + "/");
 %>

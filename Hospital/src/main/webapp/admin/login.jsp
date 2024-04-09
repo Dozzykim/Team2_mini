@@ -12,7 +12,7 @@
 	<title>로그인 화면</title>
 
 	<jsp:include page="/layout/link_admin.jsp" />
-	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/admin_css/admin_login_main.css">
+	<link href="<%= request.getContextPath() %>/static/admin_css/admin_login_main.css" rel="stylesheet"/>
 		
 </head>
 <body>
