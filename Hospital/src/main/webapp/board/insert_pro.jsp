@@ -25,8 +25,7 @@
 	
 	BoardService boardService = new BoardServiceImpl();
 	int result = boardService.insert(board);
-	
-	
+
 	if (result > 0) {
 		// 등록 성공
 		response.sendRedirect(root + "/board/list.jsp");

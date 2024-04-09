@@ -26,7 +26,6 @@
 </head>
 
 <body>
-
 	<% 
 		// 파라미터
 		String category = request.getParameter("category");
@@ -140,7 +139,6 @@
 	<!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp" />
 	
-	<jsp:include page="/layout/script.jsp" />
 	<script>
 		var loginId = "<%=loginId%>";
 		// 카테고리 셀렉트박스 선택시 발동되는 함수

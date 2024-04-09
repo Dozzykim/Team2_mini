@@ -4,7 +4,8 @@ import java.util.Date;
 
 public class Comment {
 	
-	private int no;
+	private int c_no;
+	private int b_no;
 	private String user_id;
 	private String content;
 	private Date reg_date;
@@ -14,19 +15,28 @@ public class Comment {
 		
 	}
 	
-	public Comment (String userId, String content) {
+	public Comment (int b_no, String userId, String content) {
+		this.b_no = b_no;
 		this.user_id = userId;
 		this.content = content;
 		this.reg_date = new Date();
 		this.upd_date = new Date();
 	}
-	
-	public int getNo() {
-		return no;
+
+	public int getC_no() {
+		return c_no;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setC_no(int c_no) {
+		this.c_no = c_no;
+	}
+
+	public int getB_no() {
+		return b_no;
+	}
+
+	public void setB_no(int b_no) {
+		this.b_no = b_no;
 	}
 
 	public String getUser_id() {
@@ -63,10 +73,8 @@ public class Comment {
 
 	@Override
 	public String toString() {
-		return "Comment [no=" + no + ", user_id=" + user_id + ", content=" + content + ", reg_date=" + reg_date
-				+ ", upd_date=" + upd_date + "]";
+		return "Comment [c_no=" + c_no + ", b_no=" + b_no + ", user_id=" + user_id + ", content=" + content
+				+ ", reg_date=" + reg_date + ", upd_date=" + upd_date + "]";
 	}
 	
-	
-
 }

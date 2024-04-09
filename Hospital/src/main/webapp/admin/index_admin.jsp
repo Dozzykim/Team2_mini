@@ -10,54 +10,53 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>더조은 종합병원</title>
-	
+		
 	<!-- slick css FILE -->
-	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/slick.css">
-	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/slick-theme.css">
+	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/admin_css/slick.css">
+	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/admin_css/slick-theme.css">
 	
 	<!-- css -->
-	<jsp:include page="/layout/link.jsp" />
-	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/response.css">
-	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/index.css">
+	<jsp:include page="/layout/link_admin.jsp" />
+	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/admin_css/admin_index.css">
 		
 	
 	<!-- jQuery CDN 방식으로 포함하기 -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	<!-- slick js FILE -->
-	<script src="static/js/slick.min.js"></script>
+	<script src="<%= request.getContextPath()%>/static/js/slick.min.js"></script>
 	<!-- script -->
-	<script src="static/js/script.js"></script>
+	<script src="<%= request.getContextPath()%>/static/js/script.js"></script>
 	
 </head>
 
 <body>
 	<!-- 헤더 -->
-	<jsp:include page="/layout/header.jsp"></jsp:include>
+	<jsp:include page="../layout/header_adm.jsp"></jsp:include>
 	
 	<div class="container">
 		<div class="inner1">
 			<div class="cont1">
 				<div class="slide-container">
 					<div class="slide">
-						<img src="static/img/h10.jpg" alt="">
+						<img src="../static/img/h10.jpg" alt="">
 					</div>
 					<div class="slide">
-						<img src="static/img/h1.jpg" alt="">
+						<img src="../static/img/h1.jpg" alt="">
 					</div>
 					<div class="slide">
-						<img src="static/img/h2.jpg" alt="">
+						<img src="../static/img/h2.jpg" alt="">
 					</div>
 					<div class="slide">
-						<img src="static/img/h4.jpg" alt="">
+						<img src="../static/img/h4.jpg" alt="">
 					</div>
 					<div class="slide">
-						<img src="static/img/h9.jpg" alt="">
+						<img src="../static/img/h9.jpg" alt="">
+					</div>
+					<div class="../slide">
+						<img src="../static/img/h7.jpg" alt="">
 					</div>
 					<div class="slide">
-						<img src="static/img/h7.jpg" alt="">
-					</div>
-					<div class="slide">
-						<img src="static/img/h8.jpg" alt="">
+						<img src="../static/img/h8.jpg" alt="">
 					</div>
 				</div>
 			</div>
@@ -87,7 +86,7 @@
 				<div class="cont2_right">
 
 					<ul>
-						<li><a> <img src="static/img/hospital.jpg" alt="병원소개 페이지">
+						<li><a> <img src="../static/img/hospital.jpg" alt="병원소개 페이지">
 						</a></li>
 					</ul>
 				</div>
@@ -111,7 +110,7 @@
 				<div class="cont3_left">
 
 					<ul>
-						<li><a> <img src="static/img/surgery.jpg" alt="병원소개 페이지">
+						<li><a> <img src="../static/img/surgery.jpg" alt="병원소개 페이지">
 						</a></li>
 					</ul>
 				</div>
@@ -137,7 +136,7 @@
 				<div class="cont4_right">
 
 					<ul>
-						<li><a> <img src="static/img/surgery1.jpg" alt="병원소개 페이지">
+						<li><a> <img src="../static/img/surgery1.jpg" alt="병원소개 페이지">
 						</a></li>
 					</ul>
 				</div>
@@ -162,7 +161,7 @@
 				<div class="cont5_left">
 
 					<ul>
-						<li><a> <img src="static/img/surgery2.jpg" alt="병원소개 페이지">
+						<li><a> <img src="../static/img/surgery2.jpg" alt="병원소개 페이지">
 						</a></li>
 					</ul>
 				</div>
@@ -188,7 +187,7 @@
 				<div class="cont6_right">
 
 					<ul>
-						<li><a href="#none"> <img src="static/img/surgery3.jpg"
+						<li><a href="#none"> <img src="../static/img/surgery3.jpg"
 								alt="병원소개 페이지">
 						</a></li>
 					</ul>
@@ -196,7 +195,7 @@
 			</div>
 		</div>
 	</div>
-	</div>
+	
 
 	<!-- 푸터 -->
 	<jsp:include page="/layout/footer.jsp"></jsp:include>

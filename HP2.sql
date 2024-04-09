@@ -162,7 +162,9 @@ VALUES(SEQ_RES_NO.NEXTVAL, 'joeun', '피부과', '2024/12/25', '9:00');
 INSERT INTO Admin (admin_id, admin_pw, admin_name, admin_age, emp_date)
 VALUES ('admin', '123456', '이병원', 27, '2024-01-31');
 
-
+-- 댓글 샘플
+insert into comments (c_no, user_id, c_content, b_no)
+VALUES(SEQ_CMNT_NO.NEXTVAL, 'joeun', '나 하니인데, 개추준다.', 44);
 
 
 -- 테이블 삭제

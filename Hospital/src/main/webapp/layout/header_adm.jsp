@@ -25,15 +25,15 @@
 					</c:if>
 				</ul>
 				<h1 class="main_name">
-					<a href="<%= request.getContextPath()%>/index.jsp">더조은 종합병원</a>
+					<a href="<%= request.getContextPath()%>/admin/index_admin.jsp">더조은 종합병원</a>
 				</h1>
 			</div>
 			<div class="header_bottom">
 				<ul>
-					<li><a href="<%=request.getContextPath()%>/board/list.jsp">소통해요</a></li>
+					<li><a href="<%=request.getContextPath()%>/admin/boardList.jsp">소통 해요</a></li>
 					<li><a
-						href="<%=request.getContextPath()%>/reservation/reserv.jsp">예약현황</a></li>
-					<li><a href="#none">병원 소개</a></li>
+						href="<%=request.getContextPath()%>/admin/reservation.jsp">예약 현황</a></li>
+					
 				</ul>
 			</div>
 		</div>
