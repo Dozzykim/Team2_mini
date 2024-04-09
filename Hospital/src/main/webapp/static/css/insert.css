@@ -62,6 +62,7 @@ input[type="text"], textarea, select {
 
 textarea {
     height: 450px;
+    resize: none;
 }
 
 .table-wrapper {

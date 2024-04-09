@@ -144,7 +144,7 @@ ul { list-style-type: none; }
     height: 40px;
     transform: translateY(-50%);
     z-index: 100;
-    background: url(/image/prev.png) no-repeat center center / 40px 40px;
+    background: url(../img/prev.png) no-repeat center center / 40px 40px;
     outline: none;
     border: none;
     filter: brightness(40%);

@@ -56,7 +56,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td colspan="4"><textarea id="content"><%=board.getContent()%></textarea></td>
+						<td colspan="4"><textarea id="content" readonly><%=board.getContent()%></textarea></td>
 					</tr>
 				</tbody>
 			</table>
