@@ -31,6 +31,7 @@
 		// 파라미터
 		String category = request.getParameter("category");
 		String searchNo = request.getParameter("searchNo");
+		String loginId = (String)session.getAttribute("loginId");
 		
 		BoardService boardService = new BoardServiceImpl();
 		List<Board> boardList = boardService.list();
@@ -107,8 +108,7 @@
 										// list.jsp에 진입한 경우 (전달받은 파라미터가 없을 경우 ex. url: /list.jsp) %>
 										<tr>
 											<td><%=board.getNo()%>.</td>
-											<td><a
-												href="<%= request.getContextPath()%>/board/read.jsp?no=<%=board.getNo()%>">[<%=board.getCategory() %>]
+											<td><a href="<%= request.getContextPath()%>/board/read.jsp?no=<%=board.getNo()%>">[<%=board.getCategory() %>]
 													<%= board.getTitle() %></a></td>
 											<td><%= board.getUser_id() %></td>
 											<td><%= simpleDate.format(board.getReg_date()) %></td>
@@ -131,7 +131,7 @@
 							}
 						%>
 					</table>
-					<a href="<%=request.getContextPath()%>/board/insert.jsp" id="write"><button>작성하기</button></a> 
+					<a id="write"><button>작성하기</button></a> 
 				</div>
 			</div>
 		</div>
@@ -142,16 +142,27 @@
 	
 	<jsp:include page="/layout/script.jsp" />
 	<script>
-		
+		var loginId = "<%=loginId%>";
+		// 카테고리 셀렉트박스 선택시 발동되는 함수
 		$(function() {
 			
 			// 이벤트
 			$('#list').on('change', function() {
 				$('#form').submit()
 			})
-			
 		})
-	
+		
+		// 로그인된 상태인지 체크
+		$('#write').on('click', function() {
+	        var contextPath = "<%= request.getContextPath() %>";
+	        
+			if (loginId === "null") {
+				alert('로그인이 필요한 페이지 입니다.')
+		        window.location.href = contextPath + "/login_sub.jsp";
+			} else {
+				window.location.href = contextPath + "/board/insert.jsp";
+			}
+		})
 	</script>
 </body>
 
