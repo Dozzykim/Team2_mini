@@ -18,7 +18,7 @@
 	
 	// 로그인 실패
 	if( loginAdmin == null ) {
-		response.sendRedirect("login.jsp?msg=0");
+		response.sendRedirect("admin/login.jsp?msg=0");
 		return;
 	}
 	String root = request.getContextPath();
