@@ -130,8 +130,6 @@
 	<!-- 스크립트 -->
 	<script>
 		<%String root = request.getContextPath();%>
-		<c:set var="root" value="<%=root%>" />
-		const root = "{root}";
 		
 		// 선택받기
 	    function doubleCheck() {
@@ -157,8 +155,8 @@
 			window.location.href="<%=root%>/board/addCmmt.jsp";
 		}
 		
-		// 여길 완성해야되는데.ㅣ..
-		function submitComment() {
+<%-- 		// 여길 완성해야되는데.ㅣ..
+ 		function submitComment() {
 			// id가 cmmt인 태그에서 value를 불러와서 저장
 			var cmmt = $('#cmmt').val();
 			var id = <%=request.getAttribute("loginId")%>;
@@ -177,7 +175,7 @@
 				success: function (data) {
 					}
 				}
-			})
+			}) --%>
 	</script>
 
 </body>

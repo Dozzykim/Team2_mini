@@ -139,7 +139,6 @@
 	<!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp" />
 	
-	<jsp:include page="/layout/script.jsp" />
 	<script>
 		var loginId = "<%=loginId%>";
 		// 카테고리 셀렉트박스 선택시 발동되는 함수
