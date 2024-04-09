@@ -40,7 +40,7 @@ $(function() {
 
 
         /* 반응형 */
-        responsive: [
+        /*responsive: [
             {
                 breakpoint: 1024,
                 settings: {
@@ -63,7 +63,7 @@ $(function() {
                 }
             },
     
-        ]
+        ]*/
 
 
 

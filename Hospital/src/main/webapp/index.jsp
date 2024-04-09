@@ -17,6 +17,7 @@
 	
 	<!-- css -->
 	<jsp:include page="/layout/link.jsp" />
+	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/response.css">
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/index.css">
 		
 	
