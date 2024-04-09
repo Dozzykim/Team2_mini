@@ -4,12 +4,12 @@ import java.util.List;
 
 import hospital.DTO.Comment;
 
-public interface CmntService {
+public interface CmmtService {
 
 	
 // 댓글 기능 인터페이스
 	
-	// 댓글 전체 가져오기
+	// 댓글 불러오기
 	List<Comment> list(int boardNo);
 	
 	
@@ -17,6 +17,6 @@ public interface CmntService {
 	int insert (Comment comment);
 
 	// 삭제
-	int delete (int no);
+	int delete (int c_no);
 	
 }

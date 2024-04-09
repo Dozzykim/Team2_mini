@@ -102,6 +102,7 @@ public class BoardDAO extends JDBConnection {
 		
 		String sql = " INSERT INTO board (no, title, user_id, content, category) "
 				   + " VALUES(SEQ_BOARD_NO.NEXTVAL, ?, ?, ?, ? ) ";
+
 		
 		try {
 			psmt = con.prepareStatement(sql);			// 쿼리 실행 객체 생성
@@ -176,8 +177,6 @@ public class BoardDAO extends JDBConnection {
 	}
 	
 	
-	
-	
 	// 데이터 목록 - 카테고리 기준으로 조회
 	public List<Board> listByCategory(String category) {
 		// 게시글 목록을 담을 컬렉션 객체 생성
@@ -220,6 +219,4 @@ public class BoardDAO extends JDBConnection {
 		// 게시글 목록 반환
 		return boardList;
 	 }
-	
-	
 }

@@ -113,6 +113,7 @@
             }
             
             $.ajax({
+            	//url은 서블릿 주소를 가리킴
                 url: root + '/user/id_check',
                 type: 'post',
                 data: {user_id: id},

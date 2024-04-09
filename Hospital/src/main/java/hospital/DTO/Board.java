@@ -2,6 +2,16 @@ package hospital.DTO;
 
 import java.util.Date;
 
+/** (DTO)
+ *  게시글 정보
+ *  - 게시글 번호
+ *  - 유저id(작성자)
+ *  - 제목
+ *  - 내용
+ *  - 등록일자
+ *  - 수정일자
+ */
+
 public class Board {
 
 	
@@ -90,7 +100,4 @@ public class Board {
 		return "Board [no=" + no + ", user_id=" + user_id + ", category=" + category + ", title=" + title + ", content="
 				+ content + ", reg_date=" + reg_date + ", upd_date=" + upd_date + "]";
 	}
-	
-	
-	
 }
