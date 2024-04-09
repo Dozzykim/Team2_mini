@@ -73,6 +73,9 @@
                     <li><button type="submit">로그인</button></li>
                     <li><p>계정이 없으십니까?</p><a href="<%= request.getContextPath() %>/user/join.jsp">회원가입</a></li>
                 </ul>
+         		</div>
+         	</div>
+         </div>
             </form>
        
 		
