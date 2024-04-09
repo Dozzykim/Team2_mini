@@ -37,35 +37,8 @@
 </head>
 
 <body>
-	<header class="header" id="header">
-		<div class="inner">
-			<div class="header_top">
-				<ul class="util">
-					<!-- 비로그인 시에만 보임 -->
-					<c:if test="${sessionScope.loginId == null }">
-						<li><a href="<%=request.getContextPath()%>/login_sub.jsp">로그인</a></li>
-						<li><a href="<%=request.getContextPath()%>/user/join.jsp">회원가입</a></li>
-					</c:if>
-					<!-- 로그인 시에만 보임 -->
-					<c:if test="${sessionScope.loginId != null }">
-						<li><a href="<%=request.getContextPath()%>/user/logout.jsp">로그아웃</a></li>
-						<li><a href="<%=request.getContextPath()%>/user/mypage.jsp">마이페이지</a></li>
-					</c:if>
-				</ul>
-				<h1 class="main_name">
-					<a href="<%=request.getContextPath()%>/index.jsp">더조은 종합병원</a>
-				</h1>
-			</div>
-			<div class="header_bottom">
-				<ul>
-					<li><a href="<%=request.getContextPath()%>/board/list.jsp">소통 해요</a></li>
-					<li><a
-						href="<%=request.getContextPath()%>/reservation/reserv.jsp">진료 예약</a></li>
-					<li><a href="<%=request.getContextPath()%>/HPinfo.jsp">병원 소개</a></li>
-				</ul>
-			</div>
-		</div>
-	</header>
+	<!-- 헤더 -->
+	<jsp:include page="/layout/header.jsp"></jsp:include>
 
 	<section class="product-list">
 		<h1>의료진 소개</h1>
@@ -191,25 +164,8 @@
 	</section>
 
 
-	<footer class="footer">
-		<div class="inner3">
-			<div class="info">
-				<ul>
-					<li></li>
-					<li>영업 시간: 9:00 ~ 18: 00</li>
-					<li>찾아오시는 길 : 인천광역시 부평구 부평1동 534-48</li>
-					<li>전화번호 : 032 - 123 - 5678</li>
-
-				</ul>
-			</div>
-			<div class="joeun">
-				<p>THE JOEUN HOSPITAL</p>
-			</div>
-			<div class="copy_r">
-				<p>Copyright ⓒ The Joeun Hospital. All Rights Rerved</p>
-			</div>
-		</div>
-	</footer>
+	<!-- 푸터 -->
+	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
 
 </html>

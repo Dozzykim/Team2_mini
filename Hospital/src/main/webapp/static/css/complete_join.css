@@ -1,5 +1,6 @@
 .container {
     text-align: center; /* 가운데 정렬 */
+    padding: 30px;
 }
 
 .container h1 {

@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>예약</title>
+	<title>예약 확인</title>
 	
 	<!-- css -->
 	<jsp:include page="../layout/link.jsp" />

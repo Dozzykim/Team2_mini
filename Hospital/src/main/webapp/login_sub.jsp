@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인 선택</title>
     <jsp:include page="/layout/link.jsp" />
+	<jsp:include page="/layout/script.jsp"></jsp:include>
     <link href="<%= request.getContextPath() %>/static/css/login_sub.css" rel="stylesheet"/>
 </head>
 <body>
@@ -25,7 +26,7 @@
 	
 	<!-- 푸터 -->
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
-	<jsp:include page="/layout/script.jsp"></jsp:include>
+	
 </body>
 
 </html>

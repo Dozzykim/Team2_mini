@@ -43,7 +43,7 @@
     <div class="container">
     <div class="inner">
         <div class="board_area">
-            <h1><img src="/image/reservation.png" alt="">예약</h1>
+            <h1><img src="../static/img/reservation.png" alt="">예약</h1>
             <p>원하는 진료 과와 날짜 및 시간을 선택하여 빠르게 예약해 보세요!</p>
             <br>
             <c:if test="${param.msg == 0 }">
