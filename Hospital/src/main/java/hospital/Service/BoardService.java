@@ -37,12 +37,5 @@ public interface BoardService {
 		
 		// - 게시글 삭제 
 		int delete(int no); //반환타입을 int로 설정한 이유: 게시글번호를 return으로 넘겨주어 삭제하게끔
-		
-		
-		//-------------------------
-		
-		// - 게시글 목록 카테고리로 조회 
-		List<Board> listByCategory(String category);
-		
 
 }

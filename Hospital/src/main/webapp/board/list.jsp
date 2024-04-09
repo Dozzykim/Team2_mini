@@ -26,7 +26,6 @@
 </head>
 
 <body>
-
 	<% 
 		// 파라미터
 		String category = request.getParameter("category");
