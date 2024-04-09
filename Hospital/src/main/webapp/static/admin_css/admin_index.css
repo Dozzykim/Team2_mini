@@ -39,7 +39,7 @@
     height: 40px;
     transform: translateY(-50%);
     z-index: 100;
-    background: url(../img/prev.png) no-repeat center center / 40px 40px;
+    background: url(../../static/img/prev.png) no-repeat center center / 40px 40px;
     outline: none;
     border: none;
     filter: brightness(40%);
@@ -55,11 +55,12 @@
     height: 40px;
     transform: translateY(-50%);
     z-index: 100;
-    background: url(../img/next.png) no-repeat center center / 40px 40px;
+    background: url(../../static/img/next.png) no-repeat center center / 40px 40px;
     outline: none;
     border: none;
-    filter: brightness(40%);
+    filter: brightness(4 0%);
     cursor: pointer;
+   
 }
 
 
