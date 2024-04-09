@@ -84,8 +84,6 @@
 		</div>
 	</form>
 
-
-
 	<!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp"></jsp:include>
 

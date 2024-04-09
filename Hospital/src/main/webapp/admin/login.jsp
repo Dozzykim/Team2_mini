@@ -38,6 +38,9 @@
                     <li><button type="submit">로그인</button></li>
                     
                 </ul>
+     		</div>
+     	</div>
+     </div>
             </form>
 	<!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp"></jsp:include>
