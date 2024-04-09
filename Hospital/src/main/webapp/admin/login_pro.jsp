@@ -26,7 +26,7 @@
 		// 로그인 성공
 		// 세션에 아이디 등록 후, 메인 페이지로 이동
 		session.setAttribute("loginId", loginAdmin.getAdmin_id() );
-		response.sendRedirect( root + "/admin/index.jsp" );
+		response.sendRedirect( root + "/admin/index_admin.jsp" );
 	}
 	
 %>
