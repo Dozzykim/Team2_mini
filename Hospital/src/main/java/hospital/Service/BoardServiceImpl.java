@@ -63,11 +63,4 @@ public class BoardServiceImpl implements BoardService {
 		return result;
 	}
 
-	@Override
-	public List<Board> listByCategory(String category) {
-		List<Board> boardList = boardDAO.listByCategory(category);
-		return boardList;
-	}
-	
-	
 }
