@@ -19,6 +19,7 @@
 	<!-- css -->
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/main.css">
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/reset.css">
+	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/response.css">
 		
 	
 	<!-- jQuery CDN 방식으로 포함하기 -->
