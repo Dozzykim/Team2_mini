@@ -70,6 +70,7 @@
     font-size: 18px; 
     color: gray;
     position: relative; 
+    border: 1px solid gray;
 }
 
 .container .inner .board_area .action_area form .cal {
