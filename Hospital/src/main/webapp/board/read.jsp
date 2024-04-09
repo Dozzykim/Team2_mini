@@ -119,8 +119,7 @@
 		}
 		// 리스트로 이동
 		function moveToList() {
-			window.location.href= "<%=root%>
-		/board/list.jsp";
+			window.location.href= "<%=root%>/board/list.jsp";
 		}
 
 		function submitComment() {
