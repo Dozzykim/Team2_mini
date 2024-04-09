@@ -1,5 +1,8 @@
 package hospital.Service;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import hospital.DAO.UserDAO;
 import hospital.DTO.PersistentLogins;
 import hospital.DTO.Users;
@@ -85,6 +88,18 @@ public class UserServiceImpl implements UserService {
 		boolean result = userDAO.idCheck(user_id);
 		return result;
 	}
+
+	@Override
+	public Users myinfo(String user_id) {
+		UserDAO userDAO = new UserDAO();
+		Users user = userDAO.myinfo(user_id);
+		return user;
+	}
+	
+	
+	
+
+	
 
 	
 

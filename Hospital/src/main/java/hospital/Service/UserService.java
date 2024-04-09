@@ -1,12 +1,16 @@
 package hospital.Service;
 
+
+
 import hospital.DTO.PersistentLogins;
+import hospital.DTO.Reservation;
 import hospital.DTO.Users;
 
 public interface UserService {
 
     // 회원 가입
     public int join(Users user);
+    
     
     // 로그인
     public Users login(Users user);
@@ -22,4 +26,7 @@ public interface UserService {
 
 	public boolean idCheck(String user_id);
 
+	// 마이페이지 내 정보 조회
+	Users myinfo(String user_id);
+	
 }

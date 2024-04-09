@@ -1,6 +1,7 @@
 .container {
     width: 100%;
     margin: 0 auto;
+    padding: 30px;
 }
 
 .container .inner {
@@ -62,6 +63,7 @@ input[type="text"], textarea, select {
 
 textarea {
     height: 450px;
+    resize: none;
 }
 
 .table-wrapper {
