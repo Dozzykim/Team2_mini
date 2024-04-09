@@ -1,6 +1,7 @@
 .container {
     width: 100%;
     margin: 0 auto;
+    padding: 30px;
 }
 
 .container .inner {
@@ -102,9 +103,7 @@
     text-align: center;
 }
 
-#id {
+#user_id {
     width: 490px;
     margin-right: 10px;
 }
-
-
