@@ -13,6 +13,10 @@
 <head>
 <meta charset="UTF-8">
 <title>전체 예약 현황</title>
+	
+	<!-- css -->
+	<jsp:include page="/layout/link_admin.jsp" />
+	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/admin_css/admin_reservation.css">
 </head>
 <body>
 	<%
@@ -20,6 +24,9 @@
 	List<Reservation> reservationList = reservationService.list();
 	%>
 
+	<!-- 헤더 -->
+	<jsp:include page="/layout/header_adm.jsp"></jsp:include>
+	
 	<div class="container">
 		<h1>전체 예약 환자</h1>
 		<table border="1">
@@ -48,24 +55,21 @@
 				<td><%=reservation.getR_category()%></td>
 				<td><%=new java.text.SimpleDateFormat("yyyy-MM-dd").format(reservation.getR_date())%></td>
 				<td><%=reservation.getR_time()%></td>
-				<td>
-				
-				<a href="<%=request.getContextPath()%>/reservation/reserv_del_a.jsp?no=<%=reservation.getR_no()%>"
+				<td><a
+					href="<%=request.getContextPath()%>/reservation/reserv_del_a.jsp?no=<%=reservation.getR_no()%>"
 					onclick="return confirm('정말로 삭제하시겠습니까?')">
-						<button>예약취소</button>
-				</a>
-				</td>
+						<button id="cancel">예약취소</button>
+				</a></td>
 			</tr>
 			<%
 			}
 			}
 			%>
 		</table>
-		
-			<a href="<%=request.getContextPath()%>/admin/list.jsp">
-				<button>홈으로</button>
-			</a>
-		
+
+
 	</div>
+	<!-- 푸터 -->
+	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
 </html>
