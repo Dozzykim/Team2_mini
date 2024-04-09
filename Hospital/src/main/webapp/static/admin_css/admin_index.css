@@ -1,109 +1,3 @@
-@charset "utf-8";
-/* reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-a { text-decoration: none; color: black; }
-ul { list-style-type: none; }
-
-
-.inner {
-    max-width: 100%;
-    margin: 0 auto;
-}
-/*--header--*/
-
-.header {
-    width: 100%;
-    height: 180px;
-    box-sizing: border-box;
-    z-index: 2002;
-}
-
-.header .header_top {
-    text-align: center;
-    position: relative;
-    height: 120px;
-    background-color: #B4D4FF;
-}
-
-.header .header_top:after {
-    content: '';
-    display: block;
-    clear: both;
-}
-
-.header .header_top ul {
-    float: right;
-}
-
-.header .header_top ul:after {
-    content: '';
-    display: block;
-    clear: both;
-}
-
-.header .header_top ul li {
-    float: left;
-    padding: 20px;
-} 
-
-.header .header_top ul li a {
-    padding: 0 10px 0 10px;
-    margin: 5px 0;
-    font-size: 15px;
-    display: block;
-    color: black;
-    font-weight: bold;
-}
-
-.header .header_top .main_name {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    top: 50%; 
-    font-size: 30px;
-}
-
-.header .header_top .main_name a {
-    color: black;
-}
-
-.header .header_bottom {
-    width: 100%;
-    padding: 20px 0;
-    background-color: #F5F5F5;
-}
-
-.header .header_bottom ul {
-    text-align: center;
-}
-
-.header .header_bottom ul:after {
-    content: '';
-    display: block;
-    clear: both;
-}
-
-.header .header_bottom ul li {
-    display: inline-block;
-    width: auto;
-}
-
-.header .header_bottom ul li a {
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 10px 30px; 
-    color: black;
-}
-
-.header .header_bottom ul li a:hover {
-    background-color: white;
-    border-radius: 15px;
-}
-
-<<<<<<< HEAD
-
 /* ----------------------cont1---------------------- */
 
 
@@ -145,7 +39,7 @@ ul { list-style-type: none; }
     height: 40px;
     transform: translateY(-50%);
     z-index: 100;
-    background: url(/image/prev.png) no-repeat center center / 40px 40px;
+    background: url(../../static/img/prev.png) no-repeat center center / 40px 40px;
     outline: none;
     border: none;
     filter: brightness(40%);
@@ -161,11 +55,12 @@ ul { list-style-type: none; }
     height: 40px;
     transform: translateY(-50%);
     z-index: 100;
-    background: url(/image/next.png) no-repeat center center / 40px 40px;
+    background: url(../../static/img/next.png) no-repeat center center / 40px 40px;
     outline: none;
     border: none;
-    filter: brightness(40%);
+    filter: brightness(4 0%);
     cursor: pointer;
+   
 }
 
 
@@ -545,57 +440,4 @@ ul { list-style-type: none; }
     content: '';
     display: block;
     clear: both;
-}
-
-
-
-
-
-
-
-=======
->>>>>>> branch 'TaeWon' of https://github.com/Dozzykim/Team2_mini.git
-/*--footer--*/
-
-.footer {
-    padding: 30px 0;
-    border-top: 1px solid #ccc;
-    background-color: #D3D3D3;
-    bottom: 0;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.footer .inner3 {
-    text-align: center;
-}
-
-
-.footer .info ul {
-    overflow: hidden;
-    padding-top: 10px;
-    padding-bottom: 30px;
-    font-size: 16px;
-}
-
-.footer .info ul li {
-    display: inline-block;
-    border-right: 1px solid #000;
-    padding-right: 20px;
-}
-
-.footer .info ul li {
-    border-right: none;
-}
-
-.footer .joeun {
-    font-size: 30px;
-    font-weight: bold;
-    padding-bottom: 20px;
- 
-}
-
-.footer .copy_r {
-    font-size: 14px;
-    padding-top: 5px;
 }

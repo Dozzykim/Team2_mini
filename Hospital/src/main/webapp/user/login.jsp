@@ -11,8 +11,7 @@
 <meta charset="UTF-8">
 <title>로그인 화면</title>
 <jsp:include page="/layout/link.jsp" />
-<link href="<%=request.getContextPath()%>/static/css/login_main.css"
-	rel="stylesheet" />
+<link href="<%=request.getContextPath()%>/static/css/login_main.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -83,8 +82,6 @@
 			</div>
 		</div>
 	</form>
-
-
 
 	<!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp"></jsp:include>

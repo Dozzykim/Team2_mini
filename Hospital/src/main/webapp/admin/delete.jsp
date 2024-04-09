@@ -19,7 +19,7 @@
 	
 	if(result > 0) {
 		// 삭제 성공 -> 목록으로 이동
-		response.sendRedirect(root + "/admin/list.jsp");
+		response.sendRedirect(root + "/admin/boardList.jsp");
 	} 
 	
 %>

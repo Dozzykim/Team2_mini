@@ -11,9 +11,8 @@
 	<meta charset="UTF-8">
 	<title>로그인 화면</title>
 
-	<jsp:include page="/layout/link.jsp" />
-	<link href="<%= request.getContextPath() %>/static/css/sub.css" rel="stylesheet"/>
-	<link href="<%= request.getContextPath() %>/static/css/login_main_adm.css" rel="stylesheet"/>
+	<jsp:include page="/layout/link_admin.jsp" />
+	<link href="<%= request.getContextPath() %>/static/admin_css/admin_login_main.css" rel="stylesheet"/>
 		
 </head>
 <body>
@@ -38,8 +37,11 @@
                     <li><button type="submit">로그인</button></li>
                     
                 </ul>
+     		</div>
+     	</div>
+     </div>
             </form>
 	<!-- 푸터 -->
-	<jsp:include page="../layout/footer.jsp"></jsp:include>
+	<jsp:include page="/layout/footer.jsp"></jsp:include>
 </body>
 </html>

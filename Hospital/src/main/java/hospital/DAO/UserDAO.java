@@ -1,9 +1,12 @@
 package hospital.DAO;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import hospital.DTO.PersistentLogins;
+import hospital.DTO.Reservation;
 import hospital.DTO.Users;
 
 public class UserDAO extends JDBConnection {
@@ -269,4 +272,41 @@ public class UserDAO extends JDBConnection {
 	}
 
 	
+	
+	// 마이페이지 내 정보 조회
+	public Users myinfo(String user_id){
+		
+		
+		
+		String sql = " SELECT * FROM users WHERE user_id =  ? ";
+		Users user =  new Users();
+		try {
+			
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, user_id);
+			rs = psmt.executeQuery();
+			
+			
+			if(rs.next()) {
+				user.setUser_name(rs.getString("user_name"));
+				user.setUser_id(rs.getString("user_id"));
+				user.setUser_age(rs.getString("user_age"));
+				user.setUser_pno(rs.getString("user_pno"));
+				user.setUser_address(rs.getString("user_address"));
+				
+				System.out.println(user.getUser_name());
+			}
+			
+		} catch (SQLException e) {
+			System.err.println("내 정보 조회 시 , 예외 발생");
+			e.printStackTrace();
+		}
+				
+		return user;
+		
+		
+	}
 }
+
+
+
