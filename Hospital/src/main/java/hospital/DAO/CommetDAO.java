@@ -53,12 +53,18 @@ public class CommetDAO extends JDBConnection{
 			psmt.setString(2, comment.getUser_id());
 			psmt.setString(3, comment.getContent());
 			
+			result = psmt.executeUpdate();
+			
+			System.out.println("글번호: " + comment.getB_no());
+			System.out.println("작성자: " + comment.getUser_id());
+			System.out.println("댓글내용: " + comment.getContent());
+			 
+			
 		} catch (SQLException e) {
 			System.err.println("댓글 등록 시 예외 발생");
-			
-			
 			e.printStackTrace();
 		}
+		
 		return result;
 		
 	}
