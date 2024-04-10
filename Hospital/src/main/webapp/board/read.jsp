@@ -46,6 +46,7 @@
 	SimpleDateFormat boardDate = new SimpleDateFormat("yyyy-MM-dd");
 	SimpleDateFormat cmmtDate = new SimpleDateFormat("MM/dd HH:mm");
 	%>
+	
 	<!-- 헤더 -->
 	<jsp:include page="../layout/header.jsp" />
 
@@ -88,10 +89,24 @@
 		<ul>
 			<li class="head">
 				<p>댓글</p>
-				<input type="hidden" name="boardNo" value=<%=board.getNo()%>/>
-				<input type="hidden" name="loginId" value=<%=loginId%>/>
-				<input type="text" name="cmmt" id="cmmt" placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다.">
-				<button type="submit" id="search" onclick="addCmmt()">작성</button>
+				<form action="<%=request.getContextPath()%>/board/addCmmt.jsp" method="post">
+					<input type="hidden" name="boardNo" value="<%=board.getNo()%>" />
+					<input type="hidden" name="loginId" value="<%=loginId%>" />
+					
+					<!-- 비로그인 시에만 보임 -->
+					<c:if test="${sessionScope.loginId == null }">
+						<input type="text" id="noneLoginCmmt" value="댓글을 작성하려면 로그인 해주세요" />
+					</c:if>
+					
+					<!-- 로그인 시에만 보임 -->
+					<c:if test="${sessionScope.loginId != null }">
+						<input type="text" id="cBox" placeholder="댓글을 입력해주세요.">
+						<!-- 아이디가 보였으면 좋겠음 -->
+						<input type="text" id="cmmt" name="cmmt" style="display: none;" placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다."></textarea>
+						<button id="insertCmmt" style="display:none;" >작성</button>
+					</c:if>
+					
+				</form>
 			</li>
 		</ul>
 		<div class="id_comment">
@@ -129,31 +144,59 @@
 
 	<!-- 스크립트 -->
 	<script>
-		<%String root = request.getContextPath();%>
+		var loginId = '<%=loginId%>';
+		var root = '<%=request.getContextPath()%>';
 		
 		// 선택받기
 	    function doubleCheck() {
 	        var choice = confirm("정말로 삭제하시겠습니까?");
 	        
 	        if (choice == true) {
-	            window.location.href= "<%=root%>/board/delete.jsp?no=<%=board.getNo()%>";
+	            window.location.href= root + "/board/delete.jsp?no=<%=board.getNo()%>";
 	        }
 	    }
 		
 		// 수정페이지로 이동
 		function moveToUpdate() {
-			window.location.href= "<%=root%>/board/update.jsp?no=<%=board.getNo()%>";
+			window.location.href= root + "/board/update.jsp?no=<%=board.getNo()%>";
 		}
 		
 		// 리스트로 이동
 		function moveToList() {
-			window.location.href= "<%=root%>/board/list.jsp";
+			window.location.href= root + "/board/list.jsp";
 		}
-	
+		
+		// 비로그인상태로 댓글작성 시도 시, 로그인 요청 얼럿
+		$('#noneLoginCmmt').on('click', function() {
+			$('insertCmmt')
+			var loginConfirm = confirm("로그인을 하신 후 이용해 주시기 바랍니다.");
+			
+			if (loginConfirm) {
+				alert('로그인페이지로 이동');
+				window.location.href= root + '/login_sub.jsp';
+				return;
+			}
+		})
+		
+		// 로그인 상태면, 댓글창 바뀜
+		$('#cBox').on('click', function() {
+			$('#cmmt').show().focus();
+			$('#insertCmmt').show();
+			$('#cBox').hide();
+		})
+		
+		$('#cmmt').on('blur', function() {
+            if ($('#cmmt').val() === "") {
+            	$('#cmmt').hide();
+            	$('#insertCmmt').hide();
+            	$('#cBox').show();
+            }
+        });
+
 		// 댓글추가
-		function addCmmt() {
+		<%-- function addCmmt() {
 			window.location.href="<%=root%>/board/addCmmt.jsp";
-		}
+		} --%>
 		
 <%-- 		// 여길 완성해야되는데.ㅣ..
  		function submitComment() {

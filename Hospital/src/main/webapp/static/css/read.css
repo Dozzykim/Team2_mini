@@ -88,6 +88,11 @@ textarea {
 	height: 450px;
 }
 
+#cmmt {
+	width: 700px;
+	height: 100px;
+}
+
 .table-wrapper {
 	position: relative; /* 상대적 위치 지정 */
 	width: 100%; /* 테이블 컨테이너의 너비를 100%로 설정합니다. */
@@ -121,7 +126,7 @@ textarea {
 }
 
 .cont_tb2 .head input {
-	width: 70%;
+	width: 100%;
 }
 
 .cont_tb2 .head p {
@@ -138,6 +143,9 @@ textarea {
 	width: 20%;
 	margin-left: 5px;
 }
+.cont_tb2 .head form {
+	width: 800px;
+}
 
 .cont_tb2 .head button {
 	border-radius: 5px;
@@ -147,7 +155,8 @@ textarea {
 	color: white;
 	font-size: 16px;
 	border: none;
-	margin-left: 10px;
+	margin-left: 638px;
+	margin-top: 5px;
 }
 .id_comment {
 	display: flex;
