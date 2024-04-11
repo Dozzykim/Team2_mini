@@ -29,6 +29,9 @@
 <body>
     <!-- 헤더 -->
 	<jsp:include page="../layout/header.jsp"></jsp:include>
+	
+	<!-- 플로팅 -->
+	<jsp:include page="/layout/floating.jsp"></jsp:include>
 
     <!-- 컨테이너 영역 -->
    
@@ -53,10 +56,10 @@
 			<div class="cont_full">
 				<div class="cont_top">
 					<h1>마이페이지</h1>
-					<p>내 정보</p>
+					<p>내 정보를 확인하세요!</p>
 				</div>
-				<div class="util_area"></div>
-				<div class="cont_tb">
+				
+				<div class="cont_my">
 				
 					<table border="1">
 						<tr>
@@ -80,11 +83,14 @@
 							<td><%= myinfo.getUser_address() %></td>
 						</tr>
 					</table>
+				</div>
 
-					<div class="cont_top">
-
-						<p>본인 예약 리스트</p>
-					</div>
+				<div class="cont_top">
+					<p>예약 리스트를 확인하세요!</p>
+				</div>
+				
+				<div class="cont_tb">
+				
 					<table border="1">
 						<tr>
 							<th>카테고리</th>

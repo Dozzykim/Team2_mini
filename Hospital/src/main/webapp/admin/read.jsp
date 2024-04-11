@@ -37,6 +37,8 @@
 	%>
 	<!-- 헤더 -->
 	<jsp:include page="../layout/header_adm.jsp" />
+	<!-- 플로팅 -->
+	<jsp:include page="/layout/floating.jsp"></jsp:include>
 
 	<div class="container">
 		<h1>
@@ -93,6 +95,7 @@
 		</table>
 
 	</div>
+>>>>>>> 4dd8e2a95c2819eb2d8709d2fe396ae3a5cb4f2f
 
 	<!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp" />
