@@ -5,102 +5,121 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>게시글 상세조회</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>게시판 조회</title>
+
+<!-- css -->
+<jsp:include page="../layout/link_admin.jsp" />
+<link rel="stylesheet" href="../static/admin_css/admin_read.css">
+
+<jsp:include page="../layout/script.jsp" />
 </head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <body>
+
 	<%
-		BoardService boardService = new BoardServiceImpl();
-		int no = Integer.parseInt(request.getParameter("no"));
-		Board board = boardService.select(no);
-		String writer = board.getUser_id();
-		String loginId = (String)session.getAttribute("loginId");
-		
-		// 등록일자/수정일자를 yyyy-mm-dd형식으로 출력도와주는 클래스 생성
-		SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
+	BoardService boardService = new BoardServiceImpl();
+	int no = Integer.parseInt(request.getParameter("no"));
+	Board board = boardService.select(no);
+	String writer = board.getUser_id();
+	String loginId = (String) session.getAttribute("loginId");
+
+	// 등록일자/수정일자를 yyyy-mm-dd형식으로 출력도와주는 클래스 생성
+	SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
 	%>
-	
 	<!-- 헤더 -->
-	
+	<jsp:include page="../layout/header_adm.jsp" />
 	<!-- 플로팅 -->
 	<jsp:include page="/layout/floating.jsp"></jsp:include>
-	
-	<!-- 컨텐츠 -->
-	<h1>게시글 조회</h1>
-	<%
-		if(board != null && board.getNo()> 0) { 
-	%>
-	
-	<table border="1">
-		<tr>
-			<th>글번호</th>
-			<td><%= board.getNo() %>.</td>
-		</tr>
-		<tr>
-			<th>제목</th>
-			<td>[<%= board.getCategory()%>] <%= board.getTitle() %></td>
-		</tr>
-		<tr>
-			<th>작성자</th>
-			<td><%= board.getUser_id()%></td>
-		</tr>
-		<tr>
-			<th>작성자</th>
-			<td><%= simpleDate.format(board.getReg_date()) %></td>
-		</tr>
-		<tr>
-			<th>내용</th>
-			<td><%=board.getContent() %></td>
-		</tr>
-	</table>
-	<% } else { %>
-		<h3>조회된 게시글이 없습니다.</h3>
-	<% } %>
-	<div>
-			<button onclick="moveToList()">목록</button>
-			<button onclick="doubleCheck()">삭제</button>
-		
-	</div>
-	
-	<form action="<%= request.getContextPath() %>/board/cmnt_pro.jsp" method="post">
-		<input type="hidden" name="boardNo" value="${board.getNo()}"/>
-		<input type="hidden" name="userId" value="${sessionScope.loginId}"/>
-		<p>댓글 <textarea rows="1" cols="50" name="cmmt"></textarea> <input type="submit" value="등록"/></p>
-	</form>	
 
-	
-	
+	<div class="container">
+		<h1>
+			<img src="../static/img/board.png" alt="">커뮤니티 게시판
+		</h1>
+		<p>자신만의 건강 고민과 팁을 사람들과 공유해 보세요!</p>
+		<div class="table-wrapper">
+
+			<table border="1">
+				<thead>
+					<tr>
+						<th><%=board.getNo()%>.</th>
+						<th>[<%=board.getCategory()%>] <%=board.getTitle()%></th>
+						<th><%=board.getUser_id()%></th>
+						<th><%=simpleDate.format(board.getReg_date())%></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="4"><textarea id="content" readonly><%=board.getContent()%></textarea></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="insert">
+				<div class="left_area">
+						<button onclick="doubleCheck()">삭제</button>
+					<button onclick="moveToList()">목록</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 댓글 -->
+	<div class="cont_tb2">
+		<ul>
+			<li class="head">
+				<p>댓글</p> <input type="text" id="commentInput"
+				placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다.">
+				<button id="search" onclick="submitComment()">작성</button>
+			</li>
+		</ul>
+		<table border="1" id="commt_area">
+			<div class="comment">
+				<tr>
+					<th class="cmmtId">아이디</th>
+					<th class="cmmtContent">작성 댓글</th>
+				</tr>
+				<tr>
+					<td>joeun</td>
+					<td>아니 여기 의사들 다 이상하지 않아요?</td>
+					<td><a href="#none"><button>삭제</button></a></td>
+				</tr>
+			</div>
+		</table>
+
+	</div>
+>>>>>>> 4dd8e2a95c2819eb2d8709d2fe396ae3a5cb4f2f
+
 	<!-- 푸터 -->
-	
+	<jsp:include page="../layout/footer.jsp" />
+
 	<!-- 스크립트 -->
 	<script>
-		<%
-		String root = request.getContextPath();
-		%>
+		<%String root = request.getContextPath();%>
+
+			// 선택받기
+		    function doubleCheck() {
+		        var choice = confirm("정말로 삭제하시겠습니까?");
+		        
+		        if (choice == true) {
+		            window.location.href= "<%= root%>/admin/delete.jsp?no=<%= board.getNo()%>";
+		        }
+		    }
+			
 		
-		// 선택받기
-	    function doubleCheck() {
-	        var choice = confirm("정말로 삭제하시겠습니까?");
-	        
-	        if (choice == true) {
-	            window.location.href= "<%= root%>/admin/delete.jsp?no=<%= board.getNo()%>";
-	        }
-	    }
-		
-	
-		// 리스트로 이동
-		function moveToList() {
-			window.location.href= "<%=root%>/admin/boardList.jsp";
-		}
-	</script>
-	
-	
+			// 리스트로 이동
+			function moveToList() {
+				window.location.href= "<%=root%>/admin/boardList.jsp";
+			}
+		</script>
+
 </body>
+
 </html>

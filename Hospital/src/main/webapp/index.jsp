@@ -11,13 +11,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>더조은 종합병원</title>
 	
-	<!-- link.jsp 상대경로가 달라서 구구절절 씀 -->
 	<!-- slick css FILE -->
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/slick.css">
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/slick-theme.css">
 	
 	<!-- css -->
 	<jsp:include page="/layout/link.jsp" />
+	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/response.css">
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/index.css">
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/map.css">
 		

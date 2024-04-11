@@ -25,7 +25,7 @@
 					</c:if>
 				</ul>
 				<h1 class="main_name">
-					<a href="<%= request.getContextPath()%>/index.jsp">더조은 종합병원</a>
+					<a href="<%= request.getContextPath()%>/admin/index_admin.jsp">더조은 종합병원</a>
 				</h1>
 			</div>
 			<div class="header_bottom">
