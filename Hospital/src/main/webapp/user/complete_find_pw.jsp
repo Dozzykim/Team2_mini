@@ -1,4 +1,3 @@
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -8,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>아이디 찾기 완료</title>
+    <title>비밀번호 찾기 완료</title>
     
     <!-- css  -->
     <jsp:include page="../layout/link.jsp" />
@@ -16,7 +15,6 @@
     
     <!-- js -->
     <jsp:include page="../layout/script.jsp" />
-
 	
 </head>
 		
@@ -25,24 +23,10 @@
     <jsp:include page="../layout/header.jsp" />
 
     <div class="container">
-        <h2>" 아이디 찾기 완료 "</h2>
-        <p>찾은 아이디:</p>
-        <ul>
-            <% 
-                List<String> userIds = (List<String>) request.getAttribute("user_id");
-                if(userIds != null && !userIds.isEmpty()) {
-                    for(String userId : userIds) {
-            %>
-                        <li><%= userId %></li>
-            <% 
-                    }
-                } else {
-            %>
-                    <li>일치하는 아이디가 없습니다.</li>
-            <% } %>
-        </ul>
+        <h2>비밀번호 찾기 완료</h2>
+        <p>찾은 비밀번호: <%= request.getAttribute("user_pw") %></p>
         <div class="button-container">
-            <button onclick="moveTofindId()">로그인 페이지로 이동</button>
+            <button onclick="moveToLoginPage()">로그인 페이지로 이동</button>
         </div>
     </div>
     
@@ -50,7 +34,7 @@
     <jsp:include page="../layout/footer.jsp"></jsp:include>
     
     <script >
-        function moveTofindId() {
+        function moveToLoginPage() {
             var root = "<%= request.getContextPath() %>";
             window.location.href = root + "/user/login.jsp";
         }

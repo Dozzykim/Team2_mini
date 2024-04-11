@@ -1,5 +1,6 @@
 package hospital.DAO;
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -307,8 +308,14 @@ public class UserDAO extends JDBConnection {
 	
 	}
 	
-	public int findId(Users user) {
-	    int result = 0; // 사용자 존재 여부를 나타내는 변수
+	/**
+	 * 아이디 찾기
+	 * @param user
+	 * @return
+	 */
+	
+	public List<String> findId(Users user) {
+	    List<String> userIds = new ArrayList<>(); // 아이디를 저장할 리스트
 
 	    // SQL 작성
 	    String sql = " SELECT user_id FROM users WHERE user_name = ? AND user_pno = ? ";
@@ -317,24 +324,62 @@ public class UserDAO extends JDBConnection {
 	        psmt = con.prepareStatement(sql);
 
 	        // psmt.setXXX( 순서번호, 매핑할 값 );
-	        psmt.setString(1, user.getUser_name());
-	        psmt.setString(2, user.getUser_pno());
+	        psmt.setString(1, user.getUser_name()); // 사용자의 이름 설정
+	        psmt.setString(2, user.getUser_pno()); // 사용자의 전화번호 설정
 
 	        // 쿼리(SQL) 실행 -> 결과 - ResultSet (rs)
 	        rs = psmt.executeQuery();
 
-	        // 조회 결과를 1건 가져오기
-	        if (rs.next()) { // next() : 실행 결과의 다음 데이터로 이동
-	            user.setUser_id(rs.getString("user_id"));
-	            result = 1; // 사용자가 존재함을 나타내는 값
+	        // 조회 결과를 리스트에 추가
+	        while (rs.next()) { // 다음 데이터가 있을 때까지 반복
+	            String userId = rs.getString("user_id"); // 아이디 설정
+	            userIds.add(userId); // 리스트에 추가
 	        }
 	    } catch (SQLException e) {
 	        System.err.println("아이디 찾기 예외 발생");
 	        e.printStackTrace();
-	        result = 0; // 예외 발생 시 사용자가 존재하지 않음을 나타내는 값
 	    }
-	    return result; // 사용자 존재 여부 반환
+
+	    return userIds; // 아이디 목록 반환
 	}
+
+	/**
+	 * 비밀번호 찾기
+	 * @param user
+	 * @return
+	 */
+	
+	public String findPw(Users user) {
+	    String userPw = null; // 비밀번호를 저장할 변수 초기화
+
+	    // SQL 작성
+	    String sql = "SELECT user_pw FROM users WHERE user_id = ? AND user_name = ? AND user_pno = ?";
+	    try {
+	        // 쿼리(SQL) 실행 객체 생성 - PreparedStatement (psmt)
+	        PreparedStatement psmt = con.prepareStatement(sql);
+
+	        // psmt.setXXX( 순서번호, 매핑할 값 );
+	        psmt.setString(1, user.getUser_id()); // 사용자의 아이디 설정
+	        psmt.setString(2, user.getUser_name()); // 사용자의 이름 설정
+	        psmt.setString(3, user.getUser_pno()); // 사용자의 전화번호 설정
+
+	        // 쿼리(SQL) 실행 -> 결과 - ResultSet (rs)
+	         rs = psmt.executeQuery();
+
+	        // 조회 결과가 있으면
+	        if (rs.next()) {
+	            // 해당하는 비밀번호를 변수에 저장
+	            userPw = rs.getString("user_pw");
+	        }
+	    } catch (SQLException e) {
+	        System.err.println("비밀번호 찾기 예외 발생");
+	        e.printStackTrace();
+	    }
+
+	    return userPw; // 비밀번호 반환
+	}
+
+
 
 
 

@@ -1,6 +1,8 @@
 package hospital.Service;
 
 
+import java.util.List;
+
 import hospital.DAO.UserDAO;
 import hospital.DTO.PersistentLogins;
 import hospital.DTO.Users;
@@ -89,22 +91,33 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Users myinfo(String user_id) {
-		UserDAO userDAO = new UserDAO();
 		Users user = userDAO.myinfo(user_id);
 		return user;
 	}
 
 	@Override
-	public int findId(Users user) {
-	    int result = userDAO.findId(user);
-	    System.out.println(user);
-	    if (result > 0) {
-	        System.out.println("아이디 찾기 성공!");
-	        return result;
+	public List<String> findId(Users user) {
+	    List<String> userId = userDAO.findId(user); // 사용자 아이디를 가져옴
+	    if (userId != null && !userId.isEmpty()) { // 아이디가 비어 있지 않은 경우
+	        System.out.println("아이디 찾기 성공: " + userId);
+	        return userId; // 사용자 아이디 반환
 	    } else {
 	        System.out.println("아이디를 찾을 수 없습니다.");
+	        return null; // 아이디를 찾을 수 없는 경우 null 반환
 	    }
-	    return result;
+	}
+
+
+	@Override
+	public String findPw(Users user) {
+	    String userPw = userDAO.findPw(user); // 사용자 비밀번호를 가져옴
+	    if (userPw != null && !userPw.isEmpty()) { // 비밀번호가 비어 있지 않은 경우
+	        System.out.println("비밀번호 찾기 성공: " + userPw);
+	        return userPw; // 사용자 비밀번호 반환
+	    } else {
+	        System.out.println("비밀번호를 찾을 수 없습니다.");
+	        return null; // 비밀번호를 찾을 수 없는 경우 null 반환
+	    }
 	}
 
 

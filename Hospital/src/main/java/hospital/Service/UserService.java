@@ -2,6 +2,8 @@ package hospital.Service;
 
 
 
+import java.util.List;
+
 import hospital.DTO.PersistentLogins;
 import hospital.DTO.Users;
 
@@ -28,5 +30,8 @@ public interface UserService {
 	Users myinfo(String user_id);
 	
 	// 아이디 찾기
-	public int findId(Users user);
+	public List<String> findId(Users user);
+
+	// 비밀번호 찾기
+	public String findPw(Users user);
 }
