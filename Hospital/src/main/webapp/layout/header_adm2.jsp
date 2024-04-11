@@ -35,7 +35,7 @@
                   <li><a>소통 해요</a></li>
                   <li><a>예약 현황</a></li>
                   <li><a>회원 정보</a></li>
-                  
+
                </c:if>
                
                <!-- 로그인 시에만 보임 -->
@@ -43,6 +43,8 @@
                   <li><a href="<%=request.getContextPath()%>/admin/boardList.jsp">소통 해요</a></li>
                   <li><a href="<%=request.getContextPath()%>/admin/reservation.jsp">예약 현황</a></li>
                   <li><a href="<%=request.getContextPath()%>/admin/userinfo.jsp">회원 정보</a></li>
+
+
                </c:if>
                
             </ul>

@@ -116,13 +116,11 @@ textarea {
 	border: none;
 }
 
-.cont_tb2 .head {
+.cont_tb2 li.head {
 	position: relative; /* 상대적 위치 지정 */
 	margin: 0 auto;
 	width: 800px; /* 테이블 컨테이너의 너비를 100%로 설정합니다. */
-	display: flex;
-	flex-direction: row;
-	align-self: center;
+
 }
 
 .cont_tb2 .head input#cBox {
@@ -132,13 +130,15 @@ textarea {
 
 .cont_tb2 .head ul {
     list-style: none; /* 리스트의 기본 마커 제거 */
-    padding: 0; /* 리스트의 패딩 제거 */
+    padding: 0; /* 리스트의 패딩 제거 */ 
 }
 
 .cont_tb2 li.head {
-    display: flex;
-    flex-direction : row;
-    align-items: center; /* 가운데 정렬 */
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
 }
 
 
@@ -152,7 +152,9 @@ textarea {
 	line-height: 38px;
 
 	margin: auto;
+	margin-right : 10px;
 }
+
 
 .cont_tb2 .head a {
 	width: 20%;
@@ -160,7 +162,7 @@ textarea {
 }
 .cont_tb2 .head form {
 	width: 800px;
-	height: 41px;
+
 	
 }
 
