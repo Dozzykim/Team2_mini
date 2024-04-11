@@ -150,9 +150,8 @@ textarea {
 	background-color: #ccc;
 	height: 38px;
 	line-height: 38px;
-
-	margin: auto;
-}
+	margin-right: 10px;	
+	}
 
 .cont_tb2 .head a {
 	width: 20%;
@@ -160,7 +159,6 @@ textarea {
 }
 .cont_tb2 .head form {
 	width: 800px;
-	height: 41px;
 	
 }
 
