@@ -9,5 +9,3 @@
 <link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/main.css">
 <link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/floating.css">
 <link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/reset.css">
-
-

@@ -14,40 +14,43 @@ import hospital.DTO.Reservation;
 public class ReservationDAO extends JDBConnection{
 	
 	// 어드민 전용 데이터 목록
-	public List <Reservation> list(){
-		
-		// 예약을 담을 컬렌셕 객체 생성
-		List<Reservation> reservationList = new ArrayList<Reservation>();
-		
-		// SQL
-		String sql = " SELECT * "
-				   + " FROM reservation "
-				   + " ORDER BY r_date";
-		
-		try {
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(sql);
-			
-			while(rs.next()) {
-				Reservation reservation = new Reservation();
-				
-				reservation.setR_no(rs.getInt("r_no"));
-				reservation.setUser_id(rs.getString("user_id"));
-				reservation.setR_category(rs.getString("r_category"));
-				reservation.setR_date(rs.getTimestamp("r_date"));
-				reservation.setR_time(rs.getString("r_time"));
-				
-				reservationList.add(reservation);
-			}
-			
-		} catch (SQLException e) {
-			System.err.println("예약 내역 조회 시, 예외 발생");
-			e.printStackTrace();
-		}
-		// 예약 반환
-		return reservationList;
-				
+	public List<Reservation> list() {
+	    // 예약을 담을 컬렉션 객체 생성
+	    List<Reservation> reservationList = new ArrayList<Reservation>();
+
+	    // SQL
+	    String sql = "SELECT r.*, u.user_name " +
+	                 "FROM Reservation r " +
+	                 "JOIN Users u ON r.user_id = u.user_id " +
+	                 "ORDER BY r.r_date";
+
+	    try {
+	        stmt = con.createStatement();
+	        rs = stmt.executeQuery(sql);
+
+	        while (rs.next()) {
+	            Reservation reservation = new Reservation();
+
+	            reservation.setR_no(rs.getInt("r_no"));
+	            reservation.setUser_id(rs.getString("user_id"));
+	            reservation.setR_category(rs.getString("r_category"));
+	            reservation.setR_date(rs.getTimestamp("r_date"));
+	            reservation.setR_time(rs.getString("r_time"));
+	            // 사용자 이름 추가
+	            reservation.setUser_name(rs.getString("user_name"));
+
+	            reservationList.add(reservation);
+	        }
+
+	    } catch (SQLException e) {
+	        System.err.println("예약 내역 조회 시, 예외 발생");
+	        e.printStackTrace();
+	    } 
+
+	    // 예약 반환
+	    return reservationList;
 	}
+
 	
 	// 사용자 전용 데이터 목록
 	public List<Reservation> listByUserId(String userId) {
