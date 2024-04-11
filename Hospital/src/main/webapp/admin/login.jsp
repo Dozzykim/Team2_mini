@@ -19,6 +19,7 @@
 	<%
 	String loginId = (String) session.getAttribute("loginId");
 	%>
+  
 	<!-- 헤더 -->
 	<jsp:include page="../layout/header_adm.jsp" />
 	
