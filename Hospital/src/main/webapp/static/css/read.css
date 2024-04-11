@@ -86,6 +86,10 @@ input[type="text"], textarea, select {
 	font-size: 14px;
 }
 
+input#cBox, input#cmmt {
+	margin-left: 10px;
+}
+
 textarea {
 	height: 450px;
 }
