@@ -93,7 +93,7 @@
 		<ul>
 			<li class="head">
 				<p>댓글</p>
-				<form action="<%=request.getContextPath()%>/board/addCmmt.jsp" method="post">
+				<form method="post">
 					<input type="hidden" name="boardNo" value="<%=board.getNo()%>" />
 					<input type="hidden" name="loginId" value="<%=loginId%>" />
 					
@@ -106,7 +106,7 @@
 					<c:if test="${sessionScope.loginId != null }">
 						<input type="text" id="cBox" placeholder="댓글을 입력해주세요.">
 						<input type="text" id="cmmt" name="cmmt" style="display: none;" placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다."></input>
-						<button id="insertCmmt" disabled >작성</button>
+						<button id="insertCmmt" onclick="submitComment()" disabled >작성</button>
 					</c:if>
 					
 				</form>
@@ -205,11 +205,11 @@
         });
 
 		// 댓글추가
-		<%-- function addCmmt() {
-			window.location.href="<%=root%>/board/addCmmt.jsp";
-		} --%>
+		function addCmmt() {
+			window.location.href=root+"/board/addCmmt.jsp";
+		}
 		
-<%-- 		// 여길 완성해야되는데.ㅣ..
+ 		// 여길 완성해야되는데.ㅣ..
  		function submitComment() {
 
 			$.ajax({
@@ -222,7 +222,7 @@
 				success: function (data) {
 					}
 				}
-			}) --%>
+			})
 	</script>
 
 </body>
