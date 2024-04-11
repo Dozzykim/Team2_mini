@@ -95,17 +95,15 @@ public class UserServiceImpl implements UserService {
 		Users user = userDAO.myinfo(user_id);
 		return user;
 	}
-	
-	
-	
 
-	
+	@Override
+	public List<Users> list() {
+		
+		List<Users>  userList = userDAO.list();
+		
+		return userList;
+	}
 
-	
 
-
-
-
-	
 	
 }
