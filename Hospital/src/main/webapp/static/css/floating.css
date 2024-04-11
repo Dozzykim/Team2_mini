@@ -1,0 +1,31 @@
+
+/* 플로팅 버튼 */
+.floating {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    width: 52px;
+    height: 55px;
+    border-radius: 50%;
+    z-index: 10;
+}
+.floating a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 8px ;
+    font-size: 50px;
+    color: white;
+    border-radius: 50%;
+    background-color: #4682B4	;
+    user-select: none;
+}
+.floating i { 
+    color: white;
+ }
+
+html {
+    /* 스크롤을 부드럽게 이동 */
+    scroll-behavior: smooth;
+}

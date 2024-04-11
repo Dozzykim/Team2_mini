@@ -11,6 +11,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>병원 소개</title>
+	
 
 <!-- link.jsp 상대경로가 달라서 구구절절 씀 -->
 <!-- slick css FILE -->
@@ -40,126 +41,101 @@
 	<!-- 헤더 -->
 	<jsp:include page="/layout/header.jsp"></jsp:include>
 
+	
 	<section class="product-list">
 		<h1>의료진 소개</h1>
 		<div class="inner">
+		
 			<div class="product-card">
 				<div class="img-box">
-
-					<img src="static/img/doctor.png" alt="상품 이미지"></a>
+					<img src="static/img/doctor.png" alt="상품 이미지">
 				</div>
 				<div class="content-box"></div>
 				<div class="title">
-
-
 					<h3>박은서 / 외과</h3>
-					</a>
 				</div>
 			</div>
+			
 			<div class="product-card">
 				<div class="img-box">
-
-					<img src="static/img/doctor.png" alt="상품 이미지"></a>
+					<img src="static/img/doctor.png" alt="상품 이미지">
 				</div>
 				<div class="content-box"></div>
 				<div class="title">
-
-
 					<h3>정다운 / 외과</h3>
-					</a>
 				</div>
 			</div>
+			
 			<div class="product-card">
 				<div class="img-box">
-
-					<img src="static/img/doctor.png" alt="상품 이미지"></a>
+					<img src="static/img/doctor.png" alt="상품 이미지">
 				</div>
 				<div class="content-box"></div>
 				<div class="title">
-
-
 					<h3>백승헌 / 외과</h3>
-					</a>
 				</div>
 			</div>
+			
 			<div class="product-card">
 				<div class="img-box">
-
-					<img src="static/img/doctor.png" alt="상품 이미지"></a>
+					<img src="static/img/doctor.png" alt="상품 이미지">
 				</div>
 				<div class="content-box"></div>
 				<div class="title">
-
-
 					<h3>전나연 / 내과</h3>
-					</a>
 				</div>
 			</div>
+			
 			<div class="product-card">
 				<div class="img-box">
-
-					<img src="static/img/doctor.png" alt="상품 이미지"></a>
+					<img src="static/img/doctor.png" alt="상품 이미지">
 				</div>
 				<div class="content-box"></div>
 				<div class="title">
-
-
 					<h3>신준수 / 내과</h3>
-					</a>
 				</div>
 			</div>
+			
 			<div class="product-card">
 				<div class="img-box">
-
-					<img src="static/img/doctor.png" alt="상품 이미지"></a>
+					<img src="static/img/doctor.png" alt="상품 이미지">
 				</div>
 				<div class="content-box"></div>
 				<div class="title">
-
-
 					<h3>윤준호 / 피부과</h3>
-					</a>
 				</div>
 			</div>
+			
 			<div class="product-card">
 				<div class="img-box">
-
-					<img src="static/img/doctor.png" alt="상품 이미지"></a>
+					<img src="static/img/doctor.png" alt="상품 이미지">
 				</div>
 				<div class="content-box"></div>
 				<div class="title">
-
-
 					<h3>김도희 / 피부과</h3>
-					</a>
 				</div>
 			</div>
+			
 			<div class="product-card">
 				<div class="img-box">
-
-					<img src="static/img/doctor.png" alt="상품 이미지"></a>
+					<img src="static/img/doctor.png" alt="상품 이미지">
 				</div>
 				<div class="content-box"></div>
 				<div class="title">
-
-
 					<h3>이태원 / 산부인과</h3>
-					</a>
 				</div>
 			</div>
+			
 			<div class="product-card">
 				<div class="img-box">
-
-					<img src="static/img/doctor.png" alt="상품 이미지"></a>
+					<img src="static/img/doctor.png" alt="상품 이미지">
 				</div>
 				<div class="content-box"></div>
 				<div class="title">
-
-
 					<h3>홍준범 / 산부인과</h3>
-					</a>
 				</div>
 			</div>
+			
 		</div>
 	</section>
 
