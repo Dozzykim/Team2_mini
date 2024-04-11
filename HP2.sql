@@ -45,7 +45,7 @@ CREATE TABLE comments (
 	user_id	VARCHAR2(40)		NOT NULL,
 	c_Content	VARCHAR2(2000)		NOT NULL,
 	c_reg_date	DATE		DEFAULT sysdate NOT NULL,
-	c_upd_date	DATE		DEFAULT sysdate NOT NULL
+	c_upd_date	DATE		DEFAULT sysdate NOT NULL,
     b_no   NUMBER      NOT NULL
 );
 
