@@ -25,7 +25,8 @@
 	
 	<!-- 헤더 -->
 	
-	
+	<!-- 플로팅 -->
+	<jsp:include page="/layout/floating.jsp"></jsp:include>
 	
 	
 	<!-- 컨텐츠 -->

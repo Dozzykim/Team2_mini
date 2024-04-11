@@ -18,6 +18,9 @@
 <body>
 	<!-- 헤더 -->
 	<jsp:include page="../layout/header.jsp" />
+	
+	<!-- 플로팅 -->
+	<jsp:include page="/layout/floating.jsp"></jsp:include>
 
 	<div class="container">
 		<div class="inner">

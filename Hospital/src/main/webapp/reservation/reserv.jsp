@@ -40,6 +40,11 @@
 	<!-- <h3>${sessionScope.loginId} 님 환영합니다!</h3> -->
 	<!-- 헤더 -->
 	<jsp:include page="../layout/header.jsp"></jsp:include>
+	
+	<!-- 플로팅 -->
+	<jsp:include page="/layout/floating.jsp"></jsp:include>
+
+
     <div class="container">
     <div class="inner">
         <div class="board_area">

@@ -29,6 +29,8 @@
 	
 	<!-- 헤더 -->
 	
+	<!-- 플로팅 -->
+	<jsp:include page="/layout/floating.jsp"></jsp:include>
 	
 	<!-- 컨텐츠 -->
 	<h1>게시글 조회</h1>

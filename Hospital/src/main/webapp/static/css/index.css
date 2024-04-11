@@ -120,7 +120,7 @@
 .cont2 {
     width: 1000px;
     margin : 0 auto;
-    padding-top: 50px;
+    padding-top: 100px;
     margin-bottom: 50px;
     
 }
@@ -192,7 +192,7 @@
 .cont3 {
     width: 1000px;
     margin : 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     padding-top: 100px;
 }
 
@@ -257,7 +257,7 @@
 .cont4 {
     width: 1000px;
     margin : 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     padding-top: 100px;
 }
 
@@ -321,7 +321,7 @@
 .cont5 {
     width: 1000px;
     margin : 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     padding-top: 100px;
 }
 
@@ -387,7 +387,7 @@
 .cont6 {
     width: 1000px;
     margin : 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     padding-top: 100px;
 }
 
@@ -440,3 +440,27 @@
     display: block;
     clear: both;
 }
+
+/* map */
+.my-place {
+    padding: 10px 20px;
+    background-color: #8AC9F5;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+}
+.container2 {
+    width: 800px;
+    margin: 100px auto;
+}
+
+.container2 h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    padding-bottom: 20px;
+    color:#176B87;
+}
+
+
+

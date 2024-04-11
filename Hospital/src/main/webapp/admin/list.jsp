@@ -15,6 +15,9 @@
 	<!-- 헤더 -->
 	<jsp:include page="/layout/header.jsp" />
 	
+	<!-- 플로팅 -->
+	<jsp:include page="/layout/floating.jsp"></jsp:include>
+	
 	<h1>병원안내, 이용안내, 게시판, 진료예약</h1>
 	<c:if test="${sessionScope.loginId != null }">
 			<h5>${sessionScope.loginId }님 환영합니다.</h5>

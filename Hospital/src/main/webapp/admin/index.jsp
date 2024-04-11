@@ -34,6 +34,9 @@
 	<!-- 헤더 -->
 	<jsp:include page="/layout/header_adm.jsp"></jsp:include>
 	
+	<!-- 플로팅 -->
+	<jsp:include page="/layout/floating.jsp"></jsp:include>
+	
 	<div class="container">
 		<div class="inner1">
 			<div class="cont1">
