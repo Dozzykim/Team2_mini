@@ -18,7 +18,7 @@
 <body>
 
 	<!-- 헤더 -->
-	<jsp:include page="../layout/header_adm.jsp"></jsp:include>
+	<jsp:include page="../layout/header_adm2.jsp"></jsp:include>
 	
 	<form action="login_pro.jsp" method="post">
 	<div class="container">
