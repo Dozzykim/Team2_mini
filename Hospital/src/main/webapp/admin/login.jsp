@@ -21,7 +21,7 @@
 	%>
   
 	<!-- 헤더 -->
-	<jsp:include page="../layout/header_adm.jsp" />
+	<jsp:include page="../layout/header_adm2.jsp" />
 	
 	<form action="login_pro.jsp" method="post">
 	<div class="container">

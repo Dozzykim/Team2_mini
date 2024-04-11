@@ -121,13 +121,14 @@ ALTER TABLE Comments ADD CONSTRAINT FK_Board_TO_Comment_1 FOREIGN KEY (
 )
 REFERENCES Board (
    no
+   
 );
 
 
 
 --샘플 데이터 생성
 --유저
-INSERT INTO USERS (USER_ID, USER_PW, 
+
 
 
 commit;
