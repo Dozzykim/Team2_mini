@@ -101,9 +101,8 @@
 					<!-- 로그인 시에만 보임 -->
 					<c:if test="${sessionScope.loginId != null }">
 						<input type="text" id="cBox" placeholder="댓글을 입력해주세요.">
-						<!-- 아이디가 보였으면 좋겠음 -->
 						<input type="text" id="cmmt" name="cmmt" style="display: none;" placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다."></textarea>
-						<button id="insertCmmt" style="display:none;" >작성</button>
+						<button id="insertCmmt" disabled >작성</button>
 					</c:if>
 					
 				</form>
@@ -123,9 +122,11 @@
 			<%
 				// 댓글 존재 시,
 				} else {
-					for(Comment cmmt : cmmtList) {
 			%>
 				<table border="1" id="commt_area">
+			<%
+					for(Comment cmmt : cmmtList) {
+			%>
 					<tr>
 						<td><%=cmmt.getUser_id()%></td>
 						<td><%=cmmt.getContent()%></td>
@@ -133,10 +134,11 @@
 					</tr>
 			<%
 					}
+			%>
+			</table>
+			<%
 				}
 			%>
-
-			</table>
 	</div>
 
 	<!-- 푸터 -->
@@ -181,14 +183,16 @@
 		// 로그인 상태면, 댓글창 바뀜
 		$('#cBox').on('click', function() {
 			$('#cmmt').show().focus();
-			$('#insertCmmt').show();
+			/* $('#insertCmmt').show(); */
+			$('#insertCmmt').attr("disabled", false);
 			$('#cBox').hide();
 		})
 		
 		$('#cmmt').on('blur', function() {
             if ($('#cmmt').val() === "") {
             	$('#cmmt').hide();
-            	$('#insertCmmt').hide();
+            	$('#insertCmmt').attr("disabled", true);
+            	/* $('#insertCmmt').hide(); */
             	$('#cBox').show();
             }
         });
