@@ -95,7 +95,7 @@
 		</table>
 
 	</div>
->>>>>>> 4dd8e2a95c2819eb2d8709d2fe396ae3a5cb4f2f
+
 
 	<!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp" />

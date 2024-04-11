@@ -90,35 +90,36 @@
 	<!-- 댓글 -->
 	<div class="cont_tb2">
 		<ul>
-			<li class="head">
-				<p>댓글</p>
-				<form action="<%=request.getContextPath()%>/board/addCmmt.jsp" method="post">
-					<input type="hidden" name="boardNo" value="<%=board.getNo()%>" />
-					<input type="hidden" name="loginId" value="<%=loginId%>" />
-					
-					<!-- 비로그인 시에만 보임 -->
-					<c:if test="${sessionScope.loginId == null }">
-						<input type="text" id="noneLoginCmmt" value="댓글을 작성하려면 로그인 해주세요" />
-					</c:if>
-					
-					<!-- 로그인 시에만 보임 -->
-					<c:if test="${sessionScope.loginId != null }">
-						<input type="text" id="cBox" placeholder="댓글을 입력해주세요.">
-						<input type="text" id="cmmt" name="cmmt" style="display: none;" placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다."></textarea>
-						<button id="insertCmmt" disabled >작성</button>
-					</c:if>
-					
-				</form>
-			</li>
-		</ul>
+        <li class="head">
+            <p>댓글</p>
+            <form action="<%=request.getContextPath()%>/board/addCmmt.jsp" method="post">
+                <input type="hidden" name="boardNo" value="<%=board.getNo()%>" />
+                <input type="hidden" name="loginId" value="<%=loginId%>" />
+                
+                <!-- 비로그인 시에만 보임 -->
+                <c:if test="${sessionScope.loginId == null }">
+                    <div class="input-wrapper">
+                        <input type="text" id="noneLoginCmmt" value="댓글을 작성하려면 로그인 해주세요" />
+                    </div>
+                </c:if>
+                
+                <!-- 로그인 시에만 보임 -->
+                <c:if test="${sessionScope.loginId != null }">
+                    <div class="input-wrapper">
+                        <input type="text" id="cBox" placeholder="댓글을 입력해주세요.">
+                        <input type="text" id="cmmt" name="cmmt" style="display: none;" placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다."></textarea>
+                        <button id="insertCmmt" disabled>작성</button>
+                    </div>
+                </c:if>
+                
+            </form>
+        </li>
+    </ul>
 			<%
 				// 무플 시,
 				if (cmmtList == null || cmmtList.size() == 0) {
 			%>
-				<div class="noneCmmt">
-					<p>댓글이 없습니다.<p>
-					<p>첫 번째 댓글을 남겨주세요.</p>
-				</div>
+				
 			<%
 				// 댓글 존재 시,
 				} else {

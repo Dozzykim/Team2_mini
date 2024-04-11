@@ -125,18 +125,33 @@ textarea {
 	align-self: center;
 }
 
-.cont_tb2 .head input {
+.cont_tb2 .head input#cBox {
 	width: 88%;
 }
+
+
+.cont_tb2 .head ul {
+    list-style: none; /* 리스트의 기본 마커 제거 */
+    padding: 0; /* 리스트의 패딩 제거 */
+}
+
+.cont_tb2 li.head {
+    display: flex;
+    flex-direction : row;
+    align-items: center; /* 가운데 정렬 */
+}
+
+
 
 .cont_tb2 .head p {
 	width: 10%;
 	border-radius: 5px;
 	text-align: center;
 	background-color: #ccc;
-	height: 37px;
-	line-height: 37px;
-	margin-right: 10px;
+	height: 38px;
+	line-height: 38px;
+
+	margin: auto;
 }
 
 .cont_tb2 .head a {
@@ -145,17 +160,20 @@ textarea {
 }
 .cont_tb2 .head form {
 	width: 800px;
+	height: 41px;
+	
 }
 
 .cont_tb2 .head button {
 	border-radius: 5px;
-	padding: 10px 15px;
+	padding: 8px 20px;
 	background-color: #8AC9F5;
 	cursor: pointer;
 	color: white;
 	font-size: 16px;
 	border: none;
 	margin-left: 10px;
+	position: absolute;
 }
 .id_comment {
 	display: flex;
@@ -229,10 +247,12 @@ table.commt_area th {
 }
 table.commt_area th:first-child{padding-left : 10px;}
 table.commt_area th:last-child {
-	padding-left : 10px;
+	padding-left : 20px;
 	border-right: none;
 	}
 .commt_area tr td {
 	padding : 10px 0;
 	padding-left: 10px;
 	}
+	
+
