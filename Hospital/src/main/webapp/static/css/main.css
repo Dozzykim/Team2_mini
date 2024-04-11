@@ -61,12 +61,16 @@ ul { list-style-type: none; }
     left: 50%;
     transform: translate(-50%, -50%);
     top: 50%; 
-    font-size: 30px;
 }
 
 .header .header_top .main_name a {
     color: black;
 }
+
+.header .header_top .main_name a img {
+	width : 200px;
+}
+
 
 .header .header_bottom {
     width: 100%;

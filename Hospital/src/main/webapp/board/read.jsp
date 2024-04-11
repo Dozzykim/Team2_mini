@@ -96,7 +96,7 @@
             <form action="<%=request.getContextPath()%>/board/addCmmt.jsp" method="post">
                 <input type="hidden" name="boardNo" value="<%=board.getNo()%>" />
                 <input type="hidden" name="loginId" value="<%=loginId%>" />
-                
+                 
                 <!-- 비로그인 시에만 보임 -->
                 <c:if test="${sessionScope.loginId == null }">
                     <div class="input-wrapper">
