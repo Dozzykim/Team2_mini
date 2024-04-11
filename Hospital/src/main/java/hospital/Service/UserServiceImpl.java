@@ -1,7 +1,5 @@
 package hospital.Service;
 
-import java.util.List;
-import java.util.ArrayList;
 
 import hospital.DAO.UserDAO;
 import hospital.DTO.PersistentLogins;
@@ -93,6 +91,19 @@ public class UserServiceImpl implements UserService {
 	public Users myinfo(String user_id) {
 		UserDAO userDAO = new UserDAO();
 		Users user = userDAO.myinfo(user_id);
+		return user;
+	}
+
+	@Override
+	public Users findId(Users user) {
+		Users FindId = userDAO.findId(user);
+		
+		if( FindId != null ) {
+			System.out.println("아이디 찾기 성공!");
+			return null;
+		}
+		// 로그인 실패
+		System.out.println("아이디 찾기 실패!");
 		return user;
 	}
 	

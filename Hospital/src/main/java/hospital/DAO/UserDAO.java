@@ -304,9 +304,39 @@ public class UserDAO extends JDBConnection {
 				
 		return user;
 		
-		
+	
 	}
+	
+	public Users findId(Users user) {
+	    String userId = null;
+	    // SQL 작성
+	    String sql = " SELECT user_id "
+	            + " FROM users "
+	            + " WHERE user_name = ? and user_pno = ? ";
+	    try {
+	        // 쿼리(SQL) 실행 객체 생성 - PreparedStatement (psmt)
+	        psmt = con.prepareStatement(sql);
+	        
+	        // psmt.setXXX( 순서번호, 매핑할 값 );
+	        psmt.setString( 1, user.getUser_name() );       
+	        psmt.setString( 2, user.getUser_pno() );    
+	    
+	        // 쿼리(SQL) 실행 -> 결과 - RestultSet (rs)
+	        rs = psmt.executeQuery();
+	        
+	        // 조회 결과를 1건 가져오기
+	        if( rs.next() ) {       // next() : 실행 결과의 다음 데이터로 이동
+	            userId = rs.getString("user_id");
+	        }
+	    } catch (SQLException e) {
+	        System.err.println("아이디 찾기 예외 발생");
+	        e.printStackTrace();
+	    }
+	    return userId;
+	}
+
 }
+		
 
 
 
