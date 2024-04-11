@@ -1,3 +1,4 @@
+<%@page import="javax.swing.plaf.basic.BasicScrollPaneUI"%>
 <%@page import="hospital.DTO.Comment"%>
 <%@page import="java.util.List"%>
 <%@page import="hospital.Service.CmmtServiceImpl"%>
@@ -115,36 +116,33 @@
 				// 무플 시,
 				if (cmmtList == null || cmmtList.size() == 0) {
 			%>
+				<!-- 아무내용도 표시되지않음 -->
 			<%
 				// 댓글 존재 시,
 				} else {
 			%>
-				<table border="1" class="commt_area">
-					<thead>
-						<tr>
-							<th>아이디</th>
-							<th>댓글</th>
-							<th>작성일자</th>
-						</tr>
-					</thead>
-					<tbody>
+				<div class="cbox_Container">
+					<div class="cbox_wrap">
+						<span>아이디</span>
+						<span>댓글</span>
+						<span>작성일자</span>
+					</div>
 			<%
 					for(Comment cmmt : cmmtList) {
 			%>
-					<tr>
-						<td><%=cmmt.getUser_id()%></td>
-						<td><%=cmmt.getContent()%></td>
-						<td><%=cmmtDate.format(cmmt.getReg_date())%></td>
-						<c:if test="<%=cmmt.getUser_id().equals(loginId)%>">
-							<td><input type="hidden" name="c_no" value="<%=cmmt.getC_no()%>"/></td>
-							<td><button onclick="deleteCmmt()">삭제</button></td>
-						</c:if>
-					</tr>
-			<%
+					<div class="cbox_info">
+						<form action="">
+							<span id="cmmt_id"><%=cmmt.getUser_id()%></span>
+							<span id="cmmt_content"><%=cmmt.getContent()%></span>
+							<span id="cmmt_regDate"><%=cmmtDate.format(cmmt.getReg_date())%></span>
+							<input type="hidden" name="c_no" value="<%=cmmt.getC_no()%>" />
+							<button>삭제</button>
+						</form>
+					</div>
+			<%			
 					}
 			%>
-					</tbody>
-			</table>
+				</div>
 			<%
 				}
 			%>
@@ -213,14 +211,7 @@
 		
 <%-- 		// 여길 완성해야되는데.ㅣ..
  		function submitComment() {
-			// id가 cmmt인 태그에서 value를 불러와서 저장
-			var cmmt = $('#cmmt').val();
-			var id = <%=request.getAttribute("loginId")%>;
-			if (cmmt == null || cmmt == "") {
-				alert("내용을 입력하세요");
-				return;
-			}
-			
+
 			$.ajax({
 				url: root + '/board/submitCommt',
 				type: 'post',
