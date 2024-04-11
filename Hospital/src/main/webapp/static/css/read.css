@@ -89,8 +89,7 @@ textarea {
 }
 
 #cmmt {
-	width: 700px;
-	height: 100px;
+	width: 88%;
 }
 
 .table-wrapper {
@@ -126,7 +125,7 @@ textarea {
 }
 
 .cont_tb2 .head input {
-	width: 100%;
+	width: 88%;
 }
 
 .cont_tb2 .head p {
@@ -136,7 +135,7 @@ textarea {
 	background-color: #ccc;
 	height: 37px;
 	line-height: 37px;
-	margin-right: 30px;
+	margin-right: 10px;
 }
 
 .cont_tb2 .head a {
@@ -155,8 +154,7 @@ textarea {
 	color: white;
 	font-size: 16px;
 	border: none;
-	margin-left: 638px;
-	margin-top: 5px;
+	margin-left: 10px;
 }
 .id_comment {
 	display: flex;
