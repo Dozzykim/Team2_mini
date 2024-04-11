@@ -129,6 +129,7 @@ public class BoardDAO extends JDBConnection {
 		
 		String sql = " UPDATE board "
 				   + " SET title = ? "
+				   + "    ,category = ? "
 				   + "    ,user_id  = ? "
 				   + "    ,content = ? "
 				   + "	  ,upd_date = sysdate "
@@ -137,9 +138,10 @@ public class BoardDAO extends JDBConnection {
 		try {
 			psmt = con.prepareStatement(sql);			// 쿼리 실행 객체 생성
 			psmt.setString( 1, board.getTitle() );		// 1번 ? 에 제목 매핑
-			psmt.setString( 2, board.getUser_id() );		// 2번 ? 에 작성자 매핑
-			psmt.setString( 3, board.getContent() );	// 3번 ? 에 내용을 매핑
-			psmt.setInt( 4, board.getNo() );			// 4번 ? 에 게시글 번호를 매핑
+			psmt.setString( 2, board.getCategory() );	// 2번 ? 에 카테고리 매핑
+			psmt.setString( 3, board.getUser_id() );		// 3번 ? 에 작성자 매핑
+			psmt.setString( 4, board.getContent() );	// 4번 ? 에 내용을 매핑
+			psmt.setInt( 5, board.getNo() );			// 5번 ? 에 게시글 번호를 매핑
 			
 			result = psmt.executeUpdate();		// SQL 실행 요청, 적용된 데이터 개수를 받아온다.
 												// 게시글 1개 적용 성공 시, result : 1
