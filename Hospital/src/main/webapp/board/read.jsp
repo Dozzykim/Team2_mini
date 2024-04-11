@@ -115,10 +115,6 @@
 				// 무플 시,
 				if (cmmtList == null || cmmtList.size() == 0) {
 			%>
-				<div class="noneCmmt">
-					<p>댓글이 없습니다.<p>
-					<p>첫 번째 댓글을 남겨주세요.</p>
-				</div>
 			<%
 				// 댓글 존재 시,
 				} else {
