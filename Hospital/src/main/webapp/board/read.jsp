@@ -105,13 +105,11 @@
 					<!-- 로그인 시에만 보임 -->
 					<c:if test="${sessionScope.loginId != null }">
 						<div class="input-wrapper">
-							<input type="hidden" id="boardNo" name="boardNo"
-								value="<%=board.getNo()%>" /> <input type="hidden" id="loginid"
-								name="loginId" value="<%=loginId%>" /> <input type="text"
-								id="cBox" placeholder="댓글을 입력해주세요." /> <input type="text"
-								id="cmmt" name="cmmt" style="display: none;"
-								placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다." /> <input
-								id="insertCmmt" onclick="submitComment()" disabled value="작성" />
+							<input type="hidden" id="boardNo" name="boardNo" value="<%=board.getNo()%>" />
+							<input type="hidden" id="loginid" name="loginId" value="<%=loginId%>" />
+							<input type="text" id="cBox" placeholder="댓글을 입력해주세요." />
+							<input type="text" id="cmmt" name="cmmt" style="display: none;"	placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다." />
+							<input id="insertCmmt" onclick="insertComment()" disabled value="작성" />
 						</div>
 					</c:if>
 				</form>
@@ -129,11 +127,18 @@
 		} else {
 		%>
 		<div class="cbox_Container"></div>
-			<div class="cbox_wrap">
-				<span>아이디</span> <span>댓글</span> <span>작성일자</span>
-			</div>
-			
-			
+			<table id="Cmmt_area">
+				<thead>
+					<tr>
+						<td>아이디</td>
+						<td>댓글</td>
+						<td>작성일자</td>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- 1댓글 1tr 가짐 -->				
+				</tbody>
+			</table>
 		</div>
 		<%
 		}
@@ -177,7 +182,6 @@
 			var loginConfirm = confirm("로그인을 하신 후 이용해 주시기 바랍니다.");
 			
 			if (loginConfirm) {
-				alert('로그인페이지로 이동');
 				window.location.href= root + '/login_sub.jsp';
 				return;
 			}
@@ -206,20 +210,17 @@
 		}
 
 		
-		// 여길 완성해야되는데.ㅣ..
-  		function submitComment() {
+		// 댓글 입력 및 db에 저장
+  		function insertComment() {
   			var no = $('#boardNo').val();
 			var id = $('#loginid').val();
 			var cmmt = $('#cmmt').val();
-			alert(no);
-			alert(id);
-			alert(cmmt);
 			if( id == null || id == "" ) {
-                alert("로그인하세요!")
+                alert("로그인을 하신 후 이용해 주시기 바랍니다.")
                 return
             }
 			$.ajax({
-				url: root + '/board/submitCmmt',
+				url: root + '/board/insertCmmt',
 				type: 'post',
 				data: {
 					boardNo : $('#boardNo').val(),
@@ -229,25 +230,37 @@
 				success: function (result) {
 					if(result > 0) {
 						//댓글 재호출하는 함수
-						cmmtList();
+						listCmmt();
 						$('#cmmt').val("");
 					}
 				}
-				
 			})
-			/*$.ajax({
-				url: root + '/board/submitCmmt',
-				type: 'post',
-				data: {
-					boardNo: no,
-					loginId: id,
-					comment: cmmt
-				},
-				success: function (data) {
-					alert("끗");
-					}
-			}) */
 		};
+		
+		//댓글 조회
+		function listCmmt() {
+			$.ajax({
+				url: root + '/board/listCmmt',
+				data: { boardNo : $('#boardNo').val() },
+				success : function(list) {
+					var result = "";
+					
+					for ( var i in list) {
+						result += "<tr>"
+								+	"<td>" + list[i].user_id + "</td>"
+								+	"<td>" + list[i].content + "</td>"
+								+	"<td>" + list[i].reg_date + "</td>"
+								+ "</tr>" ;
+					}
+					$("#Cmmt_area tbody").html(result);
+				}
+			})
+		}
+		
+		$(document).ready(function() {
+			listCmmt();
+		})
+		
 	</script>
 
 </body>

@@ -18,12 +18,12 @@ import hospital.Service.UserServiceImpl;
 /**
  * Servlet implementation class CmmtServlet
  */
-@WebServlet("/board/submitCmmt")
-public class CmmtServlet extends HttpServlet {
+@WebServlet("/board/insertCmmt")
+public class InsertCmmtServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private CmmtService cmmtService;
 	
-	public CmmtServlet() {
+	public InsertCmmtServlet() {
 		super();
 		cmmtService = new CmmtServiceImpl();
 	}

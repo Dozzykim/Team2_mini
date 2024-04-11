@@ -130,9 +130,9 @@ commit;
 -- ������ ����
 --�۹�ȣ
 CREATE SEQUENCE SEQ_BOARD_NO INCREMENT BY 1 START WITH 1 MINVALUE 1;
---�����ȣ
+--������?
 CREATE SEQUENCE SEQ_RES_NO INCREMENT BY 1 START WITH 1 MINVALUE 1;
---��۹�ȣ
+--��۹��?
 CREATE SEQUENCE SEQ_CMNT_NO INCREMENT BY 1 START WITH 1 MINVALUE 1;
 -- ������
 CREATE SEQUENCE SEQ_PER_LOGIN INCREMENT BY 1 MAXVALUE 1000000 MINVALUE 1;
@@ -147,7 +147,7 @@ VALUES('joeun', '123', '������', '990909','010-0000-0000', '�Ѱ�
 
 --�Խñ� ����
 INSERT INTO BOARD(NO, TITLE, user_id, CONTENT)
-VALUES(SEQ_BOARD_NO.NEXTVAL, '����� ����', 'joeun', '�� ������...');
+VALUES(SEQ_BOARD_NO.NEXTVAL, '�����? ����', 'joeun', '�� ������...');
 
 -- ���� ����
 INSERT INTO RESERVATION( R_NO, USER_ID, R_CATEGORY, R_DATE, R_TIME)
@@ -157,7 +157,7 @@ VALUES(SEQ_RES_NO.NEXTVAL, 'joeun', '�Ǻΰ�', '2024/12/25', '9:00');
 INSERT INTO Admin (admin_id, admin_pw, admin_name, admin_age, emp_date)
 VALUES ('admin', '123456', '�̺���', 27, '2024-01-31');
 
--- ��� ����
+-- ���? ����
 insert into comments (c_no, user_id, c_content, b_no)
 VALUES(SEQ_CMNT_NO.NEXTVAL, 'joeun', '�� �ϴ��ε�, �����ش�.', 22);
 
