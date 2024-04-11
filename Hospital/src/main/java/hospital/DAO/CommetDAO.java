@@ -14,7 +14,8 @@ public class CommetDAO extends JDBConnection{
 		
 		String sql = " SELECT * "
 				   + " FROM comments "
-				   + " WHERE b_no = ?" ;
+				   + " WHERE b_no = ?"
+				   + " ORDER BY c_reg_date ";
 		
 		try {
 			psmt = con.prepareStatement(sql);
