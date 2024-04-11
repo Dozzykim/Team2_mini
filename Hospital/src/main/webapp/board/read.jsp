@@ -104,7 +104,7 @@
 					<!-- 로그인 시에만 보임 -->
 					<c:if test="${sessionScope.loginId != null }">
 						<input type="text" id="cBox" placeholder="댓글을 입력해주세요.">
-						<input type="text" id="cmmt" name="cmmt" style="display: none;" placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다."></textarea>
+						<input type="text" id="cmmt" name="cmmt" style="display: none;" placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다."></input>
 						<button id="insertCmmt" disabled >작성</button>
 					</c:if>
 					
@@ -124,20 +124,30 @@
 				} else {
 			%>
 				<table border="1" class="commt_area">
-					<th>아이디</th>
-					<th>댓글</th>
-					<th>작성일자</th>
+					<thead>
+						<tr>
+							<th>아이디</th>
+							<th>댓글</th>
+							<th>작성일자</th>
+						</tr>
+					</thead>
+					<tbody>
 			<%
 					for(Comment cmmt : cmmtList) {
 			%>
 					<tr>
 						<td><%=cmmt.getUser_id()%></td>
-						<td ><%=cmmt.getContent()%></td>
-						<td ><%=cmmtDate.format(cmmt.getReg_date())%></td>
+						<td><%=cmmt.getContent()%></td>
+						<td><%=cmmtDate.format(cmmt.getReg_date())%></td>
+						<c:if test="<%=writer.equals(loginId)%>">
+							<td><input type="hidden" name="c_no" value="<%=cmmt.getC_no()%>"/></td>
+							<td><button onclick="deleteCmmt()">삭제</button></td>
+						</c:if>
 					</tr>
 			<%
 					}
 			%>
+					</tbody>
 			</table>
 			<%
 				}
