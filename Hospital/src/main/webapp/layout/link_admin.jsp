@@ -8,5 +8,6 @@
 <!-- css -->
 <link rel="stylesheet" href="<%= request.getContextPath()%>/static/admin_css/admin_main.css">
 <link rel="stylesheet" href="<%= request.getContextPath()%>/static/admin_css/reset.css">
+<link rel="stylesheet" href="<%= request.getContextPath()%>/static/admin_css/admin_floating.css">
 
 

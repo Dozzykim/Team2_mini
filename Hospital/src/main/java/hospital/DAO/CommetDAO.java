@@ -14,7 +14,8 @@ public class CommetDAO extends JDBConnection{
 		
 		String sql = " SELECT * "
 				   + " FROM comments "
-				   + " WHERE b_no = ?" ;
+				   + " WHERE b_no = ?"
+				   + " ORDER BY c_reg_date ";
 		
 		try {
 			psmt = con.prepareStatement(sql);
@@ -72,6 +73,23 @@ public class CommetDAO extends JDBConnection{
 	// 댓글 삭제
 	public int delete(int c_no) {
 		int result = 0;
+		
+		String sql = " DELETE FROM comments "
+				   + " WHERE c_no = ?";
+		
+		try {
+			psmt = con.prepareStatement(sql);	// 쿼리 실행 객체 생성
+			psmt.setInt( 1, c_no );				// 1번 ? 에 게시글 번호를 매핑
+			
+			result = psmt.executeUpdate();		// SQL 실행 요청, 적용된 데이터 개수를 받아온다.
+												// 게시글 1개 적용 성공 시, result : 1
+												// 				실패 시, result : 0
+			// executeUpdate()
+			// : SQL (INSERT, UPDATE, DELETE)을 실행하고 적용된 데이터 개수를 int 타입으로 반환
+		} catch (SQLException e) {
+			System.err.println("댓글 삭제 시, 예외 발생");
+			e.printStackTrace();
+		}
 		
 		return result;
 		

@@ -16,9 +16,12 @@
 		
 </head>
 <body>
-
+	<%
+	String loginId = (String) session.getAttribute("loginId");
+	%>
+  
 	<!-- 헤더 -->
-	<jsp:include page="../layout/header_adm.jsp"></jsp:include>
+	<jsp:include page="../layout/header_adm2.jsp" />
 	
 	<form action="login_pro.jsp" method="post">
 	<div class="container">
@@ -43,5 +46,14 @@
             </form>
 	<!-- 푸터 -->
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
+	
+	<script>
+		/* 관리자 비로그인 상태 시, 헤더 요소 접근 막음 */
+		$('#moveToBoard').on('click', function() {
+			if (condition) {
+				
+			}
+		})
+	</script>
 </body>
 </html>

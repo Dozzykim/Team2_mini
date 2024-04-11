@@ -27,6 +27,9 @@
 	<!-- 헤더 -->
 	<jsp:include page="/layout/header_adm.jsp"></jsp:include>
 	
+	<!-- 플로팅 -->
+	<jsp:include page="../layout/floating.jsp"></jsp:include>
+	
 	<div class="container">
 		<h1>전체 예약 환자</h1>
 		<table border="1">

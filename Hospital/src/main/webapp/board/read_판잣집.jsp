@@ -1,3 +1,4 @@
+<%@page import="javax.swing.plaf.basic.BasicScrollPaneUI"%>
 <%@page import="hospital.DTO.Comment"%>
 <%@page import="java.util.List"%>
 <%@page import="hospital.Service.CmmtServiceImpl"%>
@@ -14,17 +15,17 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>게시판 조회_관리자</title>
-
-<!-- css -->
-<jsp:include page="../layout/link_admin.jsp" />
-<link rel="stylesheet" href="../static/admin_css/admin_read.css">
-
-<jsp:include page="../layout/script.jsp" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>게시판 조회</title>
+	
+	<!-- css -->
+	<jsp:include page="../layout/link.jsp" />
+	<link rel="stylesheet" href="../static/css/read.css">
+	
+	<!-- js -->
+	<jsp:include page="../layout/script.jsp" />
 </head>
 
 <body>
@@ -46,8 +47,10 @@
 	SimpleDateFormat boardDate = new SimpleDateFormat("yyyy-MM-dd");
 	SimpleDateFormat cmmtDate = new SimpleDateFormat("MM/dd HH:mm");
 	%>
+	
 	<!-- 헤더 -->
-	<jsp:include page="../layout/header_adm.jsp" />
+	<jsp:include page="../layout/header.jsp" />
+	
 	<!-- 플로팅 -->
 	<jsp:include page="/layout/floating.jsp"></jsp:include>
 
@@ -75,7 +78,10 @@
 			</table>
 			<div class="insert">
 				<div class="left_area">
-					<button onclick="doubleCheck()">삭제</button>
+					<c:if test="<%=writer.equals(loginId)%>">
+						<button onclick="moveToUpdate()">수정</button>
+						<button onclick="doubleCheck()">삭제</button>
+					</c:if>
 					<button onclick="moveToList()">목록</button>
 				</div>
 			</div>
@@ -87,7 +93,7 @@
 		<ul>
 			<li class="head">
 				<p>댓글</p>
-				<form action="<%=request.getContextPath()%>/board/addCmmt.jsp" method="post">
+				<form method="post">
 					<input type="hidden" name="boardNo" value="<%=board.getNo()%>" />
 					<input type="hidden" name="loginId" value="<%=loginId%>" />
 					
@@ -100,7 +106,7 @@
 					<c:if test="${sessionScope.loginId != null }">
 						<input type="text" id="cBox" placeholder="댓글을 입력해주세요.">
 						<input type="text" id="cmmt" name="cmmt" style="display: none;" placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다."></input>
-						<button id="insertCmmt" disabled >작성</button>
+						<button id="insertCmmt" onclick="submitComment()" disabled >작성</button>
 					</c:if>
 					
 				</form>
@@ -110,61 +116,114 @@
 				// 무플 시,
 				if (cmmtList == null || cmmtList.size() == 0) {
 			%>
+				<!-- 아무내용도 표시되지않음 -->
 			<%
 				// 댓글 존재 시,
 				} else {
 			%>
-				<table border="1" class="commt_area">
-					<thead>
-						<tr>
-							<th>아이디</th>
-							<th>댓글</th>
-							<th>작성일자</th>
-						</tr>
-					</thead>
-					<tbody>
+				<div class="cbox_Container">
+					<div class="cbox_wrap">
+						<span>아이디</span>
+						<span>댓글</span>
+						<span>작성일자</span>
+					</div>
 			<%
 					for(Comment cmmt : cmmtList) {
 			%>
-					<tr>
-						<td><%=cmmt.getUser_id()%></td>
-						<td><%=cmmt.getContent()%></td>
-						<td><%=cmmtDate.format(cmmt.getReg_date())%></td>
-						<td><input type="hidden" name="c_no" value="<%=cmmt.getC_no()%>"/></td>
-						<td><button onclick="deleteCmmt()">삭제</button></td>
-					</tr>
-			<%
+					<div class="cbox_info">
+						<form action="">
+							<span id="cmmt_id"><%=cmmt.getUser_id()%></span>
+							<span id="cmmt_content"><%=cmmt.getContent()%></span>
+							<span id="cmmt_regDate"><%=cmmtDate.format(cmmt.getReg_date())%></span>
+							<input type="hidden" name="c_no" value="<%=cmmt.getC_no()%>" />
+							<button>삭제</button>
+						</form>
+					</div>
+			<%			
 					}
 			%>
-					</tbody>
-			</table>
+				</div>
 			<%
 				}
 			%>
 	</div>
+
 	<!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp" />
 
 	<!-- 스크립트 -->
 	<script>
-		<%String root = request.getContextPath();%>
-
-			// 선택받기
-		    function doubleCheck() {
-		        var choice = confirm("정말로 삭제하시겠습니까?");
-		        
-		        if (choice == true) {
-		            window.location.href= "<%= root%>/admin/delete.jsp?no=<%= board.getNo()%>";
-		        }
-		    }
-			
+		var loginId = '<%=loginId%>';
+		var root = '<%=request.getContextPath()%>';
 		
-			// 리스트로 이동
-			function moveToList() {
-				window.location.href= "<%=root%>/admin/boardList.jsp";
+		// 선택받기
+	    function doubleCheck() {
+	        var choice = confirm("정말로 삭제하시겠습니까?");
+	        
+	        if (choice == true) {
+	            window.location.href= root + "/board/delete.jsp?no=<%=board.getNo()%>";
+	        }
+	    }
+		
+		// 수정페이지로 이동
+		function moveToUpdate() {
+			window.location.href= root + "/board/update.jsp?no=<%=board.getNo()%>";
+		}
+		
+		// 리스트로 이동
+		function moveToList() {
+			window.location.href= root + "/board/list.jsp";
+		}
+		
+		// 비로그인상태로 댓글작성 시도 시, 로그인 요청 얼럿
+		$('#noneLoginCmmt').on('click', function() {
+			$('insertCmmt')
+			var loginConfirm = confirm("로그인을 하신 후 이용해 주시기 바랍니다.");
+			
+			if (loginConfirm) {
+				alert('로그인페이지로 이동');
+				window.location.href= root + '/login_sub.jsp';
+				return;
 			}
-		</script>
+		})
+		
+		// 로그인 상태면, 댓글창 바뀜
+		$('#cBox').on('click', function() {
+			$('#cmmt').show().focus();
+			/* $('#insertCmmt').show(); */
+			$('#insertCmmt').attr("disabled", false);
+			$('#cBox').hide();
+		})
+		
+		$('#cmmt').on('blur', function() {
+            if ($('#cmmt').val() === "") {
+            	$('#cmmt').hide();
+            	$('#insertCmmt').attr("disabled", true);
+            	/* $('#insertCmmt').hide(); */
+            	$('#cBox').show();
+            }
+        });
+
+		// 댓글추가
+		function addCmmt() {
+			window.location.href=root+"/board/addCmmt.jsp";
+		}
+		
+ 		// 여길 완성해야되는데.ㅣ..
+ 		function submitComment() {
+
+			$.ajax({
+				url: root + '/board/submitCommt',
+				type: 'post',
+				data: {
+					user_id: id,
+					comment: cmmt
+				},
+				success: function (data) {
+					}
+				}
+			})
+	</script>
 
 </body>
-
 </html>

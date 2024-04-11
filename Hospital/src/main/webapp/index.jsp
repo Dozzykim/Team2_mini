@@ -9,7 +9,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>더조은 종합병원</title>
+	<title>더조은 종합병원</title> 
 	
 	<!-- slick css FILE -->
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/slick.css">
@@ -19,6 +19,7 @@
 	<jsp:include page="/layout/link.jsp" />
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/response.css">
 	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/index.css">
+	<link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/map.css">
 		
 	
 	<!-- jQuery CDN 방식으로 포함하기 -->
@@ -28,11 +29,19 @@
 	<!-- script -->
 	<script src="static/js/script.js"></script>
 	
+	<!-- favicon 지정 -->
+    <link rel="icon" href="/path/to/favicon.ico" type="image/x-icon">
+    
+	
 </head>
 
 <body>
 	<!-- 헤더 -->
 	<jsp:include page="/layout/header.jsp"></jsp:include>
+	
+	<!-- 플로팅 -->
+	<jsp:include page="/layout/floating.jsp"></jsp:include>
+	
 	
 	<div class="container">
 		<div class="inner1">
@@ -170,7 +179,7 @@
 			<div class="cont6">
 				<div class="cont6_left">
 					<ul>
-						<li><strong>피부과</strong></li>
+						<li><strong>피부과</sstrong></li>
 						<li><span><b>피부과</b>는 피부와 관련된 질환 및 미용 치료를 다루는 의학
 								분야입니다. </span></li>
 						<li>
@@ -196,10 +205,55 @@
 			</div>
 		</div>
 	</div>
-	</div>
+	
+	<div class="container2">
+        <h1>더조은 종합병원 - 위치</h1>
+        <div id="map" style="width:800px;height:500px; margin: 0 auto;"></div>
+        <p id="position"></p>
+    </div>
 
+    <!-- ✅ 라이브러리 포함 : &libraries=services -->
+	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b020bcea33f279d83cc0b048c5cad440&libraries=services"></script>
+	<script>
+
+        // 위도 : 37.49100953576117, 경도 : 126.72047625631083
+        let lat = 37.49100953576117      // 위도
+        let lon = 126.72047625631083     // 경도
+
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(lat, lon), // 지도의 중심좌표
+                level: 1, // 지도의 확대 레벨
+                mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
+            }; 
+
+		// 지도를 생성한다 
+		var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+		// 지도에 마커를 생성하고 표시한다
+		var marker = new kakao.maps.Marker({
+		    position: new kakao.maps.LatLng(lat, lon), // 마커의 좌표
+		    map: map                                    // 마커를 표시할 지도 객체
+		});
+		
+		
+		// 커스텀 오버레이를 생성하고 지도에 표시한다
+		var customOverlay = new kakao.maps.CustomOverlay({
+			map: map,
+			content: '<div class="my-place">더조은 종합병원</div>', 
+			position: new kakao.maps.LatLng(lat, lon), // 커스텀 오버레이를 표시할 좌표
+			xAnchor: 0.5, // 컨텐츠의 x 위치
+			yAnchor: 0 // 컨텐츠의 y 위치
+		});
+
+	</script>
+	
+    
+    
 	<!-- 푸터 -->
 	<jsp:include page="/layout/footer.jsp"></jsp:include>
+	
+    
 </body>
 
 </html>

@@ -1,23 +1,23 @@
--- HP2 °èÁ¤ »ý¼º
-    -- C## Á¢µÎ»ç ¾øÀÌµµ °èÁ¤ »ý¼º
+-- HP2 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    -- C## ï¿½ï¿½ï¿½Î»ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
-    -- °èÁ¤ »ý¼º
+    -- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     CREATE USER HP2 IDENTIFIED BY 123456;
-    -- Å×ÀÌºí ½ºÅ×ÀÌ½º ÁöÁ¤
+    -- ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
     ALTER USER HP2 DEFAULT TABLESPACE users;
-    -- ¿ë·® ¼³Á¤
+    -- ï¿½ë·® ï¿½ï¿½ï¿½ï¿½
     ALTER USER HP2 QUOTA UNLIMITED ON users;
-    -- ±ÇÇÑ ºÎ¿©
+    -- ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½
     GRANT DBA TO HP2;
 
 
--- »ùÇÃ µ¥ÀÌÅÍ    
+-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    
 INSERT INTO Admin (admin_id, admin_pw, admin_name, admin_age, emp_date)
-VALUES ('admin', '123456', 'ÀÌº´¿ø', 27, '2024-01-31');
+VALUES ('admin', '123456', 'ï¿½Ìºï¿½ï¿½ï¿½', 27, '2024-01-31');
 
 commit;
 
--- Å×ÀÌºí ¼¼ÆÃ
+-- ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½
 
 CREATE TABLE Users (
 	user_id	VARCHAR2(40)		NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE Admin (
 	emp_date	DATE		NOT NULL
 );
 
--- ÀÚµ¿·Î±×ÀÎ Å×ÀÌºí
+-- ï¿½Úµï¿½ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
 CREATE TABLE persistent_logins (
   p_no NUMBER NOT NULL PRIMARY KEY,
   p_user_id varchar2(255) NOT NULL ,
@@ -121,53 +121,48 @@ ALTER TABLE Comments ADD CONSTRAINT FK_Board_TO_Comment_1 FOREIGN KEY (
 )
 REFERENCES Board (
    no
+   
 );
-
-
-
---»ùÇÃ µ¥ÀÌÅÍ »ý¼º
---À¯Àú
-INSERT INTO USERS (USER_ID, USER_PW, 
 
 
 commit;
 
--- ½ÃÄö½º »ý¼º
---±Û¹øÈ£
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+--ï¿½Û¹ï¿½È£
 CREATE SEQUENCE SEQ_BOARD_NO INCREMENT BY 1 START WITH 1 MINVALUE 1;
---¿¹¾à¹øÈ£
+--ï¿½ï¿½ï¿½ï¿½ï¿½È£
 CREATE SEQUENCE SEQ_RES_NO INCREMENT BY 1 START WITH 1 MINVALUE 1;
---´ñ±Û¹øÈ£
+--ï¿½ï¿½Û¹ï¿½È£
 CREATE SEQUENCE SEQ_CMNT_NO INCREMENT BY 1 START WITH 1 MINVALUE 1;
--- ½ÃÄö½º
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 CREATE SEQUENCE SEQ_PER_LOGIN INCREMENT BY 1 MAXVALUE 1000000 MINVALUE 1;
 
 
 
 
--- »ùÇÃ µ¥ÀÌÅÍ
---À¯Àú »ùÇÃ
+-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 INSERT INTO USERS (USER_ID, USER_PW, USER_NAME, USER_AGE,USER_PNO, USER_ADDRESS)
-VALUES('joeun', '123', '±èÁ¶Àº', '990909','010-0000-0000', 'ÇÑ°­ÀÚÀÌ');
+VALUES('joeun', '123', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '990909','010-0000-0000', 'ï¿½Ñ°ï¿½ï¿½ï¿½ï¿½ï¿½');
 
---°Ô½Ã±Û »ùÇÃ
+--ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
 INSERT INTO BOARD(NO, TITLE, user_id, CONTENT)
-VALUES(SEQ_BOARD_NO.NEXTVAL, 'Çà¿îÀÇ ÆíÁö', 'joeun', 'ÀÌ ÆíÁö´Â...');
+VALUES(SEQ_BOARD_NO.NEXTVAL, 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½', 'joeun', 'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...');
 
--- ¿¹¾à »ùÇÃ
+-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 INSERT INTO RESERVATION( R_NO, USER_ID, R_CATEGORY, R_DATE, R_TIME)
-VALUES(SEQ_RES_NO.NEXTVAL, 'joeun', 'ÇÇºÎ°ú', '2024/12/25', '9:00');
+VALUES(SEQ_RES_NO.NEXTVAL, 'joeun', 'ï¿½ÇºÎ°ï¿½', '2024/12/25', '9:00');
 
---¾îµå¹Î »ùÇÃ
+--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 INSERT INTO Admin (admin_id, admin_pw, admin_name, admin_age, emp_date)
-VALUES ('admin', '123456', 'ÀÌº´¿ø', 27, '2024-01-31');
+VALUES ('admin', '123456', 'ï¿½Ìºï¿½ï¿½ï¿½', 27, '2024-01-31');
 
--- ´ñ±Û »ùÇÃ
+-- ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 insert into comments (c_no, user_id, c_content, b_no)
-VALUES(SEQ_CMNT_NO.NEXTVAL, 'joeun', '³ª ÇÏ´ÏÀÎµ¥, °³ÃßÁØ´Ù.', 22);
+VALUES(SEQ_CMNT_NO.NEXTVAL, 'joeun', 'ï¿½ï¿½ ï¿½Ï´ï¿½ï¿½Îµï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.', 22);
 
 
--- Å×ÀÌºí »èÁ¦
+-- ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½
 drop table USERS cascade constraints PURGE;
 DROP TABLE Board cascade constraints PURGE;
 DROP TABLE comments cascade constraints PURGE;
