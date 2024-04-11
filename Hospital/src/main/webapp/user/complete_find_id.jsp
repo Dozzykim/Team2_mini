@@ -16,30 +16,29 @@
     <!-- js -->
     <jsp:include page="../layout/script.jsp" />
 
+	
 </head>
-
+		
 <body>
-	<!-- 헤더 -->
-	<jsp:include page="../layout/header.jsp" />
+    <!-- 헤더 -->
+    <jsp:include page="../layout/header.jsp" />
 
     <div class="container">
-        <h1>" 아이디 찾기 완료 "</h1>
-        <p>찾은 아이디: <%= userId %></p> <!-- 찾은 아이디를 여기에 표시 -->
+        <h2>" 아이디 찾기 완료 "</h2>
+        <p>찾은 아이디: <%= request.getAttribute("user_id") %></p>
         <div class="button-container">
-            <button onclick=moveTofindId()>확인</button>
+            <button onclick="moveTofindId()">확인</button>
         </div>
     </div>
     
     <!-- 푸터 -->
-	<jsp:include page="../layout/footer.jsp"></jsp:include>
+    <jsp:include page="../layout/footer.jsp"></jsp:include>
     
     <script >
-	    <%
-		String root = request.getContextPath();
-		%>
-	    function moveTofindId() {
-	    	window.location.href="<%=root%>/user/login.jsp";
-		}
+        function moveTofindId() {
+            var root = "<%= request.getContextPath() %>";
+            window.location.href = root + "/user/login.jsp";
+        }
     </script>
 </body>
 

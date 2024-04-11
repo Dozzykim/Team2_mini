@@ -9,6 +9,12 @@
     String name = request.getParameter("user_name");
     String pno = request.getParameter("user_pno");
 
+    // 입력값이 비어있는지 확인합니다.
+    if (name == null || name.trim().isEmpty() || pno == null || pno.trim().isEmpty()) {
+        response.sendRedirect(request.getContextPath() + "/user/find_id.jsp?msg=1"); // 입력값이 비어있는 경우
+        return;
+    }
+
     // 사용자 객체를 생성하고 입력된 이름과 연락처를 설정합니다.
     Users user = new Users();
     user.setUser_name(name);
@@ -18,15 +24,15 @@
     UserService userService = new UserServiceImpl();
 
     // 아이디를 찾는 메서드를 호출하여 결과를 가져옵니다.
-    String userId = userService.findId(user);
+    Integer result = userService.findId(user);
 
-    String root = request.getContextPath();
-    // 아이디 찾기 실패
-    if(userId) {
-        response.sendRedirect(root + "/user/complete_find_id.jsp");
+    // 결과값이 null이거나 0보다 작은 경우에 대한 처리
+    if (result == null || result <= 0) {
+        response.sendRedirect(request.getContextPath() + "/user/find_id.jsp?msg=2"); // 사용자를 찾을 수 없는 경우
         return;
-    } else {
-        // 아이디 찾기 성공
-        response.sendRedirect("find_id.jsp?msg=0");
     }
+
+    // 사용자가 존재하는 경우
+    request.setAttribute("user_id", result);
+    request.getRequestDispatcher("/user/complete_find_id.jsp").forward(request, response);
 %>

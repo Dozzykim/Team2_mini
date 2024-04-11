@@ -307,33 +307,36 @@ public class UserDAO extends JDBConnection {
 	
 	}
 	
-	public Users findId(Users user) {
-	    String userId = null;
+	public int findId(Users user) {
+	    int result = 0; // 사용자 존재 여부를 나타내는 변수
+
 	    // SQL 작성
-	    String sql = " SELECT user_id "
-	            + " FROM users "
-	            + " WHERE user_name = ? and user_pno = ? ";
+	    String sql = " SELECT user_id FROM users WHERE user_name = ? AND user_pno = ? ";
 	    try {
 	        // 쿼리(SQL) 실행 객체 생성 - PreparedStatement (psmt)
 	        psmt = con.prepareStatement(sql);
-	        
+
 	        // psmt.setXXX( 순서번호, 매핑할 값 );
-	        psmt.setString( 1, user.getUser_name() );       
-	        psmt.setString( 2, user.getUser_pno() );    
-	    
-	        // 쿼리(SQL) 실행 -> 결과 - RestultSet (rs)
+	        psmt.setString(1, user.getUser_name());
+	        psmt.setString(2, user.getUser_pno());
+
+	        // 쿼리(SQL) 실행 -> 결과 - ResultSet (rs)
 	        rs = psmt.executeQuery();
-	        
+
 	        // 조회 결과를 1건 가져오기
-	        if( rs.next() ) {       // next() : 실행 결과의 다음 데이터로 이동
-	            userId = rs.getString("user_id");
+	        if (rs.next()) { // next() : 실행 결과의 다음 데이터로 이동
+	            user.setUser_id(rs.getString("user_id"));
+	            result = 1; // 사용자가 존재함을 나타내는 값
 	        }
 	    } catch (SQLException e) {
 	        System.err.println("아이디 찾기 예외 발생");
 	        e.printStackTrace();
+	        result = 0; // 예외 발생 시 사용자가 존재하지 않음을 나타내는 값
 	    }
-	    return userId;
+	    return result; // 사용자 존재 여부 반환
 	}
+
+
 
 }
 		

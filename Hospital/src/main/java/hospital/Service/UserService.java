@@ -28,5 +28,5 @@ public interface UserService {
 	Users myinfo(String user_id);
 	
 	// 아이디 찾기
-	public String findId(Users user);
+	public int findId(Users user);
 }

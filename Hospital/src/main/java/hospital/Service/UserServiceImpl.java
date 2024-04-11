@@ -95,28 +95,18 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Users findId(Users user) {
-		Users FindId = userDAO.findId(user);
-		
-		if( FindId != null ) {
-			System.out.println("아이디 찾기 성공!");
-			return null;
-		}
-		// 로그인 실패
-		System.out.println("아이디 찾기 실패!");
-		return user;
+	public int findId(Users user) {
+	    int result = userDAO.findId(user);
+	    System.out.println(user);
+	    if (result > 0) {
+	        System.out.println("아이디 찾기 성공!");
+	        return result;
+	    } else {
+	        System.out.println("아이디를 찾을 수 없습니다.");
+	    }
+	    return result;
 	}
-	
-	
-	
-
-	
-
-	
 
 
-
-
-	
 	
 }
