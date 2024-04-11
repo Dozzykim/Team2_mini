@@ -90,6 +90,7 @@
 	<!-- 댓글 -->
 	<div class="cont_tb2">
 		<ul>
+
         <li class="head">
             <p>댓글</p>
             <form action="<%=request.getContextPath()%>/board/addCmmt.jsp" method="post">
@@ -115,30 +116,41 @@
             </form>
         </li>
     </ul>
+
 			<%
 				// 무플 시,
 				if (cmmtList == null || cmmtList.size() == 0) {
 			%>
-				
+
 			<%
 				// 댓글 존재 시,
 				} else {
 			%>
 				<table border="1" class="commt_area">
-					<th>아이디</th>
-					<th>댓글</th>
-					<th>작성일자</th>
+					<thead>
+						<tr>
+							<th>아이디</th>
+							<th>댓글</th>
+							<th>작성일자</th>
+						</tr>
+					</thead>
+					<tbody>
 			<%
 					for(Comment cmmt : cmmtList) {
 			%>
 					<tr>
 						<td><%=cmmt.getUser_id()%></td>
-						<td ><%=cmmt.getContent()%></td>
-						<td ><%=cmmtDate.format(cmmt.getReg_date())%></td>
+						<td><%=cmmt.getContent()%></td>
+						<td><%=cmmtDate.format(cmmt.getReg_date())%></td>
+						<c:if test="<%=writer.equals(loginId)%>">
+							<td><input type="hidden" name="c_no" value="<%=cmmt.getC_no()%>"/></td>
+							<td><button onclick="deleteCmmt()">삭제</button></td>
+						</c:if>
 					</tr>
 			<%
 					}
 			%>
+					</tbody>
 			</table>
 			<%
 				}
