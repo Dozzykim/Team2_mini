@@ -30,9 +30,17 @@
 			</div>
 			<div class="header_bottom">
 				<ul>
-					<li><a href="<%=request.getContextPath()%>/admin/boardList.jsp">소통 해요</a></li>
-					<li><a
-						href="<%=request.getContextPath()%>/admin/reservation.jsp">예약 현황</a></li>
+					<!-- 비로그인 시에만 보임 -->
+					<c:if test="${sessionScope.loginId == null }">
+						<li><a>소통 해요</a></li>
+						<li><a>예약 현황</a></li>
+					</c:if>
+					
+					<!-- 로그인 시에만 보임 -->
+					<c:if test="${sessionScope.loginId != null }">
+						<li><a href="<%=request.getContextPath()%>/admin/boardList.jsp">소통 해요</a></li>
+						<li><a href="<%=request.getContextPath()%>/admin/reservation.jsp">예약 현황</a></li>
+					</c:if>
 					
 				</ul>
 			</div>
