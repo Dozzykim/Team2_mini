@@ -2,6 +2,8 @@ package hospital.Service;
 
 
 
+import java.util.List;
+
 import hospital.DTO.PersistentLogins;
 import hospital.DTO.Reservation;
 import hospital.DTO.Users;
@@ -28,5 +30,8 @@ public interface UserService {
 
 	// 마이페이지 내 정보 조회
 	Users myinfo(String user_id);
+	
+	// 관리자용 전체 회원 정보 조회
+	List<Users> list();
 	
 }

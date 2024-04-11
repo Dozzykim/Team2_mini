@@ -306,6 +306,43 @@ public class UserDAO extends JDBConnection {
 		
 		
 	}
+	
+	// 어드민 전용 데이터 목록
+	public List<Users> list() {
+	    // 예약을 담을 컬렉션 객체 생성
+	    List<Users> userList = new ArrayList<Users>();
+
+	    // SQL
+	    String sql = "SELECT * " +
+	                 "FROM Users " ;
+
+	    try {
+	        stmt = con.createStatement();
+	        rs = stmt.executeQuery(sql);
+
+	        while (rs.next()) {
+	            Users users = new Users();
+
+	            users.setUser_name(rs.getString("user_name"));
+	            users.setUser_id(rs.getString("user_id"));
+	            users.setUser_pw(rs.getString("user_pw"));
+	            users.setUser_age(rs.getString("user_age"));
+	            users.setUser_pno(rs.getString("user_pno"));
+	            users.setUser_address(rs.getString("user_address"));
+	            
+
+	            userList.add(users);
+	        }
+
+	    } catch (SQLException e) {
+	        System.err.println("예약 내역 조회 시, 예외 발생");
+	        e.printStackTrace();
+	    } 
+
+	    // 예약 반환
+	    return userList;
+	}
+
 }
 
 
