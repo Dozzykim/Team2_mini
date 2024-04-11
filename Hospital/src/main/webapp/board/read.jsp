@@ -108,9 +108,6 @@
 				</form>
 			</li>
 		</ul>
-		<div class="id_comment">
-			<p>아이디&emsp;&emsp;&emsp;&emsp;댓글</p>
-		</div>
 			<%
 				// 무플 시,
 				if (cmmtList == null || cmmtList.size() == 0) {
@@ -123,14 +120,17 @@
 				// 댓글 존재 시,
 				} else {
 			%>
-				<table border="1" id="commt_area">
+				<table border="1" class="commt_area">
+					<th>아이디</th>
+					<th>댓글</th>
+					<th>작성일자</th>
 			<%
 					for(Comment cmmt : cmmtList) {
 			%>
 					<tr>
 						<td><%=cmmt.getUser_id()%></td>
-						<td><%=cmmt.getContent()%></td>
-						<td><%=cmmtDate.format(cmmt.getReg_date())%></td>
+						<td ><%=cmmt.getContent()%></td>
+						<td ><%=cmmtDate.format(cmmt.getReg_date())%></td>
 					</tr>
 			<%
 					}
