@@ -9,7 +9,7 @@ public interface ReservationService {
 	// 전체 예약 현황 조회 (관리자)
 	List<Reservation> list();
 	
-	// 사용자 아이디에 해당하는 예약 목록 조회
+	// 사용자 아이디에 해당하는 예약 목록 조회 (사용자)
     List<Reservation> listByUserId(String userId);
     
 	// 예약 등록
