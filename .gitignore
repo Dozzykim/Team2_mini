@@ -1,4 +1,8 @@
 /.metadata/
 
+ # project classpath
+.classpath
+
 # Compiled class file
 *.class
+
