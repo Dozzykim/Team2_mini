@@ -60,7 +60,7 @@
 		<p>자신만의 건강 고민과 팁을 사람들과 공유해 보세요!</p>
 		<div class="table-wrapper">
 
-			<table border="1">
+			<table id="board_table" border="1">
 				<thead>
 					<tr>
 						<th><%=board.getNo()%>.</th>
@@ -114,7 +114,7 @@
 				</form>
 			</li>
 		</ul>
-    
+
 		<!-- 댓글리스트 -->
 		<%
 		// 무플 시,
