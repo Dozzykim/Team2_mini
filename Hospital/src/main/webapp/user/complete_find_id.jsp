@@ -12,7 +12,7 @@
     
     <!-- css  -->
     <jsp:include page="../layout/link.jsp" />
-    <link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/complete_join.css">
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/complete_find_id.css">
     
     <!-- js -->
     <jsp:include page="../layout/script.jsp" />
@@ -25,8 +25,7 @@
     <jsp:include page="../layout/header.jsp" />
 
     <div class="container">
-        <h2>" 아이디 찾기 완료 "</h2>
-        <p>찾은 아이디:</p>
+        <h1>아이디 찾기 완료</h1>
         <ul>
             <% 
                 List<String> userIds = (List<String>) request.getAttribute("user_id");
