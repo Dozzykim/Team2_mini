@@ -2,14 +2,15 @@ package hospital.Service;
 
 import java.util.List;
 
-import hospital.DAO.CommetDAO;
+import hospital.DAO.CommentDAO;
 import hospital.DTO.Comment;
+import hospital.DTO.Reservation;
 
 
 // 비즈니스 로직 계층
 public class CmmtServiceImpl implements CmmtService {
 
-	private CommetDAO commentDAO = new CommetDAO();
+	private CommentDAO commentDAO = new CommentDAO();
 
 	//댓글 불러오기
 		@Override
@@ -35,4 +36,8 @@ public class CmmtServiceImpl implements CmmtService {
 		
 		return result;
 	}
+	
+	
+	
+	
 }

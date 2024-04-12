@@ -84,35 +84,6 @@
 
 	<!-- 댓글작성 -->
 	<div class="cont_tb2">
-		<ul>
-			<li class="head">
-				<p>댓글</p>
-				<form>
-					<!-- 비로그인 시에만 보임 -->
-					<c:if test="${sessionScope.loginId == null }">
-						<div class="input-wrapper">
-							<input type="hidden" id="boardNo" name="boardNo" value="<%=no%>" />
-							<input type="text" id="noneLoginCmmt" value="댓글을 작성하려면 로그인 해주세요"
-								readonly />
-						</div>
-					</c:if>
-
-					<!-- 로그인 시에만 보임 -->
-					<c:if test="${sessionScope.loginId != null }">
-						<div class="input-wrapper">
-							<input type="hidden" id="boardNo" name="boardNo" value="<%=no%>" />
-							<input type="hidden" id="loginid" name="loginId"
-								value="<%=loginId%>" /> <input type="text" id="cBox"
-								placeholder="댓글을 입력해주세요." /> <input type="text" id="cmmt"
-								name="cmmt" style="display: none;"
-								placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다." /> <input
-								id="insertCmmt" onclick="insertComment()" disabled value="작성" />
-						</div>
-					</c:if>
-				</form>
-			</li>
-		</ul>
-
 		<!-- 댓글리스트 -->
 		<%
 		// 무플 시,
@@ -145,27 +116,24 @@
 	<jsp:include page="../layout/footer.jsp" />
 
 	<!-- 스크립트 -->
-	<%
-	String root = request.getContextPath();
-	%>
+	<%String root = request.getContextPath();%>
 	<c:set var="root" value="<%=root%>" />
-	<script type="text/javascript">
-		// 자바 - EL(표현언어)를 자바스크립트로 가져오는 방법
-	    const root = "${ root }"
-	    
+	<script type="text/javascript">		
+	// 자바 - EL(표현언어)를 자바스크립트로 가져오는 방법
+    const root = "${ root }"
+    
 		// 선택받기
-	     function doubleCheck() {
+	    function doubleCheck() {
 	        var choice = confirm("정말로 삭제하시겠습니까?");
 	        
 	        if (choice == true) {
-	            window.location.href= "<%=root%>/admin/delete.jsp?no=<%=board.getNo()%>";
+	            window.location.href= root + "/admin/delete.jsp?no=<%=board.getNo()%>";
 	        }
 	    }
 		
-	
 		// 리스트로 이동
 		function moveToList() {
-			window.location.href= "<%=root%>/admin/boardList.jsp";
+			window.location.href= root + "/admin/boardList.jsp";
 		}
 		
 		// 비로그인상태로 댓글작성 시도 시, 로그인 요청 얼럿
@@ -239,9 +207,9 @@
 						result += "<tr>"
 								+ 	"<form>"
 								+		'<input type="hidden" id="cmmtNo" value="'+ list[i].c_no +'" />'
-								+		'<td id="cmmtId">' + list[i].user_id + "</td>"
+								+		'<td>' + list[i].user_id + "</td>"
 								+		"<td>" + list[i].content + "</td>"
-								+		"<td>" + '<button onclick="deleteCmmt()">삭제</button>' + "</td>"
+								+		"<td>" + '<button onclick="deleteCmmt(this)" data="' + list[i].user_id +'">삭제</button>' + "</td>"
 								+   "</form>"
 								+ "</tr>" ;
 					}
@@ -254,21 +222,30 @@
 			listCmmt();
 		})
 		
-		function deleteCmmt() {
-			var loginId = $('#loginid').val();
-			var cmmtId = document.getElementById("cmmtId").innerText;
+		
+		// 댓글 삭제
+		function deleteCmmt(element) {
 			
-			var cmmtNo = $('#cmmtNo').val();		
+			var loginId = $('#loginid').val();
+			//alert("로그인 아이디" + loginId);
+			// var cmmtId = document.getElementById("cmmtId").innerText;
+			var cmmtId = $(element).attr('data');
+			
+// 			alert("댓글 작성자:" + cmmtId);
+			
+			
 			var choice = confirm("정말로 삭제하시겠습니까?");
 			
 			if (choice == false) {
 				return;
 	        }
 			
+			var cmmtNo = $('#cmmtNo').val();			
+			
 			$.ajax({
 				url: root + '/board/cmmtController?cmmtNo=' + $('#cmmtNo').val(),
 				type: 'delete',
-				//data: {cmmtNo : $('#cmmtNo').val()},
+// 				data: {cmmtNo : $('#cmmtNo').val()},
 				success: function (result) {
 					if(result > 0) {
 						//댓글 재호출하는 함수
@@ -277,6 +254,7 @@
 				}
 			})
 		}
+		
 	</script>
 
 </body>

@@ -29,6 +29,7 @@
         <div class="inner">
             <div class="find_pw">
                 <h1>비밀번호 찾기</h1>
+                <p>아이디와 이름과 연락처를 입력하세요!</p>
                 <c:if test="${param.msg == 0}">
                     <p style="color: red;">비밀번호 찾기에 실패하였습니다.</p>
                 </c:if>

@@ -3,11 +3,9 @@
 	margin: 0 auto;
 	padding: 30px;
 }
-
 .container .inner {
 	width: 100%;
 }
-
 .container h1 {
 	font-size: 60px;
 	font-weight: bold;
@@ -22,7 +20,6 @@
 	height: 80px;
 	width: 80px;
 }
-
 .container p {
 	font-size: 18px;
 	text-align: center;
@@ -40,7 +37,6 @@ table#board_table {
 	text-align: center;
 	border: 1px solid #ccc;
 }
-
 .table-wrapper td {
 	padding: 10px;
 }
@@ -55,7 +51,7 @@ table#board_table {
 
 .table-wrapper th:nth-child(1) {
 	width: 50px;
-	
+
 }
 
 .table-wrapper th:nth-child(2) {
@@ -75,7 +71,6 @@ table#board_table {
 tbody tr:nth-child(even) {
 	background-color: #f9f9f9;
 }
-
 input[type="text"], textarea, select {
 	width: 100%;
 	padding: 10px;
@@ -90,7 +85,6 @@ input[type="text"], textarea, select {
 textarea {
 	height: 450px;
 }
-
 #cmmt {
 	width: 88%;
 }
@@ -102,13 +96,11 @@ textarea {
 	max-width: 800px; /* 테이블 컨테이너의 최대 너비를 800px로 설정합니다. */
 	margin: 50px auto 150px;
 }
-
 .insert {
 	position: absolute; /* 버튼의 위치를 절대적으로 설정합니다. */
 	bottom: -70px; /* 테이블 아래에 위치하도록 설정합니다. */
 	right: 0; /* 오른쪽 정렬 */
 }
-
 .insert button {
 	border-radius: 5px;
 	padding: 15px 30px;
@@ -163,7 +155,7 @@ textarea {
 .cont_tb2 .head form {
 	width: 800px;
 
-	
+
 }
 
 #insertCmmt {
@@ -178,7 +170,7 @@ textarea {
 	color: white;
 	width: 10%;
     text-align: center;
-	
+
 }
 
 .id_comment {
@@ -187,11 +179,9 @@ textarea {
 	margin: 30px 50px 20px 257px;
 	justify-content: space-between;
 }
-
 .noneCmmt {
 	margin-left: 175px;
 }
-
 #line{
 	width: 740px;
 	margin-left: 175px;
@@ -254,5 +244,3 @@ textarea {
 #content {
 	resize: none;
 }
-
-

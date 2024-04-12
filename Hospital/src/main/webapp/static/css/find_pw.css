@@ -19,11 +19,15 @@
 .container .inner .find_pw h1 {
     font-size: 60px;
     font-weight: bold;
-    margin: 70px;
+     margin: 70px 0px 30px;
 }
-
+.container .inner .find_pw p {
+    font-size: 18px;
+    text-align: center;
+}
 .container .inner .find_pw ul {
     position: relative;
+    padding-top: 50px;
 }
 
 .container .inner .find_pw ul li {

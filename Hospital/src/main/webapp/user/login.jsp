@@ -11,7 +11,8 @@
 <meta charset="UTF-8">
 <title>로그인 화면</title>
 <jsp:include page="/layout/link.jsp" />
-<link href="<%=request.getContextPath()%>/static/css/login_main.css" rel="stylesheet" />
+<link href="<%=request.getContextPath()%>/static/css/login_main.css"
+	rel="stylesheet" />
 </head>
 <body>
 
@@ -81,10 +82,8 @@
 					<p id="line">---------------------------------------------------------------------------------------------------------</p>
 					<p id="message">아이디와 비밀번호를 잊어버리셨나요?</p>
 					<div class="find">
-						<a href="<%=request.getContextPath()%>/user/find_id.jsp"
-							>아이디 찾기</a> <a
-							href="<%=request.getContextPath()%>/user/find_pw.jsp"
-							>비밀번호 찾기</a>
+						<a href="<%=request.getContextPath()%>/user/find_id.jsp">아이디 찾기</a>
+						<a href="<%=request.getContextPath()%>/user/find_pw.jsp">비밀번호 찾기</a>
 					</div>
 				</div>
 			</div>

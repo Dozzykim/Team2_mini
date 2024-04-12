@@ -152,33 +152,33 @@
                     <p style="color: red;">회원가입에 실패하였습니다.</p>
                 </c:if>
                 <form action="join_pro.jsp" method="post" onsubmit="return validateForm()">
-                <ul>
-                    <li>
-                        <input type="text" name="user_name" id="user_name" placeholder="이름">
-                    </li>
-                    <li>
-                         <input type="text" name="user_id" placeholder="아이디" id="user_id"/>
-                         <input type="button" id="emoverlay" onclick="checkId()" value="중복확인"/>
-                         <input type="hidden" id="idChecked" value="false"/>
-                    </li>
-                    <p>
-                         <span class="id_ok" style="color: green; display: none;">사용 가능한 아이디입니다.</span>                      
-                         <span class="id_already" style="color: red; display: none;">중복된 아이디입니다.</span>                      
-                    </p>
-                    <li><input type="password" name="user_pw" placeholder="비밀번호" id="user_pw"></li>
-                    <li><input type="password" name="confirmPassword" id="confirmPassword" placeholder="비밀번호확인"></li>
-                    <li>
-                        <input type="text" name="user_age1" id="user_age1" placeholder="주민등록번호 앞자리" >
-                        -  
-                        <input type="text" name="user_age2" id="user_age2" placeholder="주민등록번호 뒷자리">
-                    </li>
-                    <li><input type="text"  name="user_pno" id="user_pno" placeholder="연락처"></li>
-                    <li><input type="text" name="user_address" id="user_address" placeholder="주소"></li>
-                    <li><a href="<%=request.getContextPath() %>/user/join_pro.jsp" class="join_btn"><button type="submit" >회원가입</button></a></li>
-                    <li><p>계정이 있으십니까?</p><a
-                    	 href="<%=request.getContextPath() %>/user/login.jsp">로그인</a></li>
-                </ul>
-                    </form>
+	                <ul>
+	                    <li>
+	                        <input type="text" name="user_name" id="user_name" placeholder="이름">
+	                    </li>
+	                    <li>
+	                         <input type="text" name="user_id" placeholder="아이디" id="user_id"/>
+	                         <input type="button" id="emoverlay" onclick="checkId()" value="중복확인"/>
+	                         <input type="hidden" id="idChecked" value="false"/>
+	                    </li>
+	                    <p>
+	                         <span class="id_ok" style="color: green; display: none;">사용 가능한 아이디입니다.</span>                      
+	                         <span class="id_already" style="color: red; display: none;">중복된 아이디입니다.</span>                      
+	                    </p>
+	                    <li><input type="password" name="user_pw" placeholder="비밀번호" id="user_pw"></li>
+	                    <li><input type="password" name="confirmPassword" id="confirmPassword" placeholder="비밀번호확인"></li>
+	                    <li>
+	                        <input type="text" name="user_age1" id="user_age1" placeholder="주민등록번호 앞자리" >
+	                        -  
+	                        <input type="text" name="user_age2" id="user_age2" placeholder="주민등록번호 뒷자리">
+	                    </li>
+	                    <li><input type="text"  name="user_pno" id="user_pno" placeholder="연락처"></li>
+	                    <li><input type="text" name="user_address" id="user_address" placeholder="주소"></li>
+	                    <li><a href="<%=request.getContextPath() %>/user/join_pro.jsp" class="join_btn"><button type="submit" >회원가입</button></a></li>
+	                      <li><p>계정이 있으십니까?</p>
+	                      <a href="<%=request.getContextPath() %>/user/login.jsp">로그인</a></li>
+	                </ul>
+           		</form>
             </div>
         </div>
     </div>
