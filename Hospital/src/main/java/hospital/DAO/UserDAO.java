@@ -343,7 +343,6 @@ public class UserDAO extends JDBConnection {
 	    // 예약 반환
 	    return userList;
 	}
-	
 	/**
 	 * 아이디 찾기
 	 * @param user

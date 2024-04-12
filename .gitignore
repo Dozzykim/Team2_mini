@@ -5,4 +5,9 @@
 
 # Compiled class file
 *.class
+<<<<<<< HEAD
 
+=======
+Hospital/.classpath
+Hospital/build/classes/hospital/DAO/CommetDAO.class
+>>>>>>> 742e62459709d2e41b820c1640ec5929219079a0

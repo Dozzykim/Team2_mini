@@ -80,16 +80,16 @@
     margin-bottom: 10px;
 }
 
+.container .inner .join ul li p {
+    color : black;
+    margin-bottom: 10px;
+}
+
 .container .inner .join ul li a {
     text-align: center;
     line-height: 20px;
     color: #007bff;
     text-decoration: none;
-}
-.container .inner .join ul li:nth-child(2) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 #emoverlay {
@@ -107,3 +107,4 @@
     width: 490px;
     margin-right: 10px;
 }
+

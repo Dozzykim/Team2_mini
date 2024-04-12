@@ -29,6 +29,7 @@
         <div class="inner">
             <div class="find_id">
                 <h1>아이디 찾기</h1>
+                <p>이름과 연락처를 입력하세요!</p>
                 <c:if test="${param.msg == 0}">
                     <p style="color: red;">아이디 찾기에 실패하였습니다.</p>
                 </c:if>
