@@ -1,4 +1,4 @@
- .container {
+.container {
 	width: 100%;
 	margin: 0 auto;
 	padding: 30px;
@@ -14,7 +14,6 @@
 	margin: 70px 0px 30px;
 	text-align: center;
 }
-
 
 .container h1 img {
 	margin-bottom: -15px;
@@ -55,7 +54,6 @@ table#board_table {
 
 .table-wrapper th:nth-child(1) {
 	width: 50px;
-	
 }
 
 .table-wrapper th:nth-child(2) {
@@ -86,7 +84,6 @@ input[type="text"], textarea, select {
 	font-size: 14px;
 }
 
-
 textarea {
 	height: 450px;
 }
@@ -94,7 +91,6 @@ textarea {
 #cmmt {
 	width: 88%;
 }
-
 
 .table-wrapper {
 	position: relative; /* 상대적 위치 지정 */
@@ -123,29 +119,23 @@ textarea {
 	position: relative; /* 상대적 위치 지정 */
 	margin: 0 auto;
 	width: 800px; /* 테이블 컨테이너의 너비를 100%로 설정합니다. */
-
 }
 
-.cont_tb2 .head input#cBox,
-.cont_tb2 .head input#cmmt {
+.cont_tb2 .head input#cBox, .cont_tb2 .head input#cmmt {
 	width: 80%;
 }
 
-
 .cont_tb2 .head ul {
-    list-style: none; /* 리스트의 기본 마커 제거 */
-    padding: 0; /* 리스트의 패딩 제거 */ 
+	list-style: none; /* 리스트의 기본 마커 제거 */
+	padding: 0; /* 리스트의 패딩 제거 */
 }
 
 .cont_tb2 li.head {
 	display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 }
-
-
 
 .cont_tb2 .head p {
 	width: 10%;
@@ -155,15 +145,12 @@ textarea {
 	height: 38px;
 	line-height: 38px;
 	margin: auto;
-	margin-right : 10px;
+	margin-right: 10px;
 	font-size: 14px;
 }
 
-
 .cont_tb2 .head form {
 	width: 800px;
-
-	
 }
 
 #insertCmmt {
@@ -171,14 +158,13 @@ textarea {
 	padding: 11px;
 	background-color: #8AC9F5;
 	cursor: pointer;
-	font-size: 14px;
+	font-size: 16px;
 	border: none;
 	margin-left: 10px;
 	position: absolute;
 	color: white;
 	width: 10%;
-    text-align: center;
-	
+	text-align: center;
 }
 
 .id_comment {
@@ -192,10 +178,11 @@ textarea {
 	margin-left: 175px;
 }
 
-#line{
+#line {
 	width: 740px;
 	margin-left: 175px;
 }
+
 .cont_tb2 table {
 	border-collapse: collapse; /* 테이블 테두리를 합칩니다. */
 	border: none; /* 테이블 테두리를 없앱니다. */
@@ -220,46 +207,28 @@ textarea {
 	background-color: white;
 }
 
-.cont_tb2 table#Cmmt_area th:nth-of-type(1),
-.cont_tb2 table#Cmmt_area td:nth-of-type(1) {
-    width: 150px;
+.cont_tb2 table#Cmmt_area th:nth-of-type(1), .cont_tb2 table#Cmmt_area td:nth-of-type(1)
+	{
+	width: 150px;
 }
 
-.cont_tb2 table#Cmmt_area th:nth-of-type(2),
-.cont_tb2 table#Cmmt_area td:nth-of-type(2) {
-    width: 500px;
+.cont_tb2 table#Cmmt_area th:nth-of-type(2), .cont_tb2 table#Cmmt_area td:nth-of-type(2)
+	{
+	width: 500px;
 }
 
-.cont_tb2 table#Cmmt_area th:nth-of-type(3),
-.cont_tb2 table#Cmmt_area td:nth-of-type(3) {
-    width: 150px;
+.cont_tb2 table#Cmmt_area th:nth-of-type(3), .cont_tb2 table#Cmmt_area td:nth-of-type(3)
+	{
+	width: 150px;
 }
 
 .cont_tb2 table#Cmmt_area td:nth-of-type(2) {
 	text-align: left;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-.cont_tb2 td a {
-	width: 20px;
-	margin-left: 7px;
-}
-
 .cont_tb2 td button {
 	border-radius: 5px;
-	padding: 8px 15px;
+	padding: 1px 11px;
 	background-color: #ccc;
 	cursor: pointer;
 	color: white;
@@ -270,5 +239,3 @@ textarea {
 #content {
 	resize: none;
 }
-
-
