@@ -2,8 +2,8 @@
 <%@page import="hospital.Service.UserService"%>
 <%@page import="hospital.DTO.Users"%>
 <%@page import="java.net.URLEncoder"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
@@ -12,79 +12,79 @@
 	user.setUser_id(id);
 	user.setUser_pw(pw);
 	
-	// ·Î±×ÀÎ ¿äÃ»
+	// ë¡œê·¸ì¸ ìš”ì²­
 	UserService userService = new UserServiceImpl();
 	Users loginUser = userService.login(user);
 	
-	// ·Î±×ÀÎ ½ÇÆĞ
+	// ë¡œê·¸ì¸ ì‹¤íŒ¨
 	if( loginUser == null ) {
 		response.sendRedirect("login.jsp?msg=0");
 		return;
 	}
 	
-	// ¾ÆÀÌµğ ÀúÀå
+	// ì•„ì´ë”” ì €ì¥
 	String rememberId = request.getParameter("rememberId");
 	Cookie cookieRememberId = new Cookie("rememberId", "");
 	Cookie cookieUserId = new Cookie("userId", "");
 	
 
-	// Ã¼Å© ¹Ú½º Ã¼Å© ½Ã, °ª : on
+	// ì²´í¬ ë°•ìŠ¤ ì²´í¬ ì‹œ, ê°’ : on
 	if (rememberId != null && rememberId.equals("on")) {
-		// ÄíÅ° »ı¼º
-		// UTF-8 À¸·Î ÀÎÄÚµùÇÏ¿© °ªÀ» ÀúÀåÇØ¾ßÇÑ´Ù.
+		// ì¿ í‚¤ ìƒì„±
+		// UTF-8 ìœ¼ë¡œ ì¸ì½”ë”©í•˜ì—¬ ê°’ì„ ì €ì¥í•´ì•¼í•œë‹¤.
 		cookieRememberId.setValue( URLEncoder.encode( rememberId, "UTF-8" ));
 		cookieUserId.setValue( URLEncoder.encode( id, "UTF-8" ));
 	}
-	// Ã¼Å© ¹Ú½º ¹ÌÃ¼Å© ½Ã
+	// ì²´í¬ ë°•ìŠ¤ ë¯¸ì²´í¬ ì‹œ
 	else {
-		// ÄíÅ° »èÁ¦
+		// ì¿ í‚¤ ì‚­ì œ
 		cookieRememberId.setMaxAge(0);
 		cookieUserId.setMaxAge(0);
 	}
-	// ÄíÅ° ÀÀ´ä¿¡ µî·Ï
+	// ì¿ í‚¤ ì‘ë‹µì— ë“±ë¡
 	response.addCookie(cookieRememberId);
 	response.addCookie(cookieUserId);
-	// ¾ÆÀÌµğ ÀúÀå(³¡)
+	// ì•„ì´ë”” ì €ì¥(ë)
 	
 	
 	
-	// ÀÚµ¿ ·Î±×ÀÎ
+	// ìë™ ë¡œê·¸ì¸
 	String rememberMe = request.getParameter("rememberMe");
 	Cookie cookieRemeberMe = new Cookie("rememberMe", "");
 	Cookie cookieToken = new Cookie("token", "");
 	
-	// ÀÚµ¿ ·Î±×ÀÎ Ã¼Å© ¿©ºÎ, ÅäÅ« ÄíÅ°¿¡ ´ëÇÑ °æ·Î ¼³Á¤
+	// ìë™ ë¡œê·¸ì¸ ì²´í¬ ì—¬ë¶€, í† í° ì¿ í‚¤ì— ëŒ€í•œ ê²½ë¡œ ì„¤ì •
 	cookieRemeberMe.setPath("/");
 	cookieToken.setPath("/");
-	// ÄíÅ° À¯È¿±â°£ ¼³Á¤
-	cookieRemeberMe.setMaxAge(7*60*60*24);		// ÃÊ´ÜÀ§ --> 7ÀÏ
+	// ì¿ í‚¤ ìœ íš¨ê¸°ê°„ ì„¤ì •
+	cookieRemeberMe.setMaxAge(7*60*60*24);		// ì´ˆë‹¨ìœ„ --> 7ì¼
 	cookieToken.setMaxAge(7*60*60*24);
 	
-	// Ã¼Å© ¿©ºÎ¿¡ µû¶ó ÄíÅ° »ı¼º ¶Ç´Â »èÁ¦
+	// ì²´í¬ ì—¬ë¶€ì— ë”°ë¼ ì¿ í‚¤ ìƒì„± ë˜ëŠ” ì‚­ì œ
 	if( rememberMe != null && rememberMe.equals("on") ) {
-		// ÀÚµ¿ ·Î±×ÀÎ Ã¼Å©
-		// - ÅäÅ« ¹ßÇà
+		// ìë™ ë¡œê·¸ì¸ ì²´í¬
+		// - í† í° ë°œí–‰
 		String tokenValue = userService.refreshToken(id);
-		// - ÄíÅ° »ı¼º
+		// - ì¿ í‚¤ ìƒì„±
 		cookieRemeberMe.setValue( URLEncoder.encode( rememberMe, "UTF-8") );
 		cookieToken.setValue( URLEncoder.encode( tokenValue, "UTF-8") );
 	} else {
-		// ÀÚµ¿ ·Î±×ÀÎ ¹ÌÃ¼Å©
-		// ÄíÅ° »èÁ¦
+		// ìë™ ë¡œê·¸ì¸ ë¯¸ì²´í¬
+		// ì¿ í‚¤ ì‚­ì œ
 		cookieRemeberMe.setMaxAge(0);
 		cookieToken.setMaxAge(0);
 	}
 	
-	// ÀÀ´ä¿¡ ÄíÅ° µî·Ï
+	// ì‘ë‹µì— ì¿ í‚¤ ë“±ë¡
 	response.addCookie(cookieRemeberMe);
 	response.addCookie(cookieToken);
-	// ÀÚµ¿ ·Î±×ÀÎ(³¡)
+	// ìë™ ë¡œê·¸ì¸(ë)
 	
 	
 	String root = request.getContextPath();
 	if( loginUser != null) {
-		// ·Î±×ÀÎ ¼º°ø
-		// ¼¼¼Ç¿¡ ¾ÆÀÌµğ µî·Ï ÈÄ, ¸ŞÀÎ ÆäÀÌÁö·Î ÀÌµ¿
+		// ë¡œê·¸ì¸ ì„±ê³µ
+		// ì„¸ì…˜ì— ì•„ì´ë”” ë“±ë¡ í›„, ë©”ì¸ í˜ì´ì§€ë¡œ ì´ë™
 		session.setAttribute("loginId", loginUser.getUser_id() );
 		response.sendRedirect( root + "/index.jsp" );
 	}
