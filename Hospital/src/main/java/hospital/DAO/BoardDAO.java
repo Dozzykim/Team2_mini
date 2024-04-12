@@ -1,10 +1,13 @@
 package hospital.DAO;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import hospital.DTO.Board;
+import hospital.DTO.Reservation;
 
 /**
  *  데이터 접근 객체
@@ -129,6 +132,7 @@ public class BoardDAO extends JDBConnection {
 		
 		String sql = " UPDATE board "
 				   + " SET title = ? "
+				   + "    ,category = ? "
 				   + "    ,user_id  = ? "
 				   + "    ,content = ? "
 				   + "	  ,upd_date = sysdate "
@@ -137,9 +141,10 @@ public class BoardDAO extends JDBConnection {
 		try {
 			psmt = con.prepareStatement(sql);			// 쿼리 실행 객체 생성
 			psmt.setString( 1, board.getTitle() );		// 1번 ? 에 제목 매핑
-			psmt.setString( 2, board.getUser_id() );		// 2번 ? 에 작성자 매핑
-			psmt.setString( 3, board.getContent() );	// 3번 ? 에 내용을 매핑
-			psmt.setInt( 4, board.getNo() );			// 4번 ? 에 게시글 번호를 매핑
+			psmt.setString( 2, board.getCategory() );	// 2번 ? 에 카테고리 매핑
+			psmt.setString( 3, board.getUser_id() );		// 3번 ? 에 작성자 매핑
+			psmt.setString( 4, board.getContent() );	// 4번 ? 에 내용을 매핑
+			psmt.setInt( 5, board.getNo() );			// 5번 ? 에 게시글 번호를 매핑
 			
 			result = psmt.executeUpdate();		// SQL 실행 요청, 적용된 데이터 개수를 받아온다.
 												// 게시글 1개 적용 성공 시, result : 1
@@ -219,4 +224,36 @@ public class BoardDAO extends JDBConnection {
 		// 게시글 목록 반환
 		return boardList;
 	 }
+
+	public List<Board> listByUserId(String userId) {
+		List<Board> boardList = new ArrayList<>();
+
+	    // SQL
+	    String sql = "SELECT * FROM board WHERE user_id = ? ";
+
+	    try {
+	        PreparedStatement pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, userId);
+	        ResultSet rs = pstmt.executeQuery();
+
+	        while (rs.next()) {
+	            Board board = new Board();
+
+	            board.setNo(rs.getInt("no"));
+	            board.setUser_id(rs.getString("user_id"));
+	            board.setCategory(rs.getString("category"));
+	            board.setTitle(rs.getString("title"));
+	            board.setContent(rs.getString("content"));
+	            board.setReg_date(rs.getTimestamp("reg_date"));
+	            board.setUpd_date(rs.getTimestamp("upd_date"));
+
+	            boardList.add(board);
+	        }
+	    } catch (SQLException e) {
+	        System.err.println("글 목록 조회 시, 예외 발생");
+	        e.printStackTrace();
+	    }
+	    // 예약 반환
+	    return boardList;
+	}
 }

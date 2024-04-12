@@ -7,7 +7,6 @@
 <!-- 게시글 등록처리 구간 -->
     
 <%
-	String root = request.getContextPath();
 
 	// 앞에 form태그에 작성해서 넘겨준 파라미터를 변수에 저장
 	String title = request.getParameter("title");
@@ -15,6 +14,7 @@
 	String content = request.getParameter("content");
 	String category = request.getParameter("category");
 	
+	String root = request.getContextPath();
 	if (category.equals("none")) {
 		response.sendRedirect(root + "/board/insert.jsp?msg=0");
 		return;

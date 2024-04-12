@@ -2,11 +2,14 @@
 <%@page import="org.apache.catalina.User"%>
 <%@page import="hospital.DTO.Reservation"%>
 <%@page import="hospital.DTO.Users"%>
+<%@page import="hospital.DTO.Board"%>
 <%@page import="java.util.List"%>
 <%@page import="hospital.Service.ReservationService"%>
 <%@page import="hospital.Service.ReservationServiceImpl"%>
 <%@page import="hospital.Service.UserService"%>
 <%@page import="hospital.Service.UserServiceImpl"%>
+<%@page import="hospital.Service.BoardService"%>
+<%@page import="hospital.Service.BoardServiceImpl"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
@@ -48,6 +51,8 @@
 	    	Users myinfo = userService.myinfo(sessionUserId);
 	        ReservationService reservationService = new ReservationServiceImpl();
 	        List<Reservation> reservationList = reservationService.listByUserId(sessionUserId);
+	        BoardService boardService = new BoardServiceImpl();
+	        List<Board> boardList = boardService.listByUserId(sessionUserId);
 	%>
 
 
@@ -114,6 +119,45 @@
 								<!-- 삭제 링크 --> <a
 								href="<%= request.getContextPath() %>/reservation/reserv_del.jsp?no=<%= reservation.getR_no() %>"
 								onclick="return confirm('정말로 삭제하시겠습니까?')"><button>예약취소</button></a>
+							</td>
+						</tr>
+						<%      }
+                        } %>
+					</table>
+
+				</div>
+				
+				<div class="cont_top">
+					<p>내가 쓴 글을 확인하세요!</p>
+				</div>
+				
+				<div class="cont_tb">
+				
+					<table border="1">
+						<tr>
+							<th>글 번호</th>
+							<th>카테고리</th>
+							<th>제목</th>
+							<th>등록 날짜</th>
+							<th>글 삭제</th>
+						</tr>
+						<% 
+                        if(boardList == null || boardList.size() == 0){ %>
+						<tr>
+							<td colspan="5">조회된 글 내역이 없습니다.</td>
+						</tr>
+						<% 
+                        } else {
+                            for(Board board : boardList) { %>
+						<tr>
+							<td><%= board.getNo() %></td>
+							<td><%= board.getCategory() %></td>
+							<td><a href="<%=request.getContextPath()%>/board/read.jsp?no=<%=board.getNo() %>"><%= board.getTitle() %></a></td>
+							<td><%= new java.text.SimpleDateFormat("yyyy-MM-dd").format(board.getReg_date()) %></td>
+							<td>
+								<!-- 삭제 링크 --> <a
+								href="<%= request.getContextPath() %>/board/delete_my.jsp?no=<%= board.getNo() %>"
+								onclick="return confirm('정말로 삭제하시겠습니까?')"><button>글 삭제</button></a>
 							</td>
 						</tr>
 						<%      }

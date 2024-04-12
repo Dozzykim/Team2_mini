@@ -44,12 +44,13 @@
 					<thead>
 						<tr>
 							<th>
-								<!-- 드롭다운 메뉴 --> <select name="category">
+								<!-- 드롭다운 메뉴 -->
+								<select name="category">
 									<option value="외과" <%= board.getCategory().equals("외과") ? "selected" : "" %>>외과</option>
 									<option value="내과" <%= board.getCategory().equals("내과") ? "selected" : "" %>>내과</option>
 									<option value="산부인과" <%= board.getCategory().equals("산부인과") ? "selected" : "" %>>산부인과</option>
 									<option value="피부과" <%= board.getCategory().equals("피부과") ? "selected" : "" %>>피부과</option>
-							</select>
+								</select>
 							</th>
 							<th><input type="text" name="title" value="<%=board.getTitle()%>"></th>
 							<th><input type="text" name="userId" value="${sessionScope.loginId}" readonly/></th>

@@ -1,5 +1,6 @@
 package hospital.DAO;
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -304,7 +305,7 @@ public class UserDAO extends JDBConnection {
 				
 		return user;
 		
-		
+	
 	}
 	
 	// 어드민 전용 데이터 목록
@@ -342,8 +343,88 @@ public class UserDAO extends JDBConnection {
 	    // 예약 반환
 	    return userList;
 	}
+	
+	//
 
 }
+	
+	/**
+	 * 아이디 찾기
+	 * @param user
+	 * @return
+	 */
+	
+	public List<String> findId(Users user) {
+	    List<String> userIds = new ArrayList<>(); // 아이디를 저장할 리스트
+
+	    // SQL 작성
+	    String sql = " SELECT user_id FROM users WHERE user_name = ? AND user_pno = ? ";
+	    try {
+	        // 쿼리(SQL) 실행 객체 생성 - PreparedStatement (psmt)
+	        psmt = con.prepareStatement(sql);
+
+	        // psmt.setXXX( 순서번호, 매핑할 값 );
+	        psmt.setString(1, user.getUser_name()); // 사용자의 이름 설정
+	        psmt.setString(2, user.getUser_pno()); // 사용자의 전화번호 설정
+
+	        // 쿼리(SQL) 실행 -> 결과 - ResultSet (rs)
+	        rs = psmt.executeQuery();
+
+	        // 조회 결과를 리스트에 추가
+	        while (rs.next()) { // 다음 데이터가 있을 때까지 반복
+	            String userId = rs.getString("user_id"); // 아이디 설정
+	            userIds.add(userId); // 리스트에 추가
+	        }
+	    } catch (SQLException e) {
+	        System.err.println("아이디 찾기 예외 발생");
+	        e.printStackTrace();
+	    }
+
+	    return userIds; // 아이디 목록 반환
+	}
+
+	/**
+	 * 비밀번호 찾기
+	 * @param user
+	 * @return
+	 */
+	
+	public String findPw(Users user) {
+	    String userPw = null; // 비밀번호를 저장할 변수 초기화
+
+	    // SQL 작성
+	    String sql = "SELECT user_pw FROM users WHERE user_id = ? AND user_name = ? AND user_pno = ?";
+	    try {
+	        // 쿼리(SQL) 실행 객체 생성 - PreparedStatement (psmt)
+	        PreparedStatement psmt = con.prepareStatement(sql);
+
+	        // psmt.setXXX( 순서번호, 매핑할 값 );
+	        psmt.setString(1, user.getUser_id()); // 사용자의 아이디 설정
+	        psmt.setString(2, user.getUser_name()); // 사용자의 이름 설정
+	        psmt.setString(3, user.getUser_pno()); // 사용자의 전화번호 설정
+
+	        // 쿼리(SQL) 실행 -> 결과 - ResultSet (rs)
+	         rs = psmt.executeQuery();
+
+	        // 조회 결과가 있으면
+	        if (rs.next()) {
+	            // 해당하는 비밀번호를 변수에 저장
+	            userPw = rs.getString("user_pw");
+	        }
+	    } catch (SQLException e) {
+	        System.err.println("비밀번호 찾기 예외 발생");
+	        e.printStackTrace();
+	    }
+
+	    return userPw; // 비밀번호 반환
+	}
+
+
+
+
+
+}
+		
 
 
 

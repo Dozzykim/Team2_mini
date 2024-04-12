@@ -4,9 +4,10 @@ import java.util.List;
 
 import hospital.DAO.BoardDAO;
 import hospital.DTO.Board;
+import hospital.DTO.Reservation;
 
 
-//비즈니스 로직 계층
+// 비즈니스 로직 계층
 public class BoardServiceImpl implements BoardService {
 	
 	private BoardDAO boardDAO = new BoardDAO();
@@ -63,4 +64,12 @@ public class BoardServiceImpl implements BoardService {
 		return result;
 	}
 
+	
+	@Override // 회원용
+	public List<Board> listByUserId(String userId) {
+		return boardDAO.listByUserId(userId);
+	}
+	
+	
+	
 }

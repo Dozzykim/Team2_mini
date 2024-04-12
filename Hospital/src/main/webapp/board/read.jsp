@@ -15,29 +15,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>게시판 조회</title>
-	
-	<!-- css -->
-	<jsp:include page="../layout/link.jsp" />
-	<link rel="stylesheet" href="../static/css/read.css">
-	
-	<!-- js -->
-	<jsp:include page="../layout/script.jsp" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>게시판 조회</title>
+
+<!-- css -->
+<jsp:include page="../layout/link.jsp" />
+<link rel="stylesheet" href="../static/css/read.css">
+
+<!-- js -->
+<jsp:include page="../layout/script.jsp" />
 </head>
 
 <body>
 
 	<%
 	int no = Integer.parseInt(request.getParameter("no"));
-	
+
 	// 게시글 세팅
 	BoardService boardService = new BoardServiceImpl();
 	Board board = boardService.select(no);
 	String writer = board.getUser_id();
 	String loginId = (String) session.getAttribute("loginId");
-	
+
 	// 해당 게시글의 댓글 세팅
 	CmmtService cmmtService = new CmmtServiceImpl();
 	List<Comment> cmmtList = cmmtService.list(no);
@@ -46,14 +46,16 @@
 	SimpleDateFormat boardDate = new SimpleDateFormat("yyyy-MM-dd");
 	SimpleDateFormat cmmtDate = new SimpleDateFormat("MM/dd HH:mm");
 	%>
-	
+
 	<!-- 헤더 -->
 	<jsp:include page="../layout/header.jsp" />
-	
+
 	<!-- 플로팅 -->
 	<jsp:include page="/layout/floating.jsp"></jsp:include>
 
 	<div class="container">
+		<h1>
+			게시글 번호:<%=no%></h1>
 		<h1>
 			<img src="../static/img/board.png" alt="">커뮤니티 게시판
 		</h1>
@@ -87,83 +89,73 @@
 		</div>
 	</div>
 
-	<!-- 댓글 -->
+	<!-- 댓글작성 -->
 	<div class="cont_tb2">
 		<ul>
+			<li class="head">
+				<p>댓글</p>
+				<form>
+					<!-- 비로그인 시에만 보임 -->
+					<c:if test="${sessionScope.loginId == null }">
+						<div class="input-wrapper">
+							<input type="text" id="noneLoginCmmt" value="댓글을 작성하려면 로그인 해주세요" />
+						</div>
+					</c:if>
 
-        <li class="head">
-            <p>댓글</p>
-            <form action="<%=request.getContextPath()%>/board/addCmmt.jsp" method="post">
-                <input type="hidden" name="boardNo" value="<%=board.getNo()%>" />
-                <input type="hidden" name="loginId" value="<%=loginId%>" />
-                 
-                <!-- 비로그인 시에만 보임 -->
-                <c:if test="${sessionScope.loginId == null }">
-                    <div class="input-wrapper">
-                        <input type="text" id="noneLoginCmmt" value="댓글을 작성하려면 로그인 해주세요" />
-                    </div>
-                </c:if>
-                
-                <!-- 로그인 시에만 보임 -->
-                <c:if test="${sessionScope.loginId != null }">
-                    <div class="input-wrapper">
-                        <input type="text" id="cBox" placeholder="댓글을 입력해주세요.">
-                        <input type="text" id="cmmt" name="cmmt" style="display: none;" placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다."></textarea>
-                        <button id="insertCmmt" disabled>작성</button>
-                    </div>
-                </c:if>
-                
-            </form>
-        </li>
-    </ul>
-
-			<%
-				// 무플 시,
-				if (cmmtList == null || cmmtList.size() == 0) {
-			%>
-
-			<%
-				// 댓글 존재 시,
-				} else {
-			%>
-				<table border="1" class="commt_area">
-					<thead>
-						<tr>
-							<th>아이디</th>
-							<th>댓글</th>
-							<th>작성일자</th>
-						</tr>
-					</thead>
-					<tbody>
-			<%
-					for(Comment cmmt : cmmtList) {
-			%>
+					<!-- 로그인 시에만 보임 -->
+					<c:if test="${sessionScope.loginId != null }">
+						<div class="input-wrapper">
+							<input type="hidden" id="boardNo" name="boardNo" value="<%=board.getNo()%>" />
+							<input type="hidden" id="loginid" name="loginId" value="<%=loginId%>" />
+							<input type="text" id="cBox" placeholder="댓글을 입력해주세요." />
+							<input type="text" id="cmmt" name="cmmt" style="display: none;"	placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다." />
+							<input id="insertCmmt" onclick="insertComment()" disabled value="작성" />
+						</div>
+					</c:if>
+				</form>
+			</li>
+		</ul>
+    
+		<!-- 댓글리스트 -->
+		<%
+		// 무플 시,
+		if (cmmtList == null || cmmtList.size() == 0) {
+		%>
+		<!-- 아무정보도 표시되지 않음 -->
+		<%
+		// 댓글 존재 시,
+		} else {
+		%>
+		<div class="cbox_Container"></div>
+			<table id="Cmmt_area">
+				<thead>
 					<tr>
-						<td><%=cmmt.getUser_id()%></td>
-						<td><%=cmmt.getContent()%></td>
-						<td><%=cmmtDate.format(cmmt.getReg_date())%></td>
-						<c:if test="<%=cmmt.getUser_id().equals(loginId)%>">
-							<td><input type="hidden" name="c_no" value="<%=cmmt.getC_no()%>"/></td>
-							<td><button onclick="deleteCmmt()">삭제</button></td>
-						</c:if>
+						<td>아이디</td>
+						<td>댓글</td>
+						<td>작성일자</td>
 					</tr>
-			<%
-					}
-			%>
-					</tbody>
+				</thead>
+				<tbody>
+					<!-- 1댓글 1tr 가짐 -->				
+				</tbody>
 			</table>
-			<%
-				}
-			%>
-	</div>
+		</div>
+		<%
+		}
+		%>
 
 	<!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp" />
 
 	<!-- 스크립트 -->
-	<script>
-		var loginId = '<%=loginId%>';
-		var root = '<%=request.getContextPath()%>';
+	<%
+	String root = request.getContextPath();
+	%>
+	<c:set var="root" value="<%=root%>" />
+	<script type="text/javascript">
+		
+	// 자바 - EL(표현언어)를 자바스크립트로 가져오는 방법
+    const root = "${ root }"
 		
 		// 선택받기
 	    function doubleCheck() {
@@ -186,15 +178,14 @@
 		
 		// 비로그인상태로 댓글작성 시도 시, 로그인 요청 얼럿
 		$('#noneLoginCmmt').on('click', function() {
-			$('insertCmmt')
+			$('#insertCmmt')
 			var loginConfirm = confirm("로그인을 하신 후 이용해 주시기 바랍니다.");
 			
 			if (loginConfirm) {
-				alert('로그인페이지로 이동');
 				window.location.href= root + '/login_sub.jsp';
 				return;
 			}
-		})
+		});
 		
 		// 로그인 상태면, 댓글창 바뀜
 		$('#cBox').on('click', function() {
@@ -202,7 +193,7 @@
 			/* $('#insertCmmt').show(); */
 			$('#insertCmmt').attr("disabled", false);
 			$('#cBox').hide();
-		})
+		});
 		
 		$('#cmmt').on('blur', function() {
             if ($('#cmmt').val() === "") {
@@ -213,32 +204,63 @@
             }
         });
 
-		// 댓글추가
-		<%-- function addCmmt() {
-			window.location.href="<%=root%>/board/addCmmt.jsp";
-		} --%>
+		 //댓글추가
+		 function addCmmt() {
+			// window.location.href="<%=root%>/board/addCmmt.jsp";
+		}
+
 		
-<%-- 		// 여길 완성해야되는데.ㅣ..
- 		function submitComment() {
-			// id가 cmmt인 태그에서 value를 불러와서 저장
+		// 댓글 입력 및 db에 저장
+  		function insertComment() {
+  			var no = $('#boardNo').val();
+			var id = $('#loginid').val();
 			var cmmt = $('#cmmt').val();
-			var id = <%=request.getAttribute("loginId")%>;
-			if (cmmt == null || cmmt == "") {
-				alert("내용을 입력하세요");
-				return;
-			}
-			
+			if( id == null || id == "" ) {
+                alert("로그인을 하신 후 이용해 주시기 바랍니다.")
+                return
+            }
 			$.ajax({
-				url: root + '/board/submitCommt',
+				url: root + '/board/insertCmmt',
 				type: 'post',
 				data: {
-					user_id: id,
-					comment: cmmt
+					boardNo : $('#boardNo').val(),
+					loginId : $('#loginid').val(),
+					comment : $('#cmmt').val()
 				},
-				success: function (data) {
+				success: function (result) {
+					if(result > 0) {
+						//댓글 재호출하는 함수
+						listCmmt();
+						$('#cmmt').val("");
 					}
 				}
-			}) --%>
+			})
+		};
+		
+		//댓글 조회
+		function listCmmt() {
+			$.ajax({
+				url: root + '/board/listCmmt',
+				data: { boardNo : $('#boardNo').val() },
+				success : function(list) {
+					var result = "";
+					
+					for ( var i in list) {
+						result += "<tr>"
+								+	"<td>" + list[i].user_id + "</td>"
+								+	"<td>" + list[i].content + "</td>"
+								+	"<td>" + list[i].reg_date + "</td>"
+								+ "</tr>" ;
+					}
+					$("#Cmmt_area tbody").html(result);
+				}
+			})
+		}
+		
+		$(document).ready(function() {
+			listCmmt();
+		})
+		
 	</script>
 
 </body>

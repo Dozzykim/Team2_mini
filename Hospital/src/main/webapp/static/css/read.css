@@ -15,6 +15,7 @@
 	text-align: center;
 }
 
+
 .container h1 img {
 	margin-bottom: -15px;
 	margin-right: 10px;
@@ -85,12 +86,23 @@ input[type="text"], textarea, select {
 	font-size: 14px;
 }
 
+input#cBox, input#cmmt {
+	margin-left: 10px;
+}
+
 textarea {
 	height: 450px;
 }
 
 #cmmt {
 	width: 88%;
+}
+
+input#insertCmmt {
+	cursor: pointer;
+	width: 50px;
+	height: 38px;
+	text-align: center;
 }
 
 .table-wrapper {
