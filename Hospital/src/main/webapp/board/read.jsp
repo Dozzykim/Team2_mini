@@ -130,9 +130,9 @@
 			<table id="Cmmt_area">
 				<thead>
 					<tr>
-						<th>아이디</th>
-						<th>댓글</th>
-						<th></th>
+						<td>아이디</td>
+						<td>댓글</td>
+						<td> </td>
 					</tr>
 				</thead>
 				<tbody>
