@@ -46,7 +46,7 @@
     CmmtService cmmtService = new CmmtServiceImpl();
 
     List<Users> userList = userService.list();
-    List<Board> userboardList = boardService.list();
+    List<Board> userboardList = boardService.listByUserId(userId);
     
     int boardNo = -1; // 기본값 설정
     String boardNoParam = request.getParameter("boardNo");
