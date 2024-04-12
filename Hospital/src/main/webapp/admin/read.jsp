@@ -1,3 +1,4 @@
+관리자 보드리스트
 <%@page import="hospital.DTO.Comment"%>
 <%@page import="java.util.List"%>
 <%@page import="hospital.Service.CmmtServiceImpl"%>

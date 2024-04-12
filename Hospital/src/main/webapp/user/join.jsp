@@ -175,8 +175,7 @@
                     <li><input type="text"  name="user_pno" id="user_pno" placeholder="연락처"></li>
                     <li><input type="text" name="user_address" id="user_address" placeholder="주소"></li>
                     <li><a href="<%=request.getContextPath() %>/user/join_pro.jsp" class="join_btn"><button type="submit" >회원가입</button></a></li>
-                    <li><p>계정이 있으십니까?</p><a
-                    	 href="<%=request.getContextPath() %>/user/login.jsp">로그인</a></li>
+                    <li class="log_area"><span>계정이 있으십니까?</span><a href="<%=request.getContextPath() %>/user/login.jsp" class="log_btn">로그인</a></li>
                 </ul>
                     </form>
             </div>

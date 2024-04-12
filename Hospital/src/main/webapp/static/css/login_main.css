@@ -72,35 +72,14 @@
     cursor: pointer;
 }
 
-.container .inner .main ul li p,
-#message {
+.container .inner .main ul li p {
     color : black;
     margin-bottom: 10px;
 }
 
-.container .inner .main ul li a  {
+.container .inner .main ul li a {
     text-align: center;
     line-height: 20px;
     color: #007bff;
     text-decoration: none;
 }
-
-#line {
-    color: #ccc; 
-    font-size: 12px; 
-    font-weight: bold;
-    padding-bottom: 10px;
-}
-
-.container .inner .main .find a {
-	text-align: center;
-    line-height: 20px;
-    color: gray;
-    text-decoration: none;
-    margin:20px; 
-    font-size: 16px;
-}
-
-
-
-

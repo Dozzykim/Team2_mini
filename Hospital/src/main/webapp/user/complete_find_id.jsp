@@ -24,38 +24,28 @@
     <!-- 헤더 -->
     <jsp:include page="../layout/header.jsp" />
 
-	<div class="container">
-		<div class="inner">
-			<div class="login_area">
-				<h1>아이디 찾기 완료!</h1>
-				<p>회원님의 아이디는 다음과 같습니다</p>
-				<ul class="main_area">
-					<%
-					List<String> userIds = (List<String>) request.getAttribute("user_id");
-					if (userIds != null && !userIds.isEmpty()) {
-						for (String userId : userIds) {
-					%>
-					<li><%=userId%></li>
-					<%
-					}
-					} else {
-					%>
-					<li>일치하는 아이디가 없습니다.</li>
-					<%
-					}
-					%>
-					<div class="button-container">
-						<button onclick="moveTofindId()">확인</button>
-					</div>
-					
-				</ul>
-			</div>
-		</div>
-	</div>
-
-
-
-	<!-- 푸터 -->
+    <div class="container">
+        <h1>아이디 찾기 완료</h1>
+        <ul>
+            <% 
+                List<String> userIds = (List<String>) request.getAttribute("user_id");
+                if(userIds != null && !userIds.isEmpty()) {
+                    for(String userId : userIds) {
+            %>
+                        <li><%= userId %></li>
+            <% 
+                    }
+                } else {
+            %>
+                    <li>일치하는 아이디가 없습니다.</li>
+            <% } %>
+        </ul>
+        <div class="button-container">
+            <button onclick="moveTofindId()">로그인 페이지로 이동</button>
+        </div>
+    </div>
+    
+    <!-- 푸터 -->
     <jsp:include page="../layout/footer.jsp"></jsp:include>
     
     <script >

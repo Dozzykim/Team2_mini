@@ -78,13 +78,9 @@
 						<li><p>계정이 없으십니까?</p> <a
 							href="<%=request.getContextPath()%>/user/join.jsp">회원가입</a></li>
 					</ul>
-					<p id="line">---------------------------------------------------------------------------------------------------------</p>
-					<p id="message">아이디와 비밀번호를 잊어버리셨나요?</p>
-					<div class="find">
-						<a href="<%=request.getContextPath()%>/user/find_id.jsp"
-							>아이디 찾기</a> <a
-							href="<%=request.getContextPath()%>/user/find_pw.jsp"
-							>비밀번호 찾기</a>
+					<div>
+						<a href="<%=request.getContextPath()%>/user/find_id.jsp" style="margin: 38px;">아이디 찾기</a>
+						<a href="<%=request.getContextPath()%>/user/find_pw.jsp" style="margin: 21px;">비밀번호 찾기</a>
 					</div>
 				</div>
 			</div>

@@ -19,17 +19,10 @@
 .container .inner .find_id h1 {
     font-size: 60px;
     font-weight: bold;
-    margin: 70px 0px 30px;
+    margin: 70px;
 }
-
-.container .inner .find_id p {
-    font-size: 18px;
-    text-align: center;
-}
-
 
 .container .inner .find_id ul {
-	padding-top: 50px;
     position: relative;
 }
 
