@@ -54,6 +54,7 @@
 	<jsp:include page="/layout/floating.jsp"></jsp:include>
 
 	<div class="container">
+	
 		<h1>
 			<img src="../static/img/board.png" alt="">커뮤니티 게시판
 		</h1>
@@ -243,9 +244,9 @@
 						result += "<tr>"
 								+ 	"<form>"
 								+		'<input type="hidden" id="cmmtNo" value="'+ list[i].c_no +'" />'
-								+		'<td id="cmmtId">' + list[i].user_id + "</td>"
+								+		'<td>' + list[i].user_id + "</td>"
 								+		"<td>" + list[i].content + "</td>"
-								+		"<td>" + '<button onclick="deleteCmmt()">삭제</button>' + "</td>"
+								+		"<td>" + '<button onclick="deleteCmmt(this)" data="' + list[i].user_id +'">삭제</button>' + "</td>"
 								+   "</form>"
 								+ "</tr>" ;
 					}
@@ -258,9 +259,17 @@
 			listCmmt();
 		})
 		
-		function deleteCmmt() {
+		
+		// 댓글 삭제
+		function deleteCmmt(element) {
+			
 			var loginId = $('#loginid').val();
-			var cmmtId = document.getElementById("cmmtId").innerText;
+			//alert("로그인 아이디" + loginId);
+			// var cmmtId = document.getElementById("cmmtId").innerText;
+			var cmmtId = $(element).attr('data');
+			
+// 			alert("댓글 작성자:" + cmmtId);
+			
 			
 			if (loginId !== cmmtId) {
 				alert('본인이 작성한 댓글만 삭제 가능합니다.');

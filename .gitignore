@@ -2,4 +2,5 @@
 
 # Compiled class file
 *.class
-.classpath
+Hospital/.classpath
+Hospital/build/classes/hospital/DAO/CommetDAO.class

@@ -6,7 +6,7 @@ import java.util.List;
 
 import hospital.DTO.Comment;
 
-public class CommetDAO extends JDBConnection{
+public class CommentDAO extends JDBConnection{
 	
 	// 댓글 불러오기
 	public List<Comment> list (int boardNo) {
