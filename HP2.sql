@@ -1,23 +1,23 @@
--- HP2 계정 생성
-    -- C## 접두사 없이도 계정 생성
+-- HP2 ���� ����
+    -- C## ���λ� ���̵� ���� ����
     ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
-    -- 계정 생성
+    -- ���� ����
     CREATE USER HP2 IDENTIFIED BY 123456;
-    -- 테이블 스테이스 지정
+    -- ���̺� �����̽� ����
     ALTER USER HP2 DEFAULT TABLESPACE users;
-    -- 용량 설정
+    -- �뷮 ����
     ALTER USER HP2 QUOTA UNLIMITED ON users;
-    -- 권한 부여
+    -- ���� �ο�
     GRANT DBA TO HP2;
 
 
--- 샘플 데이터    
+-- ���� ������    
 INSERT INTO Admin (admin_id, admin_pw, admin_name, admin_age, emp_date)
-VALUES ('admin', '123456', '이병원', 27, '2024-01-31');
+VALUES ('admin', '123456', '�̺���', 27, '2024-01-31');
 
 commit;
 
--- 테이블 세팅
+-- ���̺� ����
 
 CREATE TABLE Users (
 	user_id	VARCHAR2(40)		NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE Admin (
 	emp_date	DATE		NOT NULL
 );
 
--- 자동로그인 테이블
+-- �ڵ��α��� ���̺�
 CREATE TABLE persistent_logins (
   p_no NUMBER NOT NULL PRIMARY KEY,
   p_user_id varchar2(255) NOT NULL ,
@@ -125,50 +125,44 @@ REFERENCES Board (
 );
 
 
-
---샘플 데이터 생성
---유저
-
-
-
 commit;
 
--- 시퀀스 생성
---글번호
+-- ������ ����
+--�۹�ȣ
 CREATE SEQUENCE SEQ_BOARD_NO INCREMENT BY 1 START WITH 1 MINVALUE 1;
---예약번호
+--������?
 CREATE SEQUENCE SEQ_RES_NO INCREMENT BY 1 START WITH 1 MINVALUE 1;
---댓글번호
+--��۹��?
 CREATE SEQUENCE SEQ_CMNT_NO INCREMENT BY 1 START WITH 1 MINVALUE 1;
--- 시퀀스
+-- ������
 CREATE SEQUENCE SEQ_PER_LOGIN INCREMENT BY 1 MAXVALUE 1000000 MINVALUE 1;
 
 
 
 
--- 샘플 데이터
---유저 샘플
+-- ���� ������
+--���� ����
 INSERT INTO USERS (USER_ID, USER_PW, USER_NAME, USER_AGE,USER_PNO, USER_ADDRESS)
-VALUES('joeun', '123', '김조은', '990909','010-0000-0000', '한강자이');
+VALUES('joeun', '123', '������', '990909','010-0000-0000', '�Ѱ�����');
 
---게시글 샘플
+--�Խñ� ����
 INSERT INTO BOARD(NO, TITLE, user_id, CONTENT)
-VALUES(SEQ_BOARD_NO.NEXTVAL, '행운의 편지', 'joeun', '이 편지는...');
+VALUES(SEQ_BOARD_NO.NEXTVAL, '�����? ����', 'joeun', '�� ������...');
 
--- 예약 샘플
+-- ���� ����
 INSERT INTO RESERVATION( R_NO, USER_ID, R_CATEGORY, R_DATE, R_TIME)
-VALUES(SEQ_RES_NO.NEXTVAL, 'joeun', '피부과', '2024/12/25', '9:00');
+VALUES(SEQ_RES_NO.NEXTVAL, 'joeun', '�Ǻΰ�', '2024/12/25', '9:00');
 
---어드민 샘플
+--���� ����
 INSERT INTO Admin (admin_id, admin_pw, admin_name, admin_age, emp_date)
-VALUES ('admin', '123456', '이병원', 27, '2024-01-31');
+VALUES ('admin', '123456', '�̺���', 27, '2024-01-31');
 
--- 댓글 샘플
+-- ���? ����
 insert into comments (c_no, user_id, c_content, b_no)
-VALUES(SEQ_CMNT_NO.NEXTVAL, 'joeun', '나 하니인데, 개추준다.', 44);
+VALUES(SEQ_CMNT_NO.NEXTVAL, 'joeun', '�� �ϴ��ε�, �����ش�.', 22);
 
 
--- 테이블 삭제
+-- ���̺� ����
 drop table USERS cascade constraints PURGE;
 DROP TABLE Board cascade constraints PURGE;
 DROP TABLE comments cascade constraints PURGE;

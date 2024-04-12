@@ -96,6 +96,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public List<Users> list() {
+		
+		List<Users>  userList = userDAO.list();
+		
+		return userList;
+	}
+
+	@Override
 	public List<String> findId(Users user) {
 	    List<String> userId = userDAO.findId(user); // 사용자 아이디를 가져옴
 	    if (userId != null && !userId.isEmpty()) { // 아이디가 비어 있지 않은 경우

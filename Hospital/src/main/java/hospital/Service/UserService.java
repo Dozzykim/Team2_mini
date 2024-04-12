@@ -29,6 +29,9 @@ public interface UserService {
 	// 마이페이지 내 정보 조회
 	Users myinfo(String user_id);
 	
+	// 관리자용 전체 회원 정보 조회
+	List<Users> list();
+	
 	// 아이디 찾기
 	public List<String> findId(Users user);
 
