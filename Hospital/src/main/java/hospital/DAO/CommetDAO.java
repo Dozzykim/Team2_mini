@@ -26,7 +26,7 @@ public class CommetDAO extends JDBConnection{
 			while (rs.next()) {
 				Comment cmmt = new Comment();
 				
-				cmmt.setC_no(rs.getInt("b_no"));
+				cmmt.setC_no(rs.getInt("c_no"));
 				cmmt.setUser_id(rs.getString("user_id"));
 				cmmt.setContent(rs.getString("c_content"));
 				cmmt.setReg_date(rs.getDate("c_reg_date"));

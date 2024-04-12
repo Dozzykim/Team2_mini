@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <title>아이디 찾기</title>
     <jsp:include page="/layout/link.jsp" />
-    <link href="<%= request.getContextPath() %>/static/css/join.css" rel="stylesheet"/>
+    <link href="<%= request.getContextPath() %>/static/css/find_id.css" rel="stylesheet"/>
 
     <!-- jQuery CDN 방식으로 포함하기 -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -27,7 +27,7 @@
     <jsp:include page="../layout/header.jsp"></jsp:include>
 	<div class="container">
         <div class="inner">
-            <div class="join">
+            <div class="find_id">
                 <h1>아이디 찾기</h1>
                 <c:if test="${param.msg == 0}">
                     <p style="color: red;">아이디 찾기에 실패하였습니다.</p>
@@ -38,7 +38,7 @@
                         <input type="text" name="user_name" id="user_name" placeholder="이름">
                     </li>
                     <li><input type="text"  name="user_pno" id="user_pno" placeholder="연락처"></li>
-                     <li><a href="<%=request.getContextPath() %>/user/find_id_pro.jsp" class="join_btn"><button type="submit" >확인</button></a></li>
+                     <li><a href="<%=request.getContextPath() %>/user/find_id_pro.jsp" class="find_id_btn"><button type="submit" >확인</button></a></li>
                 </ul>
                     </form>
             </div>
