@@ -6,7 +6,7 @@ import java.util.List;
 
 import hospital.DTO.Comment;
 
-public class CommetDAO extends JDBConnection{
+public class CommentDAO extends JDBConnection{
 	
 	// 댓글 불러오기
 	public List<Comment> list (int boardNo) {
@@ -26,7 +26,7 @@ public class CommetDAO extends JDBConnection{
 			while (rs.next()) {
 				Comment cmmt = new Comment();
 				
-				cmmt.setC_no(rs.getInt("b_no"));
+				cmmt.setC_no(rs.getInt("c_no"));
 				cmmt.setUser_id(rs.getString("user_id"));
 				cmmt.setContent(rs.getString("c_content"));
 				cmmt.setReg_date(rs.getDate("c_reg_date"));
@@ -40,6 +40,8 @@ public class CommetDAO extends JDBConnection{
 		
 		return cmmtList;
 	}
+	
+
 	
 	// 댓글 작성
 	public int insert(Comment comment) {

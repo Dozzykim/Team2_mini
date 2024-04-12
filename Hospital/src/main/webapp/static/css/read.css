@@ -1,4 +1,4 @@
- .container {
+.container {
 	width: 100%;
 	margin: 0 auto;
 	padding: 30px;
@@ -15,7 +15,6 @@
 	text-align: center;
 }
 
-
 .container h1 img {
 	margin-bottom: -15px;
 	margin-right: 10px;
@@ -28,7 +27,7 @@
 	text-align: center;
 }
 
-table {
+table#board_table {
 	width: 100%;
 	max-width: 800px;
 	margin: 50px auto 20px;
@@ -36,7 +35,7 @@ table {
 	border: 1px solid #ccc;
 }
 
-th, td {
+.table-wrapper th, td {
 	text-align: center;
 	border: 1px solid #ccc;
 }
@@ -45,7 +44,7 @@ th, td {
 	padding: 10px;
 }
 
-th {
+.table-wrapper th {
 	background-color: #D7F5D2;
 	border-bottom: 2px solid #ccc;
 	text-align: center;
@@ -53,22 +52,21 @@ th {
 	line-height: 40px;
 }
 
-th:nth-child(1) {
+.table-wrapper th:nth-child(1) {
 	width: 50px;
-	
 }
 
-th:nth-child(2) {
+.table-wrapper th:nth-child(2) {
 	width: 300px;
 	text-align: left;
 	padding-left: 10px;
 }
 
-th:nth-child(3) {
+.table-wrapper th:nth-child(3) {
 	width: 50px;
 }
 
-th:nth-child(4) {
+.table-wrapper th:nth-child(4) {
 	width: 50px;
 }
 
@@ -86,23 +84,12 @@ input[type="text"], textarea, select {
 	font-size: 14px;
 }
 
-input#cBox, input#cmmt {
-	margin-left: 10px;
-}
-
 textarea {
 	height: 450px;
 }
 
 #cmmt {
 	width: 88%;
-}
-
-input#insertCmmt {
-	cursor: pointer;
-	width: 50px;
-	height: 38px;
-	text-align: center;
 }
 
 .table-wrapper {
@@ -132,28 +119,23 @@ input#insertCmmt {
 	position: relative; /* 상대적 위치 지정 */
 	margin: 0 auto;
 	width: 800px; /* 테이블 컨테이너의 너비를 100%로 설정합니다. */
-
 }
 
-.cont_tb2 .head input#cBox {
-	width: 88%;
+.cont_tb2 .head input#cBox, .cont_tb2 .head input#cmmt {
+	width: 80%;
 }
-
 
 .cont_tb2 .head ul {
-    list-style: none; /* 리스트의 기본 마커 제거 */
-    padding: 0; /* 리스트의 패딩 제거 */ 
+	list-style: none; /* 리스트의 기본 마커 제거 */
+	padding: 0; /* 리스트의 패딩 제거 */
 }
 
 .cont_tb2 li.head {
 	display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 }
-
-
 
 .cont_tb2 .head p {
 	width: 10%;
@@ -162,33 +144,29 @@ input#insertCmmt {
 	background-color: #ccc;
 	height: 38px;
 	line-height: 38px;
-
 	margin: auto;
-	margin-right : 10px;
+	margin-right: 10px;
+	font-size: 14px;
 }
 
-
-.cont_tb2 .head a {
-	width: 20%;
-	margin-left: 5px;
-}
 .cont_tb2 .head form {
 	width: 800px;
-
-	
 }
 
-.cont_tb2 .head button {
+#insertCmmt {
 	border-radius: 5px;
-	padding: 8px 20px;
+	padding: 11px;
 	background-color: #8AC9F5;
 	cursor: pointer;
-	color: white;
 	font-size: 16px;
 	border: none;
 	margin-left: 10px;
 	position: absolute;
+	color: white;
+	width: 10%;
+	text-align: center;
 }
+
 .id_comment {
 	display: flex;
 	width: 150px;
@@ -200,10 +178,11 @@ input#insertCmmt {
 	margin-left: 175px;
 }
 
-#line{
+#line {
 	width: 740px;
 	margin-left: 175px;
 }
+
 .cont_tb2 table {
 	border-collapse: collapse; /* 테이블 테두리를 합칩니다. */
 	border: none; /* 테이블 테두리를 없앱니다. */
@@ -211,38 +190,45 @@ input#insertCmmt {
 	margin: 0 auto;
 	width: 800px; /* 테이블 컨테이너의 너비를 100%로 설정합니다. */
 	margin: 10px auto 50px;
+	text-align: center;
 }
 
 .cont_tb2 table th {
+	background-color: #D7F5D2;
+	border: none;
+	height: 30px;
+	line-height: 30px
+}
+
+.cont_tb2 table td {
+	border: none;
+	height: 30px;
+	line-height: 30px;
 	background-color: white;
-	border: none;
 }
 
-.cont_tb2 td {
-	border: 1px solid #ccc;
+.cont_tb2 table#Cmmt_area th:nth-of-type(1), .cont_tb2 table#Cmmt_area td:nth-of-type(1)
+	{
+	width: 150px;
+}
+
+.cont_tb2 table#Cmmt_area th:nth-of-type(2), .cont_tb2 table#Cmmt_area td:nth-of-type(2)
+	{
+	width: 500px;
+}
+
+.cont_tb2 table#Cmmt_area th:nth-of-type(3), .cont_tb2 table#Cmmt_area td:nth-of-type(3)
+	{
+	width: 150px;
+}
+
+.cont_tb2 table#Cmmt_area td:nth-of-type(2) {
 	text-align: left;
-	border: none;
-}
-
-.cont_tb2 > td:first-child {
-	width: 10%;
-	border-right: 1px solid black;
-	padding-right: 10px;
-}
-
-.cont_tb2 > td:nth-child(2) {
-	width: 70%;
-	padding-left: 10px;
-}
-
-.cont_tb2 td a {
-	width: 20px;
-	margin-left: 7px;
 }
 
 .cont_tb2 td button {
 	border-radius: 5px;
-	padding: 8px 15px;
+	padding: 1px 11px;
 	background-color: #ccc;
 	cursor: pointer;
 	color: white;
@@ -253,25 +239,3 @@ input#insertCmmt {
 #content {
 	resize: none;
 }
-
-table.commt_area th {
-	text-align: left;
-	background-color: #D7F5D2;
-	border-right: 1px solid #ccc;
-}
-table.commt_area th:first-child{padding-left : 10px;}
-table.commt_area th:last-child {
-	padding-left : 20px;
-	border-right: none;
-	}
-.commt_area tr td {
-	padding : 10px 0;
-	padding-left: 10px;
-	}
-
-.noneCmmt {
-	width : 100%;
-	text-align: center;
-	
-}
-

@@ -118,7 +118,7 @@
 							<td>
 								<!-- 삭제 링크 --> <a
 								href="<%= request.getContextPath() %>/reservation/reserv_del.jsp?no=<%= reservation.getR_no() %>"
-								onclick="return confirm('정말로 삭제하시겠습니까?')"><button>예약취소</button></a>
+								onclick="return confirm('예약을 취소하시겠습니까?')"><button>예약취소</button></a>
 							</td>
 						</tr>
 						<%      }

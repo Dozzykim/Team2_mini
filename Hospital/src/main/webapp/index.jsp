@@ -7,6 +7,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+ 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>더조은 종합병원</title> 
@@ -76,8 +78,7 @@
 			<div class="cont2">
 				<div class="cont2_left">
 					<ul>
-						<li><strong>THE JOEUN<br>HOSPITAL
-						</strong></li>
+						<li><strong>THE JOEUN<br>HOSPITAL</strong></li>
 						<li><span><b>더조은종합병원</b>은 풍부한 의료 경험과 최신 의료 기술을 바탕으로 환자
 								중심의 진료를 제공하는 병원입니다.</span></li>
 						<li>
@@ -179,7 +180,7 @@
 			<div class="cont6">
 				<div class="cont6_left">
 					<ul>
-						<li><strong>피부과</sstrong></li>
+						<li><strong>피부과</strong></li>
 						<li><span><b>피부과</b>는 피부와 관련된 질환 및 미용 치료를 다루는 의학
 								분야입니다. </span></li>
 						<li>

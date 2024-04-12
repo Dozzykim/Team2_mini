@@ -1,6 +1,4 @@
 /.metadata/
+
+# Compiled class file
 *.class
-Hospital/build/classes/hospital/DTO/Reservation.class
-Hospital/build/classes/hospital/Service/BoardService.class
-Hospital/build/classes/hospital/Service/BoardService.class
-Hospital/build/classes/hospital/DTO/Reservation.class
