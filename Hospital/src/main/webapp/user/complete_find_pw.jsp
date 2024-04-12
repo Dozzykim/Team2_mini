@@ -11,7 +11,7 @@
     
     <!-- css  -->
     <jsp:include page="../layout/link.jsp" />
-    <link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/complete_join.css">
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/static/css/complete_find_pw.css">
     
     <!-- js -->
     <jsp:include page="../layout/script.jsp" />
@@ -23,8 +23,8 @@
     <jsp:include page="../layout/header.jsp" />
 
     <div class="container">
-        <h2>비밀번호 찾기 완료</h2>
-        <p>찾은 비밀번호: <%= request.getAttribute("user_pw") %></p>
+        <h1>비밀번호 찾기 완료</h1>
+        <p><%= request.getAttribute("user_pw") %></p>
         <div class="button-container">
             <button onclick="moveToLoginPage()">로그인 페이지로 이동</button>
         </div>
