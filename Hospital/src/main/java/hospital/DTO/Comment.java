@@ -11,11 +11,11 @@ public class Comment {
 	private Date reg_date;
 	private Date upd_date;
 	
-	public Comment () {
+	public Comment() {
 		
 	}
 	
-	public Comment (int b_no, String userId, String content) {
+	public Comment(int b_no, String userId, String content) {
 		this.b_no = b_no;
 		this.user_id = userId;
 		this.content = content;
@@ -71,10 +71,10 @@ public class Comment {
 		this.upd_date = upd_date;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Comment [c_no=" + c_no + ", b_no=" + b_no + ", user_id=" + user_id + ", content=" + content
 				+ ", reg_date=" + reg_date + ", upd_date=" + upd_date + "]";
 	}
-	
 }
