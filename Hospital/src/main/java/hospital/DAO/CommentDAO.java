@@ -41,6 +41,8 @@ public class CommentDAO extends JDBConnection{
 		return cmmtList;
 	}
 	
+
+	
 	// 댓글 작성
 	public int insert(Comment comment) {
 		int result = 0;

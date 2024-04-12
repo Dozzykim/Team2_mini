@@ -4,6 +4,7 @@ import java.util.List;
 
 import hospital.DAO.CommentDAO;
 import hospital.DTO.Comment;
+import hospital.DTO.Reservation;
 
 
 // 비즈니스 로직 계층
@@ -35,4 +36,8 @@ public class CmmtServiceImpl implements CmmtService {
 		
 		return result;
 	}
+	
+	
+	
+	
 }

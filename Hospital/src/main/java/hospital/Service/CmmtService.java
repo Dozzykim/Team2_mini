@@ -12,7 +12,6 @@ public interface CmmtService {
 	// 댓글 불러오기
 	List<Comment> list(int boardNo);
 	
-	
 	// 등록
 	int insert (Comment comment);
 
