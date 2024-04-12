@@ -1,2 +1,4 @@
 /hospital/
 *.class
+.classpath
+/filter/
