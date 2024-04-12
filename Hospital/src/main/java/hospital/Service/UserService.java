@@ -34,4 +34,6 @@ public interface UserService {
 	// 관리자용 전체 회원 정보 조회
 	List<Users> list();
 	
+	
+	
 }

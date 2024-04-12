@@ -1,10 +1,13 @@
 package hospital.DAO;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import hospital.DTO.Board;
+import hospital.DTO.Reservation;
 
 /**
  *  데이터 접근 객체
@@ -219,4 +222,36 @@ public class BoardDAO extends JDBConnection {
 		// 게시글 목록 반환
 		return boardList;
 	 }
+
+	public List<Board> listByUserId(String userId) {
+		List<Board> boardList = new ArrayList<>();
+
+	    // SQL
+	    String sql = "SELECT * FROM board WHERE user_id = ? ";
+
+	    try {
+	        PreparedStatement pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, userId);
+	        ResultSet rs = pstmt.executeQuery();
+
+	        while (rs.next()) {
+	            Board board = new Board();
+
+	            board.setNo(rs.getInt("no"));
+	            board.setUser_id(rs.getString("user_id"));
+	            board.setCategory(rs.getString("category"));
+	            board.setTitle(rs.getString("title"));
+	            board.setContent(rs.getString("content"));
+	            board.setReg_date(rs.getTimestamp("reg_date"));
+	            board.setUpd_date(rs.getTimestamp("upd_date"));
+
+	            boardList.add(board);
+	        }
+	    } catch (SQLException e) {
+	        System.err.println("글 목록 조회 시, 예외 발생");
+	        e.printStackTrace();
+	    }
+	    // 예약 반환
+	    return boardList;
+	}
 }

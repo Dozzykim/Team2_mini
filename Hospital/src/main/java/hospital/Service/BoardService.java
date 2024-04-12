@@ -3,6 +3,7 @@ package hospital.Service;
 import java.util.List;
 
 import hospital.DTO.Board;
+import hospital.DTO.Reservation;
 
 
 /*
@@ -38,4 +39,7 @@ public interface BoardService {
 		// - 게시글 삭제 
 		int delete(int no); //반환타입을 int로 설정한 이유: 게시글번호를 return으로 넘겨주어 삭제하게끔
 
+		
+		// 사용자 아이디에 해당하는 예약 목록 조회 (사용자)
+	    List<Board> listByUserId(String userId);
 }

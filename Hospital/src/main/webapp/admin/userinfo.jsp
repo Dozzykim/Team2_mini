@@ -72,7 +72,7 @@
                             for(Users user : userList) { %>
 						<tr>
 							<td><%= user.getUser_name() %></td>
-							<td><%= user.getUser_id() %></td>
+							<td><a href="userdetail.jsp?userId=<%= user.getUser_id() %>"><%= user.getUser_id() %></a></td>
 							<td><%= user.getUser_pw() %></td>
 							<td><%= user.getUser_age() %></td>
 							<td><%= user.getUser_pno() %></td>
