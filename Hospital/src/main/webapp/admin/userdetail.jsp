@@ -135,8 +135,7 @@
 	                        <td><%= userBoard.getCategory() %></td>
 	                        <td><a href="<%= request.getContextPath() %>/admin/read.jsp?no=<%= userBoard.getNo() %>"><%= userBoard.getTitle() %></a></td>
 	                        <td><%= userBoard.getReg_date() %></td>
-	                        <td><a href="<%= request.getContextPath() %>/admin/delete2.jsp?no=<%= userBoard.getNo() %>&userId=<%= userId %>"
-	                                onclick="return confirm('정말로 삭제하시겠습니까?')"><button id="cancel">삭제</button></a></td>
+	                        <td><a href="<%= request.getContextPath() %>/admin/delete2.jsp?no=<%= userBoard.getNo() %>&userId=<%= userId %>"onclick="return confirm('정말로 삭제하시겠습니까?')"><button id="cancel">삭제</button></a></td>
 	                    </tr>
 	                    <% }
 	                    } %>

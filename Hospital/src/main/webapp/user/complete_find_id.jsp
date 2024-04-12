@@ -29,7 +29,7 @@
 		<div class="inner">
 			<div class="login_area">
 				<h1>아이디 찾기 완료!</h1>
-				<p>회원님의 아이디는 다음과 같습니다</p>
+				<p>회원님의 아이디는 다음과 같습니다.</p>
 				<ul class="main_area">
 					<%
 					List<String> userIds = (List<String>) request.getAttribute("user_id");
@@ -58,8 +58,7 @@
 
 	<script>
         function moveTofindId() {
-            var root = "<%=request.getContextPath()%>
-		";
+            var root = "<%=request.getContextPath()%>";
 			window.location.href = root + "/user/login.jsp";
 		}
 	</script>

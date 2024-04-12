@@ -26,9 +26,9 @@
 		<div class="inner">
 			<div class="login_area">
 				<h1>비밀번호 찾기 완료</h1>
-				<p>회원님의 아이디는 다음과 같습니다</p>
+				<p>회원님의 비밀번호는 다음과 같습니다.</p>
 				<ul class="main_area">
-				<li><%=request.getAttribute("user_pw")%><kli>
+				<li><%=request.getAttribute("user_pw")%></li>
 				<div class="button-container">
 					<button onclick="moveToLoginPage()">확인</button>
 				</div>
