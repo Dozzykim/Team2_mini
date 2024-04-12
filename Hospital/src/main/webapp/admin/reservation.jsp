@@ -70,9 +70,7 @@
 				<td><%=reservation.getR_time()%></td>
 				<td><a
 					href="<%=request.getContextPath()%>/reservation/reserv_del_a.jsp?no=<%=reservation.getR_no()%>"
-					onclick="return confirm('정말로 삭제하시겠습니까?')">
-						<button id="cancel">예약취소</button>
-				</a></td>
+					onclick="return confirm('정말로 삭제하시겠습니까?')"><button id="cancel">예약취소</button></a></td>
 			</tr>
 			<%
 			}
