@@ -173,4 +173,9 @@ drop table persistent_logins;
 
 commit;
 
+<<<<<<< HEAD
 -- board 테이블 -> on delete cascade
+=======
+-- board 테이블 -> on delete cascade
+
+>>>>>>> aeec131dae04c9ed42f8825e0c158be4ead6f30e

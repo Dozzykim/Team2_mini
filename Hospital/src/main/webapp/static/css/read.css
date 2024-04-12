@@ -171,7 +171,7 @@ textarea {
 	padding: 11px;
 	background-color: #8AC9F5;
 	cursor: pointer;
-	font-size: 14px;
+	font-size: 16px;
 	border: none;
 	margin-left: 10px;
 	position: absolute;
@@ -241,30 +241,14 @@ textarea {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-.cont_tb2 td a {
-	width: 20px;
-	margin-left: 7px;
-}
-
 .cont_tb2 td button {
 	border-radius: 5px;
-	padding: 8px 15px;
-	background-color: #ccc;
-	cursor: pointer;
-	color: white;
-	font-size: 16px;
-	border: none;
+    padding: 1px 11px;
+    background-color: #ccc;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    border: none;
 }
 
 #content {
