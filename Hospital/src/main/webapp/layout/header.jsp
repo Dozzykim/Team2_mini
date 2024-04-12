@@ -27,7 +27,7 @@
 				<h1 class="main_logo">
 					<a href="<%= request.getContextPath()%>/index.jsp"><img src="<%=request.getContextPath()%>/static/img/logo_HP.png" alt=""></a>
 				</h1>
-				<h1 class="main_name">더조은 종합병원</h1>
+				<h1 class="main_name"><a href="<%= request.getContextPath()%>/index.jsp">더조은 종합병원</h1>
 			</div>
 			<div class="header_bottom">
 				<ul>
