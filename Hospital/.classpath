@@ -13,8 +13,6 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-
 	<classpathentry kind="lib" path="D:/DOWNY/lib/gson-2.8.9.jar"/>
-
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
