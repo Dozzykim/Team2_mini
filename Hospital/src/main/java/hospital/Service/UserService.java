@@ -5,14 +5,12 @@ package hospital.Service;
 import java.util.List;
 
 import hospital.DTO.PersistentLogins;
-import hospital.DTO.Reservation;
 import hospital.DTO.Users;
 
 public interface UserService {
 
     // 회원 가입
     public int join(Users user);
-    
     
     // 로그인
     public Users login(Users user);
@@ -34,4 +32,9 @@ public interface UserService {
 	// 관리자용 전체 회원 정보 조회
 	List<Users> list();
 	
+	// 아이디 찾기
+	public List<String> findId(Users user);
+
+	// 비밀번호 찾기
+	public String findPw(Users user);
 }
