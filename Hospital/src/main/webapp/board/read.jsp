@@ -147,9 +147,7 @@
 	<jsp:include page="../layout/footer.jsp" />
 
 	<!-- 스크립트 -->
-	<%
-	String root = request.getContextPath();
-	%>
+	<%String root = request.getContextPath();%>
 	<c:set var="root" value="<%=root%>" />
 	<script type="text/javascript">		
 	// 자바 - EL(표현언어)를 자바스크립트로 가져오는 방법
@@ -244,7 +242,7 @@
 					for ( var i in list) {
 						result += "<tr>"
 								+ 	"<form>"
-								+		'<td><input type="text" id="cmmtNo" value="'+ list[i].c_no +'" /></td>'
+								+		'<input type="hidden" id="cmmtNo" value="'+ list[i].c_no +'" />'
 								+		'<td id="cmmtId">' + list[i].user_id + "</td>"
 								+		"<td>" + list[i].content + "</td>"
 								+		"<td>" + '<button onclick="deleteCmmt()">삭제</button>' + "</td>"
@@ -269,9 +267,13 @@
 				return;
 			}
 			
-			alert("아이디체크 통과");
+			var choice = confirm("정말로 삭제하시겠습니까?");
+			
+			if (choice == false) {
+				return;
+	        }
+			
 			var cmmtNo = $('#cmmtNo').val();			
-			alert("댓글번호:" + cmmtNo);
 			
 			$.ajax({
 				url: root + '/board/cmmtController?cmmtNo=' + $('#cmmtNo').val(),
