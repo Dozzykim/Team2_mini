@@ -62,7 +62,7 @@
 		<p>자신만의 건강 고민과 팁을 사람들과 공유해 보세요!</p>
 		<div class="table-wrapper">
 
-			<table border="1">
+			<table id="board_table" border="1">
 				<thead>
 					<tr>
 						<th><%=board.getNo()%>.</th>
@@ -105,17 +105,20 @@
 					<!-- 로그인 시에만 보임 -->
 					<c:if test="${sessionScope.loginId != null }">
 						<div class="input-wrapper">
-							<input type="hidden" id="boardNo" name="boardNo" value="<%=board.getNo()%>" />
-							<input type="hidden" id="loginid" name="loginId" value="<%=loginId%>" />
-							<input type="text" id="cBox" placeholder="댓글을 입력해주세요." />
-							<input type="text" id="cmmt" name="cmmt" style="display: none;"	placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다." />
-							<input id="insertCmmt" onclick="insertComment()" disabled value="작성" />
+							<input type="hidden" id="boardNo" name="boardNo"
+								value="<%=board.getNo()%>" /> <input type="hidden" id="loginid"
+								name="loginId" value="<%=loginId%>" /> <input type="text"
+								id="cBox" placeholder="댓글을 입력해주세요." /> <input type="text"
+								id="cmmt" name="cmmt" style="display: none;"
+								placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다." /> 
+								<input id="insertCmmt" onclick="insertComment()" disabled value="작성" />
+								
 						</div>
 					</c:if>
 				</form>
 			</li>
 		</ul>
-    
+
 		<!-- 댓글리스트 -->
 		<%
 		// 무플 시,
@@ -127,22 +130,22 @@
 		} else {
 		%>
 		<div class="cbox_Container"></div>
-			<table id="Cmmt_area">
-				<thead>
-					<tr>
-						<td>아이디</td>
-						<td>댓글</td>
-						<td>작성일자</td>
-					</tr>
-				</thead>
-				<tbody>
-					<!-- 1댓글 1tr 가짐 -->				
-				</tbody>
-			</table>
-		</div>
-		<%
-		}
-		%>
+		<table id="Cmmt_area">
+			<thead>
+				<tr>
+					<th>아이디</th>
+					<th>댓글</th>
+					<th>작성일자</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- 1댓글 1tr 가짐 -->
+			</tbody>
+		</table>
+	</div>
+	<%
+	}
+	%>
 
 	<!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp" />
