@@ -109,7 +109,7 @@
 							<input type="hidden" id="loginid" name="loginId" value="<%=loginId%>" />
 							<input type="text" id="cBox" placeholder="댓글을 입력해주세요." />
 							<input type="text" id="cmmt" name="cmmt" style="display: none;"	placeholder="부적절한 댓글은 관리자에 의해 무통보 삭제 될 수 있습니다." />
-							<input id="insertCmmt" onclick="insertComment()" disabled value="작성" />
+							<input id="insertCmmt" onclick="insertComment()" disabled value="작성" readonly/>
 						</div>
 					</c:if>
 				</form>
@@ -117,16 +117,7 @@
 		</ul>
 
 		<!-- 댓글리스트 -->
-		<%
-		// 무플 시,
-		if (cmmtList == null || cmmtList.size() == 0) {
-		%>
-		<!-- 아무정보도 표시되지 않음 -->
-		<%
-		// 댓글 존재 시,
-		} else {
-		%>
-		<div class="cbox_Container"></div>
+		<div class="cbox_Container">
 			<table id="Cmmt_area">
 				<thead>
 					<tr>
@@ -140,9 +131,7 @@
 				</tbody>
 			</table>
 		</div>
-		<%
-		}
-		%>
+
 		
 	<!-- 푸터 -->
 	<jsp:include page="../layout/footer.jsp" />
@@ -153,6 +142,10 @@
 	<script type="text/javascript">		
 	// 자바 - EL(표현언어)를 자바스크립트로 가져오는 방법
     const root = "${ root }"
+    
+    	$(document).ready(function(){
+    	    listCmmt();
+    	});
     
 		// 선택받기
 	    function doubleCheck() {
@@ -221,8 +214,8 @@
 				success: function (result) {
 					if(result > 0) {
 						//댓글 재호출하는 함수
-						listCmmt();
 						$('#cmmt').val("");
+						listCmmt();
 					} else {
 						alert('실패');
 					}

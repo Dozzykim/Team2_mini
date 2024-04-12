@@ -1,4 +1,3 @@
-관리자 보드리스트
 <%@page import="hospital.DTO.Comment"%>
 <%@page import="java.util.List"%>
 <%@page import="hospital.Service.CmmtServiceImpl"%>
@@ -128,18 +127,13 @@
 	        var choice = confirm("정말로 삭제하시겠습니까?");
 	        
 	        if (choice == true) {
-	            window.location.href= root + "/board/delete.jsp?no=<%=board.getNo()%>";
+	            window.location.href= root + "/admin/delete.jsp?no=<%=board.getNo()%>";
 	        }
 	    }
 		
-		// 수정페이지로 이동
-		function moveToUpdate() {
-			window.location.href= root + "/board/update.jsp?no=<%=board.getNo()%>";
-		}
-		
 		// 리스트로 이동
 		function moveToList() {
-			window.location.href= root + "/board/list.jsp";
+			window.location.href= root + "/admin/boardList.jsp";
 		}
 		
 		// 비로그인상태로 댓글작성 시도 시, 로그인 요청 얼럿

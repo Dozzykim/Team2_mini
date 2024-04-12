@@ -59,7 +59,7 @@
 					</p>
 				</div>
 				<div class="util_area">
-					<form action="<%=request.getContextPath()%>/board/list.jsp" method="get" id="form">
+					<form action="<%=request.getContextPath()%>/admin/boardList.jsp" method="get" id="form">
 						<ul>
 							<li>
 								<select name="category" id="list">
