@@ -27,7 +27,7 @@ CREATE TABLE Board (
 	no	NUMBER		NOT NULL,
 	user_id	VARCHAR2(40)		NOT NULL,
 	category	VARCHAR2(40)		NULL,
-	title	VARCHAR2(40)		NOT NULL,
+	title	VARCHAR2(80)		NOT NULL,
 	content	VARCHAR2(2000)		NOT NULL,
 	reg_date	DATE		DEFAULT sysdate NOT NULL,
 	upd_date	DATE		DEFAULT sysdate NOT NULL
