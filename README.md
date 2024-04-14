@@ -31,7 +31,7 @@
 - 개별 평가
 
 
-<br><br><br>
+<br><br>
 
 # 1. 프로젝트 개요
 ## 1-1. 프로젝트 주제
@@ -69,7 +69,8 @@
 - 마케팅 및 홍보 효과
     - 유지 보수 및 관리를 통해 서비스 품질을 유지하고 향상시켜 이용자의 만족도를 바탕으로 병원의 이미지와 평판을 개선 가능
     - 커뮤니티 기능을 통해 이용자의 평가와 추천을 얻어 마케팅 홍보에 큰 도움을 얻음
-<br><br><br>
+    - 
+<br><br>
 
 # 2. 프로젝트 구조
 ## 2-1. 주요 기능
@@ -128,7 +129,7 @@
 </div>
 </details>
 
-<br><br><br>
+<br><br>
 
 # 3. 프로젝트 팀 구성 및 역할
 - 인원 : 5명
@@ -149,7 +150,7 @@
     - 주요 담당: 프론트엔드 디자인
     - 프로젝트 설계, 전반적인 유저/관리자 페이지 디자인 구성 및 카카오맵 API 적용
 
-<br><br><br>
+<br><br>
 
 # 4. 프로젝트 수행 절차 및 방법
 ## 4-1. 수행 절차
@@ -163,6 +164,8 @@
 - 사용 DB : <img src="https://img.shields.io/badge/oracle-F80000?style=flat&logo=oracle&logoColor=white"> 
 - 참조 API : <img src="https://img.shields.io/badge/kakaoMAP-FFCD00?style=flat&logo=kakao&logoColor=black"> 
 - 협업 Tools : <img src="https://img.shields.io/badge/trello-0052CC?style=flat&logo=trello&logoColor=white"/> <img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/>
+
+<br><br>
 
 # 5. 프로젝트 수행 경과
 ## 5-1. 요구사항 정의서
@@ -279,7 +282,7 @@
 </div>
 </details>
 
-<br><br><br>
+<br><br>
 
 # 6. 자체 평가 의견
 - 김도희
