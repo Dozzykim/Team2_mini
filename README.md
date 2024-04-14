@@ -11,8 +11,7 @@
 ### 2. 프로젝트 구조
 - 주요 기능
 - Flow Chart
-- 프로젝트 내용
-- 활용 장비
+- 폴더 및 파일 구축
 
 ### 3. 프로젝트 팀 구성 및 역할
 
@@ -26,7 +25,7 @@
 - ERD
 - 테이블 정의서
 - 화면 설계서
-- 프로젝트 실제화면 UI
+- 기능구현(프로젝트 실제화면 UI)
 
 ### 6. 자체 평가 의견
 - 개별 평가
@@ -36,46 +35,43 @@
 
 # 1. 프로젝트 개요
 ## 1-1. 프로젝트 주제
-    - 이용자 간 소통 및 정보 공유와 사용자 친화적인 예약 프로세스를 제공하는 병원 예약 및 환자 커뮤니티 시스템
+- 이용자 간 소통 및 정보 공유와 사용자 친화적인 예약 프로세스를 제공하는 병원 예약 및 환자 커뮤니티 시스템
 
 ## 1-2. 주제 선정 배경
-    - 코로나바이러스 발생 이후, 건강과 관련된 서비스에 대한 수요가 더욱 증가
-    - 온라인 의료 서비스의 부상 및 수요성 증가
-    - 개인 건강에 대한 인식 상승 및 건강 유지 욕구 상승 <br>
-    ➡️ 기획의도: 건강과 관련된 서비스 필요성 증가 및 건강한 생활을 향한 일상에서의 접근 필요성을 느낌
+- 코로나바이러스 발생 이후, 건강과 관련된 서비스에 대한 수요가 더욱 증가
+- 온라인 의료 서비스의 부상 및 수요성 증가
+- 개인 건강에 대한 인식 상승 및 건강 유지 욕구 상승 <br><br>
+➡️ 기획의도: 건강과 관련된 서비스 필요성 증가 및 건강한 생활을 향한 일상에서의 접근 필요성을 느낌
 
 
 ## 1-3. 차별점
-    - 통합된 커뮤니티 플랫폼: 예약 기능과 함께 자신의 경험을 공유하고 도움이 될 수 있는 통합 플랫폼
-    - 개인화된 서비스: 원하는 진료과의 선택을 통해 찾고자 하는 정보를 빠르게 검색 및 등록이 가능
-    - 사용하기 쉬운 UI/UX를 통해 예약 프로세스를 간소화
+- 통합된 커뮤니티 플랫폼: 예약 기능과 함께 자신의 경험을 공유하고 도움이 될 수 있는 통합 플랫폼
+- 개인화된 서비스: 원하는 진료과의 선택을 통해 찾고자 하는 정보를 빠르게 검색 및 등록이 가능
+- 사용하기 쉬운 UI/UX를 통해 예약 프로세스를 간소화
 
 ## 1-4. 활용방안 및 기대효과
-    - 환자 만족도 향상
-        - 개인화된 서비스를 통해 환자들은 더 빠르고 효과적으로 의료 서비스를 이용 가능
-        - 커뮤니티 기능을 통해 서로의 경험을 공유하고 지원
+- 환자 만족도 향상
+    - 개인화된 서비스를 통해 환자들은 더 빠르고 효과적으로 의료 서비스를 이용 가능
+    - 커뮤니티 기능을 통해 서로의 경험을 공유하고 지원
 
-    - 건강 관리 향상
-        - 이용자 간 소통과 정보 공유를 통해 다양한 의견을 수용 가능
-        - 자신이 겪은 경험을 제공하면서 다시 한번 건강의 중요성을 깨닫게 됨
-        - 다양한 방법의 건강 관리 방법을 공유하고 많은 사람들이 건강 관리에 집중 가능
+- 건강 관리 향상
+    - 이용자 간 소통과 정보 공유를 통해 다양한 의견을 수용 가능
+    - 자신이 겪은 경험을 제공하면서 다시 한번 건강의 중요성을 깨닫게 됨
+    - 다양한 방법의 건강 관리 방법을 공유하고 많은 사람들이 건강 관리에 집중 가능
 
-    - 의료 서비스 효율성 증대
-        -카테고리 별 진료 과(외과, 내과, …) 선택과 날짜를 선택하여 빠른 예약이 가능
+- 의료 서비스 효율성 증대
+    -카테고리 별 진료 과(외과, 내과, …) 선택과 날짜를 선택하여 빠른 예약이 가능
 
-    - 고객 유치 및 유지
-        - 만족도가 높은 환자들은 재방문하거나 추천할 가능성 상승
-        - 병원 매출과 평판에 긍정적인 영향을 미침
+- 고객 유치 및 유지
+    - 만족도가 높은 환자들은 재방문하거나 추천할 가능성 상승
+    - 병원 매출과 평판에 긍정적인 영향을 미침
 
-    - 마케팅 및 홍보 효과
-        - 유지 보수 및 관리를 통해 서비스 품질을 유지하고 향상시켜 이용자의 만족도를 바탕으로 병원의 이미지와 평판을 개선 가능
-        - 커뮤니티 기능을 통해 이용자의 평가와 추천을 얻어 마케팅 홍보에 큰 도움을 얻음
+- 마케팅 및 홍보 효과
+    - 유지 보수 및 관리를 통해 서비스 품질을 유지하고 향상시켜 이용자의 만족도를 바탕으로 병원의 이미지와 평판을 개선 가능
+    - 커뮤니티 기능을 통해 이용자의 평가와 추천을 얻어 마케팅 홍보에 큰 도움을 얻음
 <br><br><br>
 
 # 2. 프로젝트 구조
-- 주요 기능
-- Flow Chart
-
 ## 2-1. 주요 기능
 - 사용자
     - 회원가입
@@ -124,6 +120,14 @@
 </div>
 </details>
 
+## 2-3. 폴더 및 파일 구축
+<details>
+<summary><h3>ℹ️폴더 및 파일 구축</h3></summary>
+<div markdown="1">
+여기에 사진
+</div>
+</details>
+
 <br><br><br>
 
 # 3. 프로젝트 팀 구성 및 역할
@@ -148,28 +152,14 @@
 <br><br><br>
 
 # 4. 프로젝트 수행 절차 및 방법
-- 수행 절차
-- 수행 방법
-
 ## 4-1. 수행 절차
 - 2024-04-02 ~ 2024-04-12
 - 여기에 수행절차 사진
 
 ## 4-2. 수행 방법
-- 사용 언어 :
-<img src="https://img.shields.io/badge/java-007396?style=flat&logo=java&logoColor=white">
-<img src="https://img.shields.io/badge/oracle-F80000?style=flat&logo=oracle&logoColor=white">
-<img src="https://img.shields.io/badge/html5-E34F26?style=flat&logo=html5&logoColor=white"> 
-<img src="https://img.shields.io/badge/css-1572B6?style=flat&logo=css3&logoColor=white"> 
-<img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat&logo=javascript&logoColor=black"> 
-  <img src="https://img.shields.io/badge/jquery-0769AD?style=flat&logo=jquery&logoColor=white">
-  <img src="https://img.shields.io/badge/Ajax-007396?style=flat&logo=Ajax&logoColor=white">
-- 개발도구 :
-<img src="https://img.shields.io/badge/openjdk:1.8-686767?style=flat&logo=openjdk&logoColor=black"/>
-<img src="https://img.shields.io/badge/visualstudiocode-007ACC?style=flat&logo=visualstudiocode&logoColor=white"/>
-<img src="https://img.shields.io/badge/eclipse-2C2255?style=flat&logo=eclipse&logoColor=white"/>
-- 라이브러리 :
-<img src="https://img.shields.io/badge/gson-4285F4?style=flat&logo=google&logoColor=white"> 
+- 사용 언어 : <img src="https://img.shields.io/badge/java-007396?style=flat&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/oracle-F80000?style=flat&logo=oracle&logoColor=white"> <img src="https://img.shields.io/badge/html5-E34F26?style=flat&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=flat&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/jquery-0769AD?style=flat&logo=jquery&logoColor=white"> <img src="https://img.shields.io/badge/Ajax-007396?style=flat&logo=Ajax&logoColor=white">
+- 개발도구 : <img src="https://img.shields.io/badge/openjdk:1.8-686767?style=flat&logo=openjdk&logoColor=black"/> <img src="https://img.shields.io/badge/visualstudiocode-007ACC?style=flat&logo=visualstudiocode&logoColor=white"/> <img src="https://img.shields.io/badge/eclipse-2C2255?style=flat&logo=eclipse&logoColor=white"/>
+- 라이브러리 : <img src="https://img.shields.io/badge/gson-4285F4?style=flat&logo=google&logoColor=white"> 
 - 사용 DB : <img src="https://img.shields.io/badge/oracle-F80000?style=flat&logo=oracle&logoColor=white"> 
 - 참조 API : <img src="https://img.shields.io/badge/kakaoMAP-FFCD00?style=flat&logo=kakao&logoColor=black"> 
 - 협업 Tools : <img src="https://img.shields.io/badge/trello-0052CC?style=flat&logo=trello&logoColor=white"/> <img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"/>
