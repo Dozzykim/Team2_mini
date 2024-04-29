@@ -117,8 +117,8 @@
 <details>
 <summary><h3>ℹ️Flow Chart</h3></summary>
 <div markdown="1">
-![image](https://github.com/Dozzykim/Team2_mini/assets/126581926/7966a051-e8ef-47cd-b285-7ade8905e967)
-
+![플로우차트_어드민](https://github.com/Dozzykim/Team2_mini/assets/126581926/5e73e190-a2d6-44fc-97e5-c80117bd8b57)
+![플로우차트_유저](https://github.com/Dozzykim/Team2_mini/assets/126581926/06521097-2a27-47cc-b3ba-485d459d9e71)
 
 </div>
 </details>
@@ -211,6 +211,15 @@
 </details>
 
 ## 5-5. 화면 설계서
+<details>
+<summary><h3>화면설계서</h3></summary>
+<div markdown="1">
+
+여기에 사진
+
+</div>
+</details>
+
 <details>
 <summary><h3>ℹ️유저</h3></summary>
 <div markdown="1">
