@@ -23,6 +23,7 @@ public class LoginFilter implements Filter{
 
 	Cookie[] cookies;
 	UserService userService;
+	
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		userService = new UserServiceImpl();
