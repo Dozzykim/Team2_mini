@@ -117,9 +117,8 @@
 <details>
 <summary><h3>ℹ️Flow Chart</h3></summary>
 <div markdown="1">
-![플로우차트_어드민](https://github.com/Dozzykim/Team2_mini/assets/126581926/5e73e190-a2d6-44fc-97e5-c80117bd8b57)
-![플로우차트_유저](https://github.com/Dozzykim/Team2_mini/assets/126581926/06521097-2a27-47cc-b3ba-485d459d9e71)
-
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/2a9689ff-7bbb-49d0-adce-8bdbbd11b4d2">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/6f5d1241-48bf-4eac-9b7f-b325c5c7710d">
 </div>
 </details>
 
@@ -127,7 +126,8 @@
 <details>
 <summary><h3>ℹ️폴더 및 파일 구축</h3></summary>
 <div markdown="1">
-여기에 사진
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/ae15b2b3-6d2e-417c-ae4f-8ed6c1548489">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/b8b1884a-a69d-49bd-a4a4-6e5e5086bb6f">
 </div>
 </details>
 
@@ -157,7 +157,8 @@
 # 4. 프로젝트 수행 절차 및 방법
 ## 4-1. 수행 절차
 - 2024-04-02 ~ 2024-04-12
-- 여기에 수행절차 사진
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/776432b9-95c6-4853-81ae-31e549e54b1f">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/e4024a66-c84a-4106-ad30-047918ee1746">
 
 ## 4-2. 수행 방법
 - 사용 언어 : <img src="https://img.shields.io/badge/java-007396?style=flat&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/oracle-F80000?style=flat&logo=oracle&logoColor=white"> <img src="https://img.shields.io/badge/html5-E34F26?style=flat&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=flat&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/jquery-0769AD?style=flat&logo=jquery&logoColor=white"> <img src="https://img.shields.io/badge/Ajax-007396?style=flat&logo=Ajax&logoColor=white">
@@ -175,7 +176,7 @@
 <summary><h3>ℹ️요구사항 정의서</h3></summary>
 <div markdown="1">
 
-여기에 사진
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/4c1c7430-925b-4f33-a3c6-fe70c27452d1">
 
 </div>
 </details>
@@ -185,7 +186,8 @@
 <summary><h3>ℹ️기능 정의서</h3></summary>
 <div markdown="1">
 
-여기에 사진
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/c6d91390-e049-40e1-8d6d-b64b7e8ddd78">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/6b9c7685-f560-4b57-8efa-1a77d841b3a8">
 
 </div>
 </details>
@@ -195,7 +197,7 @@
 <summary><h3>ℹ️ERD</h3></summary>
 <div markdown="1">
 
-여기에 사진
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/3c8943c6-dfab-4b3a-878b-e125b41fac3c">
 
 </div>
 </details>
@@ -204,8 +206,13 @@
 <details>
 <summary><h3>ℹ️테이블 정의서</h3></summary>
 <div markdown="1">
-
-여기에 사진
+    
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/64111a26-58b8-4c1f-ae10-64c93ced6a7b">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/016fc120-8e07-441c-a206-283b1af22167">
+<img src="!(https://github.com/Dozzykim/Team2_mini/assets/126581926/eb6db64d-3492-433f-b40d-9bc64d3d99a4">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/031b14a9-4012-48cf-8593-cde61c712ead">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/c1853100-bd17-4e63-82fb-32ba9d4da433">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/7a24c253-177a-41cb-a0e0-8e4effb40b24">
 
 </div>
 </details>
@@ -215,7 +222,8 @@
 <summary><h3>화면설계서</h3></summary>
 <div markdown="1">
 
-여기에 사진
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/f6d57be6-4805-454d-a222-c8ad0eef6819">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/5e3b746d-d19c-40a3-ba43-6c77099f3daa">
 
 </div>
 </details>
@@ -224,7 +232,10 @@
 <summary><h3>ℹ️유저</h3></summary>
 <div markdown="1">
 
-여기에 사진
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/6f0230c6-264c-4cd2-9ad9-3887d243a821">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/036b7b22-53c3-4600-8817-52d0abb8eb30">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/26c3bea0-e62a-41f6-b429-548600ad691a">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/254804f5-e684-49f3-9f5b-0b676374b29f">
 
 </div>
 </details>
@@ -232,8 +243,9 @@
 <details>
 <summary><h3>ℹ️관리자</h3></summary>
 <div markdown="1">
-
-여기에 사진
+    
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/03e0faed-6fdd-491a-9c07-8c894769f2d9">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/a884d2b1-3fb7-4d1b-8c13-edb0aeb63ed7">
 
 </div>
 </details>
@@ -242,7 +254,8 @@
 <summary><h3>ℹ️예약</h3></summary>
 <div markdown="1">
 
-여기에 사진
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/e9cb3540-d635-437a-ba33-f883639e76ac">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/d0dd33d9-7845-40c0-84cd-1225ec836b54">
 
 </div>
 </details>
@@ -251,7 +264,8 @@
 <summary><h3>ℹ️게시판</h3></summary>
 <div markdown="1">
 
-여기에 사진
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/5b5abddd-661d-4347-af2e-d12b99f173d4">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/ed840b2f-2f4a-448c-a3fe-54b76c13328e">
 
 </div>
 </details>
@@ -261,7 +275,12 @@
 <summary><h3>ℹ️유저</h3></summary>
 <div markdown="1">
 
-여기에 사진
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/165a85e8-e92f-48d2-9710-ab27344f0548">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/bddea36e-0386-4d8f-bef9-e84651026873">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/a937f9fa-649f-4e59-b7b9-70fcb841e4b5">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/081d8ec6-3e19-46f4-b827-869bf35ec40a">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/307889b0-9853-44cc-868c-0ae65ce97bf1">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/77d55ba6-92d0-438c-bf52-3ff6e1b47f37">
 
 </div>
 </details>
@@ -270,7 +289,11 @@
 <summary><h3>ℹ️관리자</h3></summary>
 <div markdown="1">
 
-여기에 사진
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/0fad74dd-b2c8-4358-a0b1-6cda83fa2ba1">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/39dc7ad8-cc53-409a-b2ab-2ab04ca353cd">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/288192f7-b4a4-4141-a733-5106376036d8">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/8b912179-143a-42f6-80e5-be40176ac16c">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/2c40a4e8-8a72-46ad-8ec9-14b8fa004877">
 
 </div>
 </details>
@@ -279,7 +302,7 @@
 <summary><h3>ℹ️예약</h3></summary>
 <div markdown="1">
 
-여기에 사진
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/9a8b4be7-a68c-426b-9605-7a4d1b73a981">
 
 </div>
 </details>
@@ -288,7 +311,10 @@
 <summary><h3>ℹ️게시판</h3></summary>
 <div markdown="1">
 
-여기에 사진
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/e3f6dd1a-f78e-4e55-a8b6-da4e7a066af4">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/62b99111-e1a1-4c1e-8751-7aa0c658f3d4">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/e6189a1d-5c48-440e-b111-01b1e4040e32">
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/699437a6-ea99-43bd-a0ce-31e3398c142b">
 
 </div>
 </details>
