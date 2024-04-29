@@ -261,8 +261,8 @@
 		
 		    var cmmtNo = values[0];
 		    var cmmtId = values[1];
-		    alert("삭제할 댓글번호: " + cmmtNo);
-		    alert("삭제할 댓글작성자: " + cmmtId);
+		    //alert("삭제할 댓글번호: " + cmmtNo);
+		    //alert("삭제할 댓글작성자: " + cmmtId);
 			
 // 			alert("댓글 작성자:" + cmmtId);
 			
