@@ -117,7 +117,7 @@
 <details>
 <summary><h3>ℹ️Flow Chart</h3></summary>
 <div markdown="1">
-![image](https://github.com/Dozzykim/Team2_mini/assets/126581926/090c2448-cfe6-4e44-9a70-b3fc195243dc)
+![image](https://github.com/Dozzykim/Team2_mini/assets/126581926/7966a051-e8ef-47cd-b285-7ade8905e967)
 
 
 </div>
