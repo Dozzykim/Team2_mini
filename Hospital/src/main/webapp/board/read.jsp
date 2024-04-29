@@ -235,19 +235,16 @@
 					
 					for ( var i in list) {
 						result += "<tr>"
-								+ 	"<form>"
-								+		'<input type="hidden" id="cmmtNo" value="'+ list[i].c_no +'" />'
-								+		'<td>' + list[i].user_id + "</td>"
-								+		"<td>" + list[i].content + "</td>"
-								+		"<td>" + '<button onclick="deleteCmmt(this)" data="' + list[i].user_id +'">삭제</button>' + "</td>"
-								+   "</form>"
-								+ "</tr>" ;
+					        + "<td>" + list[i].user_id + "</td>"
+					        + "<td>" + list[i].content + "</td>"
+					        + "<td>" + '<button onclick="deleteCmmt(this)" data="' + list[i].c_no + ', ' + list[i].user_id + '">삭제</button>' + "</td>"
+					        + "</tr>";
 					}
 					$("#Cmmt_area tbody").html(result);
 				}
 			})
 		}
-		
+		 
 		$(document).ready(function() {
 			listCmmt();
 		})
@@ -259,7 +256,13 @@
 			var loginId = $('#loginid').val();
 			//alert("로그인 아이디" + loginId);
 			// var cmmtId = document.getElementById("cmmtId").innerText;
-			var cmmtId = $(element).attr('data');
+			var data = element.getAttribute('data');
+		    var values = data.split(', '); // 쉼표와 공백으로 분리
+		
+		    var cmmtNo = values[0];
+		    var cmmtId = values[1];
+		    alert("삭제할 댓글번호: " + cmmtNo);
+		    alert("삭제할 댓글작성자: " + cmmtId);
 			
 // 			alert("댓글 작성자:" + cmmtId);
 			
@@ -273,12 +276,10 @@
 			
 			if (choice == false) {
 				return;
-	        }
-			
-			var cmmtNo = $('#cmmtNo').val();			
+	        }		
 			
 			$.ajax({
-				url: root + '/board/cmmtController?cmmtNo=' + $('#cmmtNo').val(),
+				url: root + '/board/cmmtController?cmmtNo=' + cmmtNo,
 				type: 'delete',
 // 				data: {cmmtNo : $('#cmmtNo').val()},
 				success: function (result) {

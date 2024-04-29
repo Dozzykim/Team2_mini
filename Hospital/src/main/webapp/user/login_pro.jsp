@@ -23,7 +23,7 @@
 	}
 	
 	// 아이디 저장
-	String rememberId = request.getParameter("rememberId");
+	String rememberId = request.getParameter("remember-id");
 	Cookie cookieRememberId = new Cookie("rememberId", "");
 	Cookie cookieUserId = new Cookie("userId", "");
 	
@@ -50,14 +50,15 @@
 	
 	// 자동 로그인
 	String rememberMe = request.getParameter("rememberMe");
-	Cookie cookieRemeberMe = new Cookie("rememberMe", "");
+	Cookie cookieRememberMe = new Cookie("rememberMe", "");
 	Cookie cookieToken = new Cookie("token", "");
 	
 	// 자동 로그인 체크 여부, 토큰 쿠키에 대한 경로 설정
-	cookieRemeberMe.setPath("/");
+	cookieRememberMe.setPath("/");
 	cookieToken.setPath("/");
+	
 	// 쿠키 유효기간 설정
-	cookieRemeberMe.setMaxAge(7*60*60*24);		// 초단위 --> 7일
+	cookieRememberMe.setMaxAge(7*60*60*24);		// 초단위 --> 7일
 	cookieToken.setMaxAge(7*60*60*24);
 	
 	// 체크 여부에 따라 쿠키 생성 또는 삭제
@@ -66,17 +67,17 @@
 		// - 토큰 발행
 		String tokenValue = userService.refreshToken(id);
 		// - 쿠키 생성
-		cookieRemeberMe.setValue( URLEncoder.encode( rememberMe, "UTF-8") );
+		cookieRememberMe.setValue( URLEncoder.encode( rememberMe, "UTF-8") );
 		cookieToken.setValue( URLEncoder.encode( tokenValue, "UTF-8") );
 	} else {
 		// 자동 로그인 미체크
 		// 쿠키 삭제
-		cookieRemeberMe.setMaxAge(0);
+		cookieRememberMe.setMaxAge(0);
 		cookieToken.setMaxAge(0);
 	}
 	
 	// 응답에 쿠키 등록
-	response.addCookie(cookieRemeberMe);
+	response.addCookie(cookieRememberMe);
 	response.addCookie(cookieToken);
 	// 자동 로그인(끝)
 	
