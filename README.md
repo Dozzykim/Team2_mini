@@ -1,7 +1,7 @@
 # 프로젝트: 더조은 병원
 병원 예약 및 환자 커뮤니티 시스템
 <br>
-여기에 로고사진
+<img src="https://github.com/Dozzykim/Team2_mini/assets/126581926/5d7f4bab-3bc0-4b52-b3e4-771322895cb5">
 
 ## 목차
 ### 1. 프로젝트 개요
